@@ -40,3 +40,42 @@
 .read-the-docs {
   color: #888;
 }
+
+@keyframes newsScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-news {
+  animation: newsScroll 10s linear infinite;
+}
+
+
+/* 🔥 Floating Animation */
+@keyframes floatMove {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-120px) translateX(60px);
+  }
+  100% {
+    transform: translateY(-240px) translateX(-40px);
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #3b82f6;
+  opacity: 0.3;
+  border-radius: 9999px;
+  animation: floatMove linear infinite;
+}
+
+

@@ -1,23 +1,87 @@
-function MBA(){
-    return(
-        <>
-        <div className="w-full">
-                <div className="flex lg:flex-row flex-col gap-4 px-4 sm:px-6 lg:px-16 pt-8 pb-16">
-                    <div>
-                        <h2 className="font-display text-3xl font-bold text-foreground mb-4">   Master of Business Administration (MBA)</h2>
-                        <p className="text-muted-foreground mb-4">
-                        The Master of Business Administration (MBA) is a prestigious postgraduate degree that equips students with advanced business knowledge and leadership skills. MBA programs typically span one to two years and focus on core areas like finance, marketing, operations, and strategy.
-                        </p>
-                        <p className="text-muted-foreground mb-4">
-                        MBA curricula include case studies, group projects, and often internships to provide practical experience. Specializations may include entrepreneurship, international business, or technology management, allowing students to tailor their education to career goals.
-                        </p>
-                        <p className="text-muted-foreground mb-4">
-                        Graduates with an MBA pursue high-level roles in management, consulting, finance, and entrepreneurship. The degree enhances career prospects, networking opportunities, and earning potential, making it a valuable investment for aspiring business leaders.
-                        </p>            
-                    </div>
-                </div>
+import {
+  FaStickyNote,
+  FaUniversity,
+  FaMoneyBillWave,
+  FaSearch,
+  FaGraduationCap,
+  FaChevronRight,
+} from "react-icons/fa";
+import { MdOutlineStackedBarChart, MdSavings } from "react-icons/md";
+
+function MBA() {
+  return (
+    <>
+      {/* HERO */}
+      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl font-bold">
+            MBA Admission in India
+          </h1>
+          <p className="mt-4 text-lg text-white/80 max-w-2xl">
+            Complete guidance for MBA admissions through CAT, XAT, CMAT, MAT &
+            State Counselling.
+          </p>
+
+          <div className="mt-8 flex gap-4 flex-wrap">
+            <button className="bg-amber-500 px-6 py-3 rounded-lg font-semibold">
+              Apply for MBA
+            </button>
+            <button className="border px-6 py-3 rounded-lg">
+              Free Counselling
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* SPECIALIZATIONS */}
+      <section className="py-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold">MBA Specializations</h2>
+        </div>
+
+        <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto px-4">
+          {["Marketing", "Finance", "HR", "Operations"].map((item, i) => (
+            <div key={i} className="bg-white shadow-lg p-6 rounded-2xl">
+              <FaGraduationCap className="text-3xl text-blue-600 mb-4" />
+              <h3 className="font-bold text-lg">{item}</h3>
+              <button className="mt-4 text-blue-600 flex items-center gap-2">
+                Explore <FaChevronRight />
+              </button>
             </div>
-        </>
-    )
+          ))}
+        </div>
+      </section>
+
+      {/* WHY MBA */}
+      <section className="bg-gray-50 py-20">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+          <div className="bg-white p-8 rounded-2xl shadow-lg">
+            <FaSearch className="text-3xl text-blue-600 mb-4" />
+            <h3 className="font-bold text-xl mb-2">Leadership Skills</h3>
+            <p className="text-gray-500 text-sm">
+              Develop managerial & leadership capabilities.
+            </p>
+          </div>
+
+          <div className="bg-white p-8 rounded-2xl shadow-lg">
+            <MdOutlineStackedBarChart className="text-3xl text-indigo-600 mb-4" />
+            <h3 className="font-bold text-xl mb-2">High Salary Packages</h3>
+            <p className="text-gray-500 text-sm">
+              MBA graduates get top placement opportunities.
+            </p>
+          </div>
+
+          <div className="bg-white p-8 rounded-2xl shadow-lg">
+            <MdSavings className="text-3xl text-green-600 mb-4" />
+            <h3 className="font-bold text-xl mb-2">Corporate Exposure</h3>
+            <p className="text-gray-500 text-sm">
+              Internships & live industry projects.
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }
+
 export default MBA;
