@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import HomePopup from "./HomePopup";
+import TOEFLResultsSlider from "./TOEFLResultsSlider";
 
 export default function TOEFL() {
   const [activeTab, setActiveTab] = useState("online");
@@ -133,6 +134,7 @@ export default function TOEFL() {
       </section>
       {/*  POPUP CONNECT */}
       <HomePopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
+      <TOEFLResultsSlider />
       {/* WHAT IS TOEFL? SECTION */}
       <section className="relative pt-12 pb-24 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">
         <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-blue-400/30 rounded-full blur-[120px] animate-float"></div>

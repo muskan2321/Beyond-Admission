@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import GeorgiaCollegeSlider from "./GeorgiaCollegeSlider";
 
 export default function MBBSGeorgia() {
   // for FAQ start
@@ -221,6 +222,7 @@ export default function MBBSGeorgia() {
           FAQ
         </a>
       </div>
+      <GeorgiaCollegeSlider />
       {/* INTRO SECTION */}
       <section className="relative pt-12 pb-24 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">
         {/* Animated Background Lights */}
@@ -1833,7 +1835,7 @@ GEORGIA  */}
           </div>
         </div>
       </section>
-     
+
       {/* CTA */}
       <section className="relative py-24 bg-gradient-to-r from-[#0f172a] via-[#1e3a8a] to-[#2563eb] text-white overflow-hidden">
         {" "}

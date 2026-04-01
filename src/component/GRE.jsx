@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import HomePopup from "./HomePopup";
+import GREResultsSlider from "./GREResultsSlider.jsx";
 
 export default function GMAT() {
   const [activeTab, setActiveTab] = useState("online");
@@ -147,9 +148,10 @@ export default function GMAT() {
           .animate-blob { animation: blob 10s infinite; }
         `}</style>
       </section>
-
       {/*  POPUP CONNECT */}
       <HomePopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
+
+      <GREResultsSlider />
 
       {/* WHAT IS GRE SECTION */}
       <section className="relative pt-7 pb-10 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">

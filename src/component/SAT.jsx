@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import HomePopup from "./HomePopup";
+import SATResultsSlider from "./SATResultsSlider";
 
 import { useNavigate } from "react-router-dom";
 
@@ -142,9 +143,10 @@ export default function SAT() {
           .animate-blob { animation: blob 10s infinite; }
         `}</style>
       </section>
-
       {/*  POPUP CONNECT */}
       <HomePopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
+
+      <SATResultsSlider />
 
       {/* WHAT IS SAT? SECTION */}
       <section className="relative pt-12 pb-10 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import HomePopup from "./HomePopup";
+import IELTSResultsSlider from "./IELTSResultsSlider";
 
 export default function IELTS() {
   const [activeTab, setActiveTab] = useState("online");
@@ -133,6 +134,8 @@ export default function IELTS() {
 
       {/*  POPUP CONNECT */}
       <HomePopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
+
+      <IELTSResultsSlider />
 
       {/* WHAT IS IELTS? SECTION */}
       <section className="relative pt-12 pb-24 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">

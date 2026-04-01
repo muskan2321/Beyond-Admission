@@ -2,33 +2,33 @@ import { useEffect, useRef } from "react";
 
 const results = [
   {
-    name: "Ayushi Seth",
-    score: "GMAT 645",
+    name: "Ananya Kapoor",
+    score: "SAT 1450",
     img: "/image/gmat1.webp",
   },
   {
-    name: "Rahul Sharma",
-    score: "GMAT 705",
+    name: "Rohit Sharma",
+    score: "SAT 1500",
     img: "/image/gmat3.jpg",
   },
   {
-    name: "Sneha Gupta",
-    score: "GMAT 680",
+    name: "Ishita Verma",
+    score: "SAT 1420",
     img: "/image/gmat2.jpg",
   },
   {
-    name: "Aman Verma",
-    score: "GMAT 720",
+    name: "Aditya Singh",
+    score: "SAT 1520",
     img: "/image/gmat4.jpg",
   },
   {
-    name: "Priya Singh",
-    score: "GMAT 690",
+    name: "Kavya Mehta",
+    score: "SAT 1480",
     img: "/image/gmat5.jpg",
   },
 ];
 
-export default function GMATResultsSlider() {
+export default function SATResultsSlider() {
   const sliderRef = useRef(null);
 
   useEffect(() => {
@@ -59,7 +59,7 @@ export default function GMATResultsSlider() {
     <div className="bg-yellow-500 mt-16 pb-10 overflow-hidden">
       {/* Heading */}
       <h2 className="text-center text-3xl font-bold text-black mt-6 mb-8">
-        GMAT Achievers 🚀
+        SAT Achievers 
       </h2>
 
       {/* Slider */}
@@ -70,7 +70,7 @@ export default function GMATResultsSlider() {
         {[...results, ...results].map((item, index) => (
           <div
             key={index}
-            className="min-w-[250px] bg-gradient-to-r from-orange-500 to-red-500 rounded-xl p-4 shadow-lg flex items-center gap-4"
+            className="min-w-[250px] bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl p-4 shadow-lg flex items-center gap-4"
           >
             <img
               src={item.img}
