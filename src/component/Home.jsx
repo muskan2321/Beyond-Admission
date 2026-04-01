@@ -1236,7 +1236,9 @@ function Home() {
     <>
       
       {/* 1.hero section */}
-     <div className="relative w-full min-h-[calc(100vh-80px)] overflow-hidden z-0">
+     <div className="relative w-full min-h-screen overflow-hidden z-0">
+     {/* Hidden background image to ensure bg5 looks "full" on first load */}
+     <img src="/image/bg5.jpg" className="hidden" alt="bg-preload" />
     <FloatingSidebar />
 
     <Slider {...settings} className="hero-slider">
@@ -1244,16 +1246,16 @@ function Home() {
         "/image/bg5.jpg",
       ].map((img, i) => (
         <div key={i}>
-          <div className="relative w-full h-[calc(100vh-80px)] overflow-hidden">
+          <div className="relative w-full h-screen overflow-hidden">
             {/* Background Image */}
             <img
               src={img}
               alt={`slide-${i}`}
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-bottom"
             />
 
-            {/* Opacity overlay */}
-            <div className="absolute inset-0 bg-black/40"></div>
+            {/* Very light overlay to preserve image brightness but keep text readable */}
+            <div className="absolute inset-0 bg-black/20"></div>
           </div>
         </div>
       ))}
@@ -1264,7 +1266,7 @@ function Home() {
       absolute inset-0 text-white
       overflow-y-auto lg:overflow-visible
       flex items-start lg:items-center
-      pt-24 lg:pt-0 z-10
+       pt-32 lg:pt-0 z-10 pt-24 sm:pt-32
     "
     >
       <div className="w-full max-w-3xl px-4 sm:px-6 pb-20 mt-10 ml-4 sm:ml-8 lg:ml-16">
@@ -1315,13 +1317,7 @@ function Home() {
   </div>
 
   {/*   POPUP  */}
-  {showPopup && (
-    <div className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/60 backdrop-blur-sm">
-      <div className="relative z-[100000]">
-        <HomePopup onClose={() => setShowPopup(false)} />
-      </div>
-    </div>
-  )}
+  <HomePopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
       
       {/*2. About Section */}
       <section className="relative pt-4 pb-8 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">

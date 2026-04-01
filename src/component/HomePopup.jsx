@@ -12,7 +12,11 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function HomePopup({ isOpen, onClose }) {
-  const showPopup = isOpen;
+  const [showPopup, setShowPopup] = useState(isOpen);
+
+  useEffect(() => {
+    setShowPopup(isOpen);
+  }, [isOpen]);
   const [isClosing, setIsClosing] = useState(false);
   const intervalRef = useRef(null);
   const timeoutRef = useRef(null);
@@ -86,10 +90,13 @@ export default function HomePopup({ isOpen, onClose }) {
   }, [showPopup]);
 
   const handleClose = () => {
-    // Set closing state to prevent immediate reopening
+    // Set internal state to false immediately for snappy response
+    setShowPopup(false);
+    
+    // Set closing state to prevent immediate reopening from timers
     setIsClosing(true);
 
-    // Close the popup
+    // Notify parent to update its state
     onClose();
 
     // Reset closing state after a short delay
@@ -151,14 +158,14 @@ export default function HomePopup({ isOpen, onClose }) {
     <AnimatePresence>
       {showPopup && (
         <>
-          {/* Backdrop
+          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[99999]"
             onClick={handleClose}
-          /> */}
+          />
 
           {/* Popup */}
           <motion.div
@@ -191,9 +198,10 @@ export default function HomePopup({ isOpen, onClose }) {
               {/* Close Button - Responsive positioning */}
               <button
                 onClick={handleClose}
-                className="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center rounded-full bg-white/20 text-white hover:bg-white/30 transition-all duration-200 z-20"
+                className="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-black/30 hover:bg-black/50 text-white transition-all duration-200 z-30 shadow-lg group/close"
+                aria-label="Close"
               >
-                <FaTimes className="text-xs sm:text-sm" />
+                <FaTimes className="text-sm sm:text-base transition-transform group-hover/close:rotate-90" />
               </button>
 
               {/* Form */}
