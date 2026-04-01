@@ -3,50 +3,53 @@ import { useState, useEffect } from "react";
 
 export default function StudyUSA() {
   const [tab, setTab] = useState("academic");
- const steps = [
-   {
-     title: "Profile Evaluation",
-     detail:
-       "Analyze academic background, skills, and career goals to suggest best-fit universities.",
-   },
-   {
-     title: "Prepare Exams",
-     detail:
-       "Prepare for IELTS, TOEFL, GRE or GMAT based on your target universities.",
-   },
-   {
-     title: "Shortlist University",
-     detail:
-       "Select universities based on ranking, budget, course, and job opportunities.",
-   },
-   {
-     title: "Writing Process (CV, LOR, SOP, Essays)",
-     detail:
-       "Create strong documents including SOP, LOR, CV, and essays for application.",
-   },
-   {
-     title: "Applying",
-     detail: "Submit applications on portals and track deadlines carefully.",
-   },
-   {
-     title: "Offer Letter",
-     detail: "Receive and compare offers to choose the best university.",
-   },
-   {
-     title: "Visa & Loan",
-     detail: "Apply for visa and arrange finances or education loan.",
-   },
-   {
-     title: "Pre-Departure Services",
-     detail:
-       "Guidance for accommodation, forex, flight booking, and insurance.",
-   },
-   {
-     title: "Application Requirement",
-     detail:
-       "Ensure documents like transcripts, passport, scores, and financial proof are ready.",
-   },
- ];
+const steps = [
+  {
+    title: "Profile Evaluation",
+    detail:
+      "Analyze academic background, achievements, extracurricular activities, and career goals to suggest the best-fit universities and programs. Personalized guidance helps in building a strong application strategy.",
+  },
+  {
+    title: "Prepare Exams",
+    detail:
+      "Prepare for IELTS, TOEFL, GRE, or GMAT based on your target universities. Get expert guidance, mock tests, and strategies to achieve high scores and improve your chances of admission.",
+  },
+  {
+    title: "Shortlist University",
+    detail:
+      "Select universities based on global ranking, tuition fees, scholarships, course curriculum, and future job opportunities. A balanced shortlist ensures higher chances of acceptance.",
+  },
+  {
+    title: "Writing Process (CV, LOR, SOP, Essays)",
+    detail:
+      "Create strong and impactful documents including SOP, LOR, CV, and essays. Highlight your strengths, achievements, and goals effectively to stand out in competitive applications.",
+  },
+  {
+    title: "Applying",
+    detail:
+      "Submit applications through official university portals with complete accuracy. Track deadlines, upload required documents, and ensure error-free submission for maximum success.",
+  },
+  {
+    title: "Offer Letter",
+    detail:
+      "Receive admission offers from universities and compare them based on ranking, ROI, course value, and location to make the best decision for your future.",
+  },
+  {
+    title: "Visa & Loan",
+    detail:
+      "Apply for student visa with proper documentation and guidance. Get assistance in arranging finances, education loans, and preparing for visa interviews confidently.",
+  },
+  {
+    title: "Pre-Departure Services",
+    detail:
+      "Complete guidance for accommodation, forex exchange, flight booking, travel insurance, and essential packing tips to ensure a smooth transition abroad.",
+  },
+  {
+    title: "Post-Departure Services",
+    detail:
+      "Our support continues even after you arrive abroad. We assist with airport pickup, accommodation, local orientation, and university onboarding to ensure a smooth and hassle-free transition.",
+  },
+];
 
 
  
@@ -104,21 +107,6 @@ export default function StudyUSA() {
                 Free Counselling
               </button>
             </div>
-
-            <div className="mt-10 flex gap-8 text-white/80 text-sm">
-              <div>
-                <p className="text-xl font-bold text-white">4500+</p>
-                Universities
-              </div>
-              <div>
-                <p className="text-xl font-bold text-white">1.5M</p>
-                Students
-              </div>
-              <div>
-                <p className="text-xl font-bold text-white">98%</p>
-                Success
-              </div>
-            </div>
           </div>
 
           {/* RIGHT */}
@@ -162,7 +150,6 @@ export default function StudyUSA() {
     .delay-4000 { animation-delay: 4s; }
   `}</style>
       </section>
-
       <div className="max-w-7xl mx-auto px-6 py-10 flex flex-wrap justify-center gap-4">
         <a
           href="#why-usa"
@@ -227,7 +214,28 @@ export default function StudyUSA() {
           Visa
         </a>
       </div>
+      <div className="max-w-7xl mx-auto px-6 py-10 flex flex-wrap justify-center gap-4 pt-2">
+        <Link
+          to="/ms-usa"
+          className="px-6 py-2 bg-yellow-400 rounded-full hover:bg-blue-300"
+        >
+          MS In USA
+        </Link>
 
+        <Link
+          to="/mba-usa"
+          className="px-6 py-2 bg-yellow-400 rounded-full hover:bg-blue-300"
+        >
+          MBA In USA
+        </Link>
+
+        <Link
+          to="/ug-usa"
+          className="px-6 py-2 bg-yellow-400 rounded-full hover:bg-blue-300"
+        >
+          UG In USA
+        </Link>
+      </div>
       {/* INTRO SECTION */}
       <section className="relative pt-12 pb-24 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">
         {/* Animated Background Lights */}
@@ -274,7 +282,7 @@ export default function StudyUSA() {
 
                 <div className="text-right">
                   <p className="text-sm text-gray-500">Students Placed</p>
-                  <p className="text-xl font-semibold text-gray-800">15,000+</p>
+                  <p className="text-xl font-semibold text-gray-800">1500+</p>
                 </div>
               </div>
             </div>
@@ -359,11 +367,10 @@ export default function StudyUSA() {
           }
         `}</style>
       </section>
-
       {/* WHY STUDY USA */}
       <section
         id="why-usa"
-        className="relative pt-4 pb-28 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
+        className="relative pt-4 pb-10 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
       >
         {/* Animated background lights */}
         <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-400/30 blur-[120px] rounded-full animate-float"></div>
@@ -532,11 +539,10 @@ export default function StudyUSA() {
           }
         `}</style>
       </section>
-
       {/* POPULAR COURSES */}
       <section
         id="Popular Courses"
-        className="pt-4 pb-16 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden"
+        className="pt-4 pb-10 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden"
       >
         {/* Background Glow */}
         <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-300/20 rounded-full blur-3xl"></div>
@@ -544,7 +550,7 @@ export default function StudyUSA() {
 
         <div className="max-w-7xl mx-auto px-6 relative">
           <h2 className="text-4xl font-bold text-center mb-16">
-            Popular Courses in USA
+            Popular Courses <span className="text-blue-600">in USA</span>
           </h2>
 
           <div className="grid md:grid-cols-3 gap-10">
@@ -633,137 +639,91 @@ export default function StudyUSA() {
           </div>
         </div>
       </section>
-
       {/* TOP UNIVERSITIES */}
       <section
         id="Top Universities"
-        className="pt-0 pb-28 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden"
+        className="pt-6 pb-10 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden"
       >
         {/* Background Glow */}
-        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-green-300/30 blur-[120px] rounded-full animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-300/30 blur-[120px] rounded-full animate-pulse"></div>
+        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-green-300/30 blur-[120px] rounded-full"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-300/30 blur-[120px] rounded-full"></div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
           {/* Heading */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Top Universities in USA and Their{" "}
-              <span className="bg-blue-600  bg-clip-text text-transparent">
-                Fees
-              </span>
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
+              Top Universities in <span className="text-blue-600">USA</span>
             </h2>
             <p className="mt-4 text-gray-600 text-lg">
-              Explore top universities, programs, and tuition fees in a
-              structured way.
+              Explore top universities and their locations at a glance.
             </p>
           </div>
 
-          {/* Table */}
-          <div className="relative rounded-3xl p-[2px] bg-gradient-to-r from-green-500 via-emerald-500 to-blue-500 shadow-2xl">
-            <div className="rounded-3xl overflow-hidden backdrop-blur-xl bg-white/80">
-              {/* Header */}
-              <div className="grid grid-cols-3 bg-blue-600 text-white font-semibold text-lg">
-                <div className="p-6">University</div>
-                <div className="p-6">Programs</div>
-                <div className="p-6">Courses & Fees</div>
+          {/* TABLE */}
+          <div className="overflow-hidden border border-gray-400">
+            {/* Header */}
+            <div className="grid md:grid-cols-2 bg-yellow-500 text-white font-semibold">
+              <div className="p-4 border-r border-gray-400 text-center text-black">
+                UNIVERSITY NAME
               </div>
-
-              {/* Rows */}
-              {[
-                {
-                  name: "Harvard University",
-                  programs: ["UG", "PG", "MBA"],
-                  course: "Business, Law, Medicine",
-                  fees: "$50,000 - $70,000 (45lakh-63lakh)",
-                },
-                {
-                  name: "Stanford University",
-                  programs: ["UG", "PG", "MBA"],
-                  course: "Engineering, MBA, CS",
-                  fees: "$55,000 - $75,000 (50lakh-67lakh)",
-                },
-                {
-                  name: "MIT",
-                  programs: ["UG", "PG"],
-                  course: "AI, Robotics",
-                  fees: "$53,000 - $73,000 (48lakh-66lakh)",
-                },
-                {
-                  name: "UC Berkeley",
-                  programs: ["UG", "PG"],
-                  course: "CS, Economics",
-                  fees: "$40,000 - $60,000 (36lakh-54lakh)",
-                },
-                {
-                  name: "Columbia University",
-                  programs: ["UG", "PG", "MBA"],
-                  course: "Business, Journalism",
-                  fees: "$60,000 - $80,000 (36lakh-72lakh)",
-                },
-                {
-                  name: "University of Chicago",
-                  programs: ["UG", "PG", "MBA"],
-                  course: "Economics, Data Science",
-                  fees: "$55,000 - $75,000 (50lakh-67lakh)",
-                },
-                {
-                  name: "Yale University",
-                  programs: ["UG", "PG"],
-                  course: "Law, Arts",
-                  fees: "$50,000 - $70,000 (45lakh-63lakh)",
-                },
-                {
-                  name: "Johns Hopkins University",
-                  programs: ["UG", "PG", "MBBS"],
-                  course: "Medicine",
-                  fees: "$55,000 - $65,000 (50lakh-67lakh)",
-                },
-              ].map((row, i) => (
-                <div
-                  key={i}
-                  className="grid grid-cols-3 items-center border-t border-gray-100 hover:bg-gradient-to-r hover:from-green-50 hover:to-blue-50 transition duration-300 group"
-                >
-                  {/* University */}
-                  <div className="p-6 font-semibold text-gray-900 group-hover:text-blue-600 transition">
-                    {row.name}
-                  </div>
-
-                  {/* Programs */}
-                  <div className="p-6 flex flex-wrap gap-2">
-                    {row.programs.map((p, idx) => (
-                      <span
-                        key={idx}
-                        className={`
-                    px-3 py-1 text-xs font-medium rounded-full shadow-sm
-                    ${p === "UG" && "bg-green-100 text-green-600"}
-                    ${p === "PG" && "bg-blue-100 text-blue-600"}
-                    ${p === "MBA" && "bg-yellow-100 text-yellow-700"}
-                    ${p === "MBBS" && "bg-red-100 text-red-600"}
-                  `}
-                      >
-                        {p}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Courses + Fees */}
-                  <div className="p-6">
-                    <p className="text-gray-700 text-sm group-hover:text-gray-900 transition">
-                      {row.course}
-                    </p>
-                    <p className="text-blue-600 font-bold mt-2 text-lg">
-                      {row.fees}
-                    </p>
-                  </div>
-                </div>
-              ))}
+              <div className="p-4 text-center text-black">LOCATION</div>
             </div>
+
+            {/* Rows */}
+            {[
+              {
+                name: "Harvard University",
+                location: "Cambridge, MA",
+              },
+              {
+                name: "Stanford University",
+                location: "Stanford, CA",
+              },
+              {
+                name: "MIT",
+                location: "Cambridge, MA",
+              },
+              {
+                name: "UC Berkeley",
+                location: "Berkeley, CA",
+              },
+              {
+                name: "Columbia University",
+                location: "New York, NY",
+              },
+              {
+                name: "University of Chicago",
+                location: "Chicago, IL",
+              },
+              {
+                name: "Yale University",
+                location: "New Haven, CT",
+              },
+              {
+                name: "Johns Hopkins University",
+                location: "Baltimore, MD",
+              },
+            ].map((row, i) => (
+              <div
+                key={i}
+                className="grid md:grid-cols-2 border-t border-gray-400 bg-gray-200"
+              >
+                {/* University */}
+                <div className="p-4 border-r border-gray-400 font-semibold text-gray-900 text-center">
+                  {row.name}
+                </div>
+
+                {/* Location */}
+                <div className="p-4 text-gray-800 text-center">
+                  {row.location}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-
       {/* INTAKES */}
-      <section className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">
+      <section className="relative pt-6 pb-10 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">
         {/* subtle background glow */}
         <div className="absolute -top-20 -left-20 w-72 h-72 bg-blue-200/30 blur-3xl rounded-full"></div>
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-indigo-200/30 blur-3xl rounded-full"></div>
@@ -789,14 +749,23 @@ export default function StudyUSA() {
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-t-3xl"></div>
 
                 <h4 className="text-xl font-semibold text-blue-700 mb-6 flex items-center gap-2">
-                  📅 Fall 2026 Intake Timeline
+                  📅 Fall 2027 Intake Timeline
                 </h4>
 
-                <ul className="space-y-3 text-gray-700 text-sm">
-                  <li>✔ Applications Open Period: Aug – Nov 2026</li>
-                  <li>✔ Deadlines: Dec 2026 – Feb 2027</li>
-                  <li>✔ Offer Letters: Mar – May 2027</li>
-                  <li>✔ Classes Begin: Aug / Sep 2027</li>
+                <ul className="space-y-3 text-black-700 text-md">
+                  <li>
+                    ✔ Applications Open Period:{" "}
+                    <span className="font-bold">Nov – May 2026</span>
+                  </li>
+
+                  <li>
+                    ✔ Offer Letters:{" "}
+                    <span className="font-bold">Jan 2026 – May/June 2026</span>
+                  </li>
+                  <li>
+                    ✔ Classes Begin:{" "}
+                    <span className="font-bold">Aug / Sep 2027</span>
+                  </li>
                 </ul>
 
                 <div className="mt-5 text-xs text-gray-600 bg-blue-50 px-4 py-3 rounded-xl">
@@ -812,11 +781,18 @@ export default function StudyUSA() {
                   🌱 Spring 2027 Intake Timeline
                 </h4>
 
-                <ul className="space-y-3 text-gray-700 text-sm">
-                  <li>✔ Applications Open Period: May – Aug 2026</li>
-                  <li>✔ Deadlines: Sep – Oct 2026</li>
-                  <li>✔ Offer Letters: Oct – Nov 2026</li>
-                  <li>✔ Classes Begin: Jan 2027</li>
+                <ul className="space-y-3 text-black-700 text-md">
+                  <li>
+                    ✔ Applications Open Period:{" "}
+                    <span className="font-bold">May – Aug 2026</span>
+                  </li>
+                  <li>
+                    ✔ Offer Letters:{" "}
+                    <span className="font-bold">Oct – Nov 2026</span>
+                  </li>
+                  <li>
+                    ✔ Classes Begin: <span className="font-bold">Jan 2027</span>
+                  </li>
                 </ul>
 
                 <div className="mt-5 text-xs text-gray-600 bg-indigo-50 px-4 py-3 rounded-xl">
@@ -843,16 +819,15 @@ export default function StudyUSA() {
                 ></span>
               ))}
             </div>
-
             {/* Glow */}
             <div className="absolute top-0 left-0 w-72 h-72 bg-blue-300 opacity-20 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-500 opacity-20 rounded-full blur-3xl"></div>
-
+            {/* Our Process */}
             <div className="relative z-10 max-w-5xl mx-auto px-4">
               {/* Heading */}
               <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                  Our Process
+                  Our <span className="text-blue-500">Process</span>
                 </h2>
 
                 <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -864,7 +839,7 @@ export default function StudyUSA() {
               {/* Timeline */}
               <div className="relative">
                 {/* Center Line */}
-                <div className="absolute left-1/2 top-0 w-1 bg-gradient-to-b from-blue-300 via-blue-500 to-blue-700 h-full transform -translate-x-1/2"></div>
+                <div className="absolute left-1/2 top-0 w-[3px] bg-gradient-to-b from-blue-200 via-blue-500 to-blue-800 h-full transform -translate-x-1/2 blur-[0.5px]"></div>
 
                 {steps.map((step, index) => {
                   const isLeft = index % 2 === 0;
@@ -879,22 +854,27 @@ export default function StudyUSA() {
                       {/* Content Box */}
                       <div className="w-1/2 px-4">
                         <div
-                          className={`rounded-2xl px-6 py-5 text-white shadow-xl transition duration-300 hover:scale-105 hover:shadow-2xl
-                    ${
-                      index % 3 === 0
-                        ? "bg-blue-400"
-                        : index % 3 === 1
-                          ? "bg-blue-600"
-                          : "bg-blue-800"
-                    }`}
+                          className={`relative rounded-2xl px-6 py-5 text-white shadow-xl transition-all duration-500 
+              hover:scale-[1.04] hover:shadow-2xl backdrop-blur-lg border border-white/20
+
+              ${
+                index % 3 === 0
+                  ? "bg-yellow-500"
+                  : index % 3 === 1
+                    ? "bg-yellow-500"
+                    : "bg-yellow-500"
+              }`}
                         >
+                          {/* Glow Border Effect */}
+                          <div className="absolute inset-0 rounded-2xl bg-white/10 opacity-0 hover:opacity-100 transition duration-500"></div>
+
                           {/* Title */}
-                          <h4 className="font-semibold text-sm">
+                          <h4 className="font-semibold text-black text-lg relative z-10">
                             {step.title}
                           </h4>
 
                           {/* Detail */}
-                          <p className="text-xs opacity-90 mt-2 leading-relaxed">
+                          <p className="text-md text-blue-900 opacity-90 mt-2 leading-relaxed relative z-10">
                             {step.detail}
                           </p>
                         </div>
@@ -903,9 +883,9 @@ export default function StudyUSA() {
                       {/* Step Circle */}
                       <div className="relative z-10 group">
                         <div
-                          className="w-12 h-12 flex items-center justify-center rounded-full 
-    border-4 border-blue-400 bg-white font-bold text-blue-600 shadow-md
-    transition duration-300 group-hover:scale-110"
+                          className="w-14 h-14 flex items-center justify-center rounded-full 
+              border-4 border-blue-400 bg-white font-bold text-blue-600 shadow-lg
+              transition duration-300 group-hover:scale-110 group-hover:shadow-blue-300"
                         >
                           {String(index + 1).padStart(2, "0")}
                         </div>
@@ -913,7 +893,7 @@ export default function StudyUSA() {
                         {/* Glow Effect */}
                         <div
                           className="absolute inset-0 rounded-full bg-blue-400 opacity-30 blur-xl 
-    scale-150 z-[-1] animate-pulse"
+              scale-150 z-[-1] animate-pulse"
                         ></div>
                       </div>
 
@@ -924,7 +904,6 @@ export default function StudyUSA() {
                 })}
               </div>
             </div>
-
             {/* Animation */}
             <style jsx>{`
               @keyframes float {
@@ -946,7 +925,7 @@ export default function StudyUSA() {
           </section>
         </div>
       </section>
-
+      {/* eligibility */}
       <section
         id="eligibility"
         className="pt-0 pb-10 bg-gradient-to-b from-white via-blue-50 to-white"
@@ -1060,11 +1039,10 @@ export default function StudyUSA() {
           </div>
         </div>
       </section>
-
       {/* COST */}
       <section
         id="fees"
-        className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
+        className="relative pt-6 pb-10 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
       >
         {/* Animated Background Lights */}
         <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-blue-400/30 blur-[120px] rounded-full animate-float"></div>
@@ -1185,9 +1163,84 @@ export default function StudyUSA() {
           }
         `}</style>
       </section>
+      {/* fees */}
+      <section className="pt-6 pb-10 bg-gray-100">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Heading */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-black mb-10">
+              Study in USA{" "}
+              <span className="text-blue-600">Fee Structure 2026</span>
+            </h2>
+          </div>
 
+          {/* Table */}
+          <div className="overflow-hidden border border-gray-400">
+            {/* Header */}
+            <div className="grid md:grid-cols-3 bg-yellow-500 text-black font-bold">
+              <div className="p-4 border-r border-gray-400">PROGRAM LEVEL</div>
+              <div className="p-4 border-r border-gray-400">
+                TUITION FEE (USD/YEAR-APPROX)
+              </div>
+              <div className="p-4">TUITION FEE (INR/YEAR-APPROX)</div>
+            </div>
+
+            {/* Rows */}
+            {[
+              {
+                program: "Undergraduate (UG)",
+                usd: "$20,000 – $40,000",
+                inr: "₹16 – ₹33 Lakhs",
+              },
+              {
+                program: "Postgraduate (PG)",
+                usd: "$25,000 – $50,000",
+                inr: "₹20 – ₹41 Lakhs",
+              },
+              {
+                program: "PhD / Doctoral",
+                usd: "$28,000 – $55,000",
+                inr: "₹23 – ₹45 Lakhs",
+              },
+              {
+                program: "Community Colleges",
+                usd: "$8,000 – $15,000",
+                inr: "₹6.5 – ₹12 Lakhs",
+              },
+              {
+                program: "MBA Programs",
+                usd: "$35,000 – $70,000",
+                inr: "₹29 – ₹58 Lakhs",
+              },
+              {
+                program: "Medical Programs",
+                usd: "$40,000 – $75,000",
+                inr: "₹33 – ₹62 Lakhs",
+              },
+            ].map((row, i) => (
+              <div
+                key={i}
+                className="grid md:grid-cols-3 border-t border-gray-400 bg-gray-200"
+              >
+                {/* Program */}
+                <div className="p-4 border-r border-gray-400 font-bold text-black-900">
+                  {row.program}
+                </div>
+
+                {/* USD */}
+                <div className="p-4 border-r border-gray-400 text-gray-800">
+                  {row.usd}
+                </div>
+
+                {/* INR */}
+                <div className="p-4 text-gray-800">{row.inr}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* Cost of Living in USA */}
-      <section className="pt-10 pb-20 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
+      <section className="pt-4 pb-10 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
         {/* Background Glow */}
         <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-300/20 blur-3xl rounded-full"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-300/20 blur-3xl rounded-full"></div>
@@ -1196,7 +1249,7 @@ export default function StudyUSA() {
           {/* Heading */}
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900">
-              Cost of Living in <span className="text-blue-600">USA</span>
+              Cost of <span className="text-blue-600">Living in USA</span>
             </h2>
             <p className="mt-4 text-gray-600 text-lg">
               Estimated expenses for international students in the USA
@@ -1204,221 +1257,158 @@ export default function StudyUSA() {
           </div>
 
           {/* Table */}
-          <div className="overflow-hidden rounded-3xl shadow-2xl border border-white/40 backdrop-blur-xl">
+          <div className="overflow-hidden border border-gray-400">
             {/* Header */}
-            <div className="grid md:grid-cols-3 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white font-semibold text-lg">
-              <div className="p-5">Expenses</div>
-              <div className="p-5">Average Cost</div>
-              <div className="p-5">External Factors</div>
+            <div className="grid md:grid-cols-2 bg-yellow-500 text-white font-semibold">
+              <div className="p-4 border-r border-gray-400 text-black text-lg">
+                Expenses
+              </div>
+              <div className="p-4 text-black text-lg">Average Cost</div>
             </div>
 
             {/* Rows */}
             {[
               {
-                title: "Annual Tuition Fee",
-                cost: "INR 20 lakh - INR 50 lakh per year",
-                extra: [
-                  "Depends upon the chosen university",
-                  "Depends upon the study in USA course selected",
-                ],
-              },
-              {
                 title: "Accommodation",
                 cost: "INR 64,000 - INR 1,30,000",
-                extra: [
-                  "University accommodation or private",
-                  "Includes food, transportation, medical or other important expenses",
-                ],
               },
               {
                 title: "Food",
                 cost: "On Campus: INR 20000 monthly\nOff Campus: INR 33000 - 50000 monthly",
-                extra: ["On campus", "Off campus"],
               },
               {
                 title: "Phone Subscription",
                 cost: "INR 4000 monthly",
-                extra: [],
               },
               {
                 title: "Groceries",
                 cost: "INR 20000 monthly",
-                extra: [],
               },
               {
                 title: "Public Transportation",
                 cost: "INR 8000 monthly",
-                extra: [],
               },
               {
                 title: "Health Insurance",
                 cost: "INR 20000 monthly",
-                extra: [
-                  "Plan covering pre-existing conditions",
-                  "Student’s age",
-                ],
               },
               {
                 title: "Other Utilities",
                 cost: "INR 12000 monthly",
-                extra: ["Electricity", "Water", "Gas", "Internet"],
               },
             ].map((row, i) => (
               <div
                 key={i}
-                className="group grid md:grid-cols-3 items-center bg-white/80 backdrop-blur-md border-t border-white/50 
-          hover:bg-white hover:shadow-xl hover:scale-[1.01] transition duration-300"
+                className="grid md:grid-cols-2 border-t border-gray-400 bg-gray-200"
               >
                 {/* Expense */}
-                <div className="p-5 font-semibold text-gray-900 flex items-center gap-2">
+                <div className="p-4 border-r border-gray-400 font-bold text-black-900 flex items-center gap-2">
                   <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                   {row.title}
                 </div>
 
                 {/* Cost */}
-                <div className="p-5 whitespace-pre-line">
-                  <span className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-xl font-semibold text-sm shadow-sm">
-                    {row.cost}
-                  </span>
-                </div>
-
-                {/* External */}
-                <div className="p-5 text-gray-700 text-sm">
-                  {row.extra.length > 0 ? (
-                    <ul className="space-y-1">
-                      {row.extra.map((item, idx) => (
-                        <li key={idx} className="flex gap-2 items-start">
-                          <span className="text-blue-500 mt-1">•</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <span className="text-gray-400">—</span>
-                  )}
+                <div className="p-4 whitespace-pre-line text-gray-800">
+                  {row.cost}
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      <section
-        id="scholarships"
-        className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
-      >
-        {/* Background glow */}
-        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-blue-300/30 blur-[120px] rounded-full animate-float"></div>
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-300/30 blur-[120px] rounded-full animate-float delay-2000"></div>
-
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+      {/* Scholarships */}
+      <section className="pt-7 pb-10 bg-gray-100">
+        <div className="max-w-6xl mx-auto px-6">
           {/* Heading */}
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Scholarships for International Students in
-              <span className="text-blue-600"> USA</span>
+          <div className="text-center mb-7">
+            <h2 className="text-4xl font-bold text-gray-900">
+              Scholarships in{" "}
+              <span className="text-blue-600">
+                USA for Indian Students 2026
+              </span>
             </h2>
-
-            <p className="mt-6 text-lg text-gray-600">
-              Many universities and organizations offer scholarships to
-              international students to help reduce the cost of education.
-            </p>
           </div>
 
-          {/* Cards */}
-          {/* Cards */}
-          <div className="mt-20 grid md:grid-cols-2 gap-10">
+          {/* Description */}
+          <p className="text-black-700 mb-2 leading-relaxed">
+            Studying in the USA can be expensive but many scholarships and
+            financial aid options are available for Indian students. Many
+            international students apply for a{" "}
+            <span className="font-bold text-blue-600">
+              scholarship to study in USA
+            </span>{" "}
+            to reduce the high cost of tuition and living expenses. These
+            scholarships help reduce tuition fees, living costs and other
+            expenses.
+          </p>
+          <p className="text-black-700 mb-10 leading-relaxed">
+            Some are offered by the US government, universities or private
+            organizations based on academic excellence, financial need, or
+            specific talents.
+          </p>
+
+          {/* Table */}
+          <div className="overflow-hidden border border-gray-400">
+            {/* Header */}
+            <div className="grid grid-cols-2 bg-yellow-500 text-black font-semibold">
+              <div className="p-4 border-r border-gray-400">
+                SCHOLARSHIP NAME
+              </div>
+              <div className="p-4">OFFERED BY</div>
+            </div>
+
+            {/* Rows */}
             {[
               {
-                icon: "🎓",
-                title: "Fulbright Foreign Student Program",
-                details:
-                  "Covers tuition fees, living expenses, travel costs, and provides full financial support for international students.",
+                name: "Fulbright-Nehru Master's Fellowship",
+                by: "US-India Educational Foundation",
               },
               {
-                icon: "🏆",
-                title: "Knight-Hennessy Scholars Program",
-                details:
-                  "Offers full funding including tuition, stipend, and leadership development opportunities at Stanford University.",
+                name: "Stanford Knight-Hennessy Scholars",
+                by: "Stanford University",
               },
-            ].map((item, i) => (
+              {
+                name: "Inlaks Shivdasani Foundation",
+                by: "Inlaks Foundation (India)",
+              },
+              {
+                name: "Tata Scholarship – Cornell University",
+                by: "Tata Trusts & Cornell University",
+              },
+              {
+                name: "AAUW International Fellowships",
+                by: "American Association of University Women",
+              },
+              {
+                name: "Rotary Foundation Global Grants",
+                by: "Rotary International",
+              },
+              {
+                name: "Hubert H. Humphrey Fellowship",
+                by: "US Government",
+              },
+              {
+                name: "Illinois State University Scholarships",
+                by: "Illinois State University",
+              },
+              {
+                name: "Clark University Global Scholars Program",
+                by: "Clark University",
+              },
+            ].map((item, index) => (
               <div
-                key={i}
-                className="group relative rounded-3xl p-[2px] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 transition duration-300 hover:scale-[1.02]"
+                key={index}
+                className="grid grid-cols-2 border-t border-gray-400 bg-gray-200"
               >
-                <div className="bg-white rounded-3xl p-10 h-full shadow-xl overflow-hidden relative">
-                  {/* hover glow */}
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 
-        bg-gradient-to-br from-blue-100/40 via-indigo-100/20 to-purple-100/30"
-                  ></div>
-
-                  <div className="relative z-10 text-center">
-                    {/* Icon */}
-                    <div
-                      className="w-16 h-16 mx-auto mb-5 flex items-center justify-center 
-          bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full text-2xl shadow-lg 
-          group-hover:scale-110 transition"
-                    >
-                      {item.icon}
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition">
-                      {item.title}
-                    </h3>
-
-                    {/* EXPAND DETAILS */}
-                    <div className="mt-4 max-h-0 overflow-hidden group-hover:max-h-40 transition-all duration-500">
-                      <p className="text-gray-600 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition duration-500 delay-100">
-                        {item.details}
-                      </p>
-                    </div>
-                  </div>
+                <div className="p-4 border-r border-gray-400 font-bold text-gray-900">
+                  {item.name}
                 </div>
+                <div className="p-4 text-gray-800">{item.by}</div>
               </div>
             ))}
           </div>
-
-          {/* Info Box */}
-          <div className="mt-20 relative bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white rounded-3xl p-12 text-center shadow-2xl overflow-hidden">
-            {/* glow */}
-            <div className="absolute -top-10 -left-10 w-72 h-72 bg-white/10 blur-3xl rounded-full animate-float"></div>
-            <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 blur-3xl rounded-full animate-float delay-2000"></div>
-
-            <div className="relative z-10">
-              <p className="text-lg max-w-3xl mx-auto">
-                Scholarships may be awarded based on academic merit, leadership
-                qualities, or financial need.
-              </p>
-            </div>
-          </div>
         </div>
-
-        {/* Animation */}
-        <style jsx>{`
-          @keyframes float {
-            0% {
-              transform: translateY(0px);
-            }
-            50% {
-              transform: translateY(-40px);
-            }
-            100% {
-              transform: translateY(0px);
-            }
-          }
-
-          .animate-float {
-            animation: float 14s ease-in-out infinite;
-          }
-
-          .delay-2000 {
-            animation-delay: 2s;
-          }
-        `}</style>
       </section>
-
       <section
         id="jobs"
         className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
@@ -1609,7 +1599,6 @@ export default function StudyUSA() {
           }
         `}</style>
       </section>
-
       <section
         id="visa"
         className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
@@ -1724,7 +1713,6 @@ export default function StudyUSA() {
           }
         `}</style>
       </section>
-
       {/* Why Choose Beyond Admission */}
       <section className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">
         {/*  Background glow */}
@@ -1746,16 +1734,46 @@ export default function StudyUSA() {
 
           {/* Timeline */}
           <div className="mt-16 relative">
-            {/*  Center Line Glow */}
+            {/* Center Line Glow */}
             <div className="absolute left-1/2 top-0 bottom-0 w-[3px] bg-gradient-to-b from-blue-400 via-indigo-500 to-purple-500 shadow-[0_0_15px_rgba(99,102,241,0.6)]"></div>
 
             {[
-              { icon: "🎯", title: "Career counselling" },
-              { icon: "🏫", title: "University shortlisting" },
-              { icon: "📝", title: "Application assistance" },
-              { icon: "💰", title: "Scholarship guidance" },
-              { icon: "📄", title: "Visa documentation support" },
-              { icon: "✈", title: "Pre-departure guidance" },
+              {
+                icon: "🎯",
+                title: "Career Counselling",
+                detail:
+                  "Get personalized career guidance based on your academic background, interests, and future goals. Our experts help you choose the right course and country for long-term success.",
+              },
+              {
+                icon: "🏫",
+                title: "University Shortlisting",
+                detail:
+                  "Shortlist top universities based on your profile, budget, preferred location, and career opportunities. We ensure a balanced list of safe, moderate, and dream universities.",
+              },
+              {
+                icon: "📝",
+                title: "Application Assistance",
+                detail:
+                  "Complete support for filling applications, document submission, and meeting deadlines. We ensure error-free applications to maximize your chances of acceptance.",
+              },
+              {
+                icon: "💰",
+                title: "Scholarship Guidance",
+                detail:
+                  "Explore and apply for scholarships, grants, and financial aid options. Our team helps you reduce your overall study cost with the best funding opportunities.",
+              },
+              {
+                icon: "📄",
+                title: "Visa Documentation Support",
+                detail:
+                  "End-to-end assistance for visa filing including documentation, SOP preparation, and mock interviews to ensure a smooth and successful visa approval process.",
+              },
+              {
+                icon: "✈",
+                title: "Pre-Departure Guidance",
+                detail:
+                  "Complete guidance on accommodation, forex exchange, travel arrangements, packing essentials, and settling abroad to make your transition smooth and stress-free.",
+              },
             ].map((step, i) => (
               <div
                 key={i}
@@ -1765,15 +1783,22 @@ export default function StudyUSA() {
                 {i % 2 === 0 ? (
                   <div className="flex justify-end pr-8">
                     <div className="group w-full max-w-sm p-[2px] rounded-2xl bg-gradient-to-r from-blue-500 to-indigo-600">
-                      {/*  Glass Card */}
-                      <div className="backdrop-blur-xl bg-white/70 rounded-2xl p-5 shadow-xl flex items-center gap-3 transition duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                        {/*  Icon */}
-                        <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg shadow-md group-hover:rotate-6 transition duration-300">
-                          {step.icon}
+                      {/* Glass Card */}
+                      <div className="backdrop-blur-xl bg-white/70 rounded-2xl p-5 shadow-xl transition duration-300 group-hover:scale-105 group-hover:shadow-2xl">
+                        {/* Top Row */}
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg shadow-md group-hover:rotate-6 transition duration-300">
+                            {step.icon}
+                          </div>
+
+                          <p className="text-lg font-semibold text-gray-800">
+                            {step.title}
+                          </p>
                         </div>
 
-                        <p className="text-sm font-medium text-gray-800">
-                          {step.title}
+                        {/* Detail */}
+                        <p className="text-md text-gray-600 leading-relaxed">
+                          {step.detail}
                         </p>
                       </div>
                     </div>
@@ -1786,15 +1811,22 @@ export default function StudyUSA() {
                 {i % 2 !== 0 ? (
                   <div className="flex justify-start pl-8">
                     <div className="group w-full max-w-sm p-[2px] rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600">
-                      {/* 🔥 Glass Card */}
-                      <div className="backdrop-blur-xl bg-white/70 rounded-2xl p-5 shadow-xl flex items-center gap-3 transition duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                        {/* 🔥 Icon */}
-                        <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg shadow-md group-hover:rotate-6 transition duration-300">
-                          {step.icon}
+                      {/* Glass Card */}
+                      <div className="backdrop-blur-xl bg-white/70 rounded-2xl p-5 shadow-xl transition duration-300 group-hover:scale-105 group-hover:shadow-2xl">
+                        {/* Top Row */}
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg shadow-md group-hover:rotate-6 transition duration-300">
+                            {step.icon}
+                          </div>
+
+                          <p className="text-lg font-semibold text-gray-800">
+                            {step.title}
+                          </p>
                         </div>
 
-                        <p className="text-sm font-medium text-gray-800">
-                          {step.title}
+                        {/* Detail */}
+                        <p className="text-md text-gray-600 leading-relaxed">
+                          {step.detail}
                         </p>
                       </div>
                     </div>
@@ -1803,13 +1835,13 @@ export default function StudyUSA() {
                   <div></div>
                 )}
 
-                {/* 🔥 Center Dot */}
+                {/* Center Dot */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full shadow-lg border-2 border-white"></div>
               </div>
             ))}
           </div>
 
-          {/* 🔥 Bottom Highlight */}
+          {/* Bottom Highlight */}
           <div className="mt-20 relative bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white rounded-3xl p-10 text-center shadow-xl overflow-hidden">
             <div className="absolute -top-10 -left-10 w-72 h-72 bg-white/10 blur-3xl rounded-full animate-float"></div>
             <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 blur-3xl rounded-full animate-float delay-2000"></div>
@@ -1823,7 +1855,7 @@ export default function StudyUSA() {
           </div>
         </div>
 
-        {/* 🔥 Animation */}
+        {/* Animation */}
         <style jsx>{`
           @keyframes float {
             0% {
@@ -1846,10 +1878,7 @@ export default function StudyUSA() {
           }
         `}</style>
       </section>
-
       {/* FAQ */}
-     
-
       {/* CTA */}
       <section className="relative pt-6 pb-20 bg-gradient-to-r from-blue-700 to-indigo-800 text-white overflow-hidden">
         {/* Background Image */}

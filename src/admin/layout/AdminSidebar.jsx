@@ -223,6 +223,18 @@ const AdminSidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 Pages
               </NavLink>
             </li>
+
+            <li>
+              <NavLink
+                to="/admin/add-study"
+                className={({ isActive }) =>
+                  `${baseClass} ${isActive ? activeClass : ""}`
+                }
+              >
+                <IoDocumentText />
+                Study Abroad
+              </NavLink>
+            </li>
           </ul>
         </div>
 

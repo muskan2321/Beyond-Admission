@@ -1,98 +1,392 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
 export default function StudyIreland() {
+  const [tab, setTab] = useState("academic");
+  const steps = [
+    {
+      title: "Profile Evaluation",
+      detail:
+        "Analyze academic background, achievements, extracurricular activities, and career goals to suggest the best-fit universities and programs. Personalized guidance helps in building a strong application strategy.",
+    },
+    {
+      title: "Prepare Exams",
+      detail:
+        "Prepare for IELTS, TOEFL, GRE, or GMAT based on your target universities. Get expert guidance, mock tests, and strategies to achieve high scores and improve your chances of admission.",
+    },
+    {
+      title: "Shortlist University",
+      detail:
+        "Select universities based on global ranking, tuition fees, scholarships, course curriculum, and future job opportunities. A balanced shortlist ensures higher chances of acceptance.",
+    },
+    {
+      title: "Writing Process (CV, LOR, SOP, Essays)",
+      detail:
+        "Create strong and impactful documents including SOP, LOR, CV, and essays. Highlight your strengths, achievements, and goals effectively to stand out in competitive applications.",
+    },
+    {
+      title: "Applying",
+      detail:
+        "Submit applications through official university portals with complete accuracy. Track deadlines, upload required documents, and ensure error-free submission for maximum success.",
+    },
+    {
+      title: "Offer Letter",
+      detail:
+        "Receive admission offers from universities and compare them based on ranking, ROI, course value, and location to make the best decision for your future.",
+    },
+    {
+      title: "Visa & Loan",
+      detail:
+        "Apply for student visa with proper documentation and guidance. Get assistance in arranging finances, education loans, and preparing for visa interviews confidently.",
+    },
+    {
+      title: "Pre-Departure Services",
+      detail:
+        "Complete guidance for accommodation, forex exchange, flight booking, travel insurance, and essential packing tips to ensure a smooth transition abroad.",
+    },
+    {
+      title: "Post-Departure Services",
+      detail:
+        "Our support continues even after you arrive abroad. We assist with airport pickup, accommodation, local orientation, and university onboarding to ensure a smooth and hassle-free transition.",
+    },
+  ];
   return (
     <div className="bg-white font-[Inter]">
       {/* HERO SECTION */}
-      <section className="relative py-32  text-white overflow-hidden">
-        <div className="absolute inset-0 ">
-          <img src="/image/usa-bg.png" className="w-full h-full object-cover" />
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/image/usa-bg.png"
+            className="w-full h-full object-cover scale-110"
+            alt="Study in Ireland"
+          />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 text-center">
-          <h1 className="text-6xl font-extrabold text-black">Study in Ireland</h1>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
 
-          <p className="mt-6 text-lg max-w-3xl mx-auto opacity-90 text-black">
-            Ireland has rapidly emerged as a popular destination for
-            international students due to its strong education system, globally
-            ranked universities, and thriving technology industry.
-          </p>
-
-          <Link
-            to="/contact"
-            className="inline-block mt-10 px-10 py-4 bg-white text-blue-600 font-semibold rounded-full shadow-lg hover:scale-105 transition"
-          >
-            Apply Now
-          </Link>
+        {/* Animated Blobs */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/30 blur-3xl rounded-full animate-blob"></div>
+          <div className="absolute bottom-10 right-10 w-80 h-80 bg-indigo-500/30 blur-3xl rounded-full animate-blob delay-2000"></div>
         </div>
+
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center z-10">
+          {/* LEFT */}
+          <div>
+            <div className="inline-block mb-6 px-5 py-2 bg-white/10 backdrop-blur-md rounded-full text-white text-sm border border-white/20">
+              🎓 Your Global Education Partner
+            </div>
+
+            <h1 className="text-12xl md:text-7xl font-bold text-white leading-tight">
+              Study in{" "}
+              <span className="bg-gradient-to-r from-blue-200 to-indigo-200 bg-clip-text text-transparent">
+                Ireland
+              </span>
+            </h1>
+
+            {/*  FIXED TEXT */}
+            <p className="mt-6 text-lg md:text-xl text-white/80 max-w-xl">
+              Ireland has rapidly emerged as a popular destination for
+              international students due to its strong education system,
+              globally ranked universities, and thriving technology industry.
+            </p>
+
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <Link to="/contact">
+                <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full font-semibold shadow-xl hover:scale-105 transition">
+                  Apply Now
+                </button>
+              </Link>
+
+              <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full font-semibold shadow-xl hover:scale-105 transition">
+                {" "}
+                Free Counselling
+              </button>
+            </div>
+          </div>
+
+          {/* RIGHT */}
+          {/* <div className="relative hidden md:block">
+            <div className="absolute top-10 left-10 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-white shadow-xl animate-float">
+              🎓 Top Universities
+            </div>
+
+            <div className="absolute top-40 right-0 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-white shadow-xl animate-float delay-2000">
+              💼 Career Opportunities
+            </div>
+
+            <div className="absolute bottom-10 left-20 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-white shadow-xl animate-float delay-4000">
+              💰 Scholarships Available
+            </div>
+          </div> */}
+        </div>
+
+        {/* ✅ FIXED STYLE */}
+        <style>{`
+    @keyframes blob {
+      0%, 100% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(20px,-30px) scale(1.1); }
+    }
+
+    .animate-blob {
+      animation: blob 10s infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .delay-2000 { animation-delay: 2s; }
+    .delay-4000 { animation-delay: 4s; }
+  `}</style>
       </section>
 
-      {/* STUDY IN IRELAND ABOUT SECTION */}
-      <section className="py-28 bg-gradient-to-b from-white via-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 py-10 flex flex-wrap justify-center gap-4">
+        <a
+          href="#why-Ireland"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Why Ireland?
+        </a>
+
+        <a
+          href="#Popular Courses"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Popular Courses
+        </a>
+
+        <a
+          href="#Top Universities"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Top Universities
+        </a>
+
+        <a
+          href="#intakes"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Intakes
+        </a>
+
+        <a
+          href="#fees"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Fees & Expenses
+        </a>
+
+        <a
+          href="#eligibility"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Eligibility
+        </a>
+
+        <a
+          href="#scholarships"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Scholarships
+        </a>
+
+        <a
+          href="#jobs"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Jobs
+        </a>
+
+        <a
+          href="#visa"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Visa
+        </a>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 py-10 flex flex-wrap justify-center gap-4 pt-2">
+        <Link
+          to="/ms-ireland"
+          className="px-6 py-2 bg-yellow-400 rounded-full hover:bg-blue-300"
+        >
+          MS In Ireland
+        </Link>
+
+        <Link
+          to="/mba-ireland"
+          className="px-6 py-2 bg-yellow-400 rounded-full hover:bg-blue-300"
+        >
+          MBA In Ireland
+        </Link>
+
+        <Link
+          to="/ug-ireland"
+          className="px-6 py-2 bg-yellow-400 rounded-full hover:bg-blue-300"
+        >
+          UG In Ireland
+        </Link>
+      </div>
+
+      {/* INTRO SECTION */}
+      <section className="relative pt-7 pb-10 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">
+        {/* Animated Background Lights */}
+        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-blue-400/30 rounded-full blur-[120px] animate-float"></div>
+
+        <div className="absolute top-40 -right-40 w-[600px] h-[600px] bg-indigo-400/30 rounded-full blur-[130px] animate-float delay-2000"></div>
+
+        <div className="absolute bottom-0 left-1/2 w-[500px] h-[500px] bg-sky-300/30 rounded-full blur-[120px] animate-float delay-4000"></div>
+
+        {/* Subtle Pattern */}
+        <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#2563eb_1px,transparent_1px)] [background-size:40px_40px]"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Heading */}
-          <div className="text-center max-w-3xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Study in <span className="text-blue-600">Ireland</span> for
+              Study in <span className="text-blue-600">Ireland </span> for
               Indian Students
             </h2>
 
-            <p className="mt-6 text-lg text-gray-600">
+            <p className="mt-4 text-gray-600 text-lg">
               Study in Ireland – Universities, Courses, Fees & Visa Guide
             </p>
           </div>
 
-          {/* Content Layout */}
-          <div className="mt-16 grid lg:grid-cols-2 gap-12 items-center">
-            {/* Image */}
-            <div className="relative">
+          {/* Main Grid */}
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+            {/* Image Section */}
+            <div className="relative group">
+              <div className="absolute -inset-2 bg-blue-200/40 blur-2xl rounded-3xl"></div>
+
               <img
                 src="/image/usa-bg.png"
-                className="rounded-3xl shadow-xl w-full h-full object-cover"
+                alt="Study in Ireland"
+                className="relative rounded-3xl shadow-xl w-full h-[450px] object-cover transition duration-500 group-hover:scale-105"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-tr from-green-600/30 to-transparent rounded-3xl"></div>
+              <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-lg flex justify-between items-center">
+                <div>
+                  <p className="text-sm text-gray-500">Success Rate</p>
+                  <p className="text-3xl font-bold text-blue-600">98%</p>
+                </div>
 
-              {/* Floating Badge */}
-              <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md rounded-xl px-6 py-3 shadow-lg">
-                <p className="text-sm font-semibold text-gray-800">
-                  🍀 Top Study Destination
-                </p>
+                <div className="text-right">
+                  <p className="text-sm text-gray-500">Students Placed</p>
+                  <p className="text-xl font-semibold text-gray-800">15,000+</p>
+                </div>
               </div>
             </div>
 
-            {/* Content Card */}
-            <div className="bg-white rounded-3xl shadow-2xl p-10 md:p-12 border border-gray-100">
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Ireland has rapidly emerged as a popular destination for
-                international students due to its strong education system,
-                globally ranked universities, and thriving technology industry.
-              </p>
+            {/* Content Section */}
+            <div>
+              <div className="bg-white rounded-3xl shadow-xl p-10 border border-gray-100">
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">
+                  Why Choose Ireland?
+                </h3>
 
-              <p className="mt-6 text-lg text-gray-600 leading-relaxed">
-                Ireland is home to many global companies including Google,
-                Apple, Facebook, and Microsoft, making it an excellent
-                destination for students interested in technology and business
-                careers.
-              </p>
+                <p className="text-gray-600 leading-relaxed">
+                  Ireland has rapidly emerged as a popular destination for
+                  international students due to its strong education system,
+                  globally ranked universities, and thriving technology
+                  industry. Ireland is home to many global companies including
+                  Google, Apple, Facebook, and Microsoft, making it an excellent
+                  destination for students interested in technology and business
+                  careers.
+                </p>
 
-              <p className="mt-6 text-lg text-gray-600 leading-relaxed">
-                Irish universities focus on innovation, research, and practical
-                learning, providing students with valuable industry exposure.
-              </p>
+                <p className="mt-4 text-gray-600 leading-relaxed">
+                  Irish universities focus on innovation, research, and
+                  practical learning, providing students with valuable industry
+                  exposure.
+                </p>
+                <p className="mt-4 text-gray-600 leading-relaxed">
+                  Beyond Admission helps students successfully apply to Irish
+                  universities by providing expert guidance on course selection,
+                  applications, scholarships, and student visa procedures.
+                </p>
+              </div>
 
-              <p className="mt-6 text-lg text-gray-600 leading-relaxed">
-                Beyond Admission helps students successfully apply to Irish
-                universities by providing expert guidance on course selection,
-                applications, scholarships, and student visa procedures.
-              </p>
+              {/* Benefits */}
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                {[
+                  "World-class education",
+                  "Strong career opportunities",
+                  "Global networking",
+
+                  "Post-study work visa",
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 bg-yellow-500 hover:bg-blue-100 transition rounded-xl p-3 text-m font-medium text-black"
+                  >
+                    <span className="text-black font-bold">✓</span>
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex justify-center">
+                <button className="mt-8 px-20 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition">
+                  Start Your Journey
+                </button>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Animation */}
+        <style jsx>{`
+          @keyframes float {
+            0% {
+              transform: translateY(0px) translateX(0px);
+            }
+            50% {
+              transform: translateY(-40px) translateX(20px);
+            }
+            100% {
+              transform: translateY(0px) translateX(0px);
+            }
+          }
+
+          .animate-float {
+            animation: float 14s ease-in-out infinite;
+          }
+
+          .delay-2000 {
+            animation-delay: 2s;
+          }
+
+          .delay-4000 {
+            animation-delay: 4s;
+          }
+        `}</style>
       </section>
 
-      {/* WHY STUDY IN IRELAND */}
-      <section className="py-28 bg-gradient-to-b from-white via-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* WHY STUDY IRELAND */}
+      <section
+        id="why-ireland"
+        className="relative pt-4 pb-10 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
+      >
+        {/* Animated background lights */}
+        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-400/30 blur-[120px] rounded-full animate-float"></div>
+        <div className="absolute top-40 -right-40 w-[600px] h-[600px] bg-indigo-400/30 blur-[130px] rounded-full animate-float delay-2000"></div>
+        <div className="absolute bottom-0 left-1/3 w-[500px] h-[500px] bg-sky-300/30 blur-[120px] rounded-full animate-float delay-4000"></div>
+
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(#2563eb_1px,transparent_1px)] [background-size:40px_40px]"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Heading */}
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
@@ -100,147 +394,329 @@ export default function StudyIreland() {
             </h2>
 
             <p className="mt-6 text-lg text-gray-600">
-              Ireland offers many benefits for international students.
+              Ireland offers many benefits for international students.{" "}
             </p>
           </div>
 
-          {/* Benefits Grid */}
-          <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-2 gap-10">
-            {/* Strong Technology Industry */}
-            <div className="p-8 rounded-3xl bg-white shadow-lg hover:shadow-2xl transition">
-              <div className="text-4xl mb-4">💻</div>
+          {/* ✅ FIXED GRID (2x2) */}
+          <div className="mt-20 grid md:grid-cols-2 gap-8">
+            {/* Card 1 */}
+            <div className="group relative p-8 h-full rounded-3xl bg-yellow-200 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-400/20 via-indigo-400/20 to-sky-400/20"></div>
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                Strong Technology Industry
-              </h3>
-
-              <p className="mt-3 text-gray-600">
-                Ireland is a major European technology hub with many
-                multinational companies operating in the country.
-              </p>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4">💻</div>
+                <h3 className="text-xl font-semibold text-gray-900">
+                  Strong Technology Industry
+                </h3>
+                <p className="mt-3 text-gray-600">
+                  Ireland is a major European technology hub with many
+                  multinational companies operating in the country.
+                </p>
+              </div>
             </div>
 
-            {/* Globally Recognized Universities */}
-            <div className="p-8 rounded-3xl bg-white shadow-lg hover:shadow-2xl transition">
-              <div className="text-4xl mb-4">🎓</div>
+            {/* Card 2 */}
+            <div className="group relative p-8 h-full rounded-3xl bg-yellow-200 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-400/20 via-indigo-400/20 to-sky-400/20"></div>
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                Globally Recognized Universities
-              </h3>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4">🎓</div>
+                <h3 className="text-xl font-semibold text-gray-900">
+                  Globally Recognized Universities
+                </h3>
 
-              <p className="mt-3 text-gray-600">
-                Irish universities are known for high-quality education and
-                research.
-              </p>
+                <p className="mt-3 text-gray-600">
+                  Irish universities are known for high-quality education and
+                  research.
+                </p>
 
-              <p className="mt-4 font-semibold text-gray-800">
-                Top universities in Ireland include:
-              </p>
+                <p className="mt-4 font-semibold text-gray-800">
+                  Top universities in Ireland include:
+                </p>
 
-              <ul className="mt-3 space-y-2 text-gray-600">
-                <li>● Trinity College Dublin</li>
-                <li>● University College Dublin</li>
-                <li>● National University of Ireland Galway</li>
-              </ul>
+                <ul className="mt-3 space-y-2 text-gray-600">
+                  <li>● Trinity College Dublin</li>
+                  <li>● University College Dublin</li>
+                  <li>● National University of Ireland Galway</li>
+                </ul>
+              </div>
             </div>
 
-            {/* Post Study Work */}
-            <div className="p-8 rounded-3xl bg-white shadow-lg hover:shadow-2xl transition">
-              <div className="text-4xl mb-4">💼</div>
+            {/* Card 3 */}
+            <div className="group relative p-8 h-full rounded-3xl bg-yellow-200 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-400/20 via-indigo-400/20 to-sky-400/20"></div>
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                Post Study Work Opportunities
-              </h3>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4">💼</div>
+                <h3 className="text-xl font-semibold text-gray-900">
+                  Post Study Work Opportunities
+                </h3>
 
-              <p className="mt-3 text-gray-600">
-                Ireland offers post-study work options for international
-                students, allowing them to gain valuable work experience.
-              </p>
+                <p className="mt-3 text-gray-600">
+                  Ireland offers post-study work options for international
+                  students, allowing them to gain valuable work experience.
+                </p>
+              </div>
             </div>
 
-            {/* Safe Environment */}
-            <div className="p-8 rounded-3xl bg-white shadow-lg hover:shadow-2xl transition">
-              <div className="text-4xl mb-4">🌍</div>
+            {/* Card 4 */}
+            <div className="group relative p-8 h-full rounded-3xl bg-yellow-200 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-400/20 via-indigo-400/20 to-sky-400/20"></div>
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                Safe and Friendly Environment
-              </h3>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4">🌍</div>
+                <h3 className="text-xl font-semibold text-gray-900">
+                  Safe and Friendly Environment
+                </h3>
 
-              <p className="mt-3 text-gray-600">
-                Ireland is known for its welcoming culture and safe environment
-                for students.
-              </p>
+                <p className="mt-3 text-gray-600">
+                  Ireland is known for its welcoming culture and safe
+                  environment for students.
+                </p>
+              </div>
             </div>
+          </div>
+        </div>
+
+        {/* Animation */}
+        <style jsx>
+          {`
+            @keyframes float {
+              0% {
+                transform: translateY(0px) translateX(0px);
+              }
+              50% {
+                transform: translateY(-40px) translateX(20px);
+              }
+              100% {
+                transform: translateY(0px) translateX(0px);
+              }
+            }
+
+            .animate-float {
+              animation: float 14s ease-in-out infinite;
+            }
+
+            .delay-2000 {
+              animation-delay: 2s;
+            }
+
+            .delay-4000 {
+              animation-delay: 4s;
+            }
+          `}
+        </style>
+      </section>
+
+      {/* POPULAR COURSES */}
+      <section
+        id="Popular Courses"
+        className="pt-4 pb-10 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden"
+      >
+        {/* Background Glow */}
+        <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-300/20 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-orange-300/20 rounded-full blur-3xl"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative">
+          <h2 className="text-4xl font-bold text-center mb-16">
+            Popular Courses in <span className="text-blue-600">Ireland</span>
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-10">
+            {[
+              {
+                title: "Technology Programs",
+                img: "/image/Engineering & Technology.webp",
+                icon: "💻",
+                duration: "2 Years",
+                courses: [
+                  "Computer Science",
+                  "Data Science",
+                  "Artificial Intelligence",
+                  " Cybersecurity",
+                ],
+              },
+              {
+                title: "Business Programs",
+                img: "/image/Business & Management.avif",
+                icon: "📊",
+                duration: "1-2 Years",
+                courses: [
+                  "MBA",
+                  "Business Analytics",
+                  "International Business",
+                  "Finance",
+                ],
+              },
+              {
+                title: "Other Popular Programs",
+                img: "/image/Undergraduate Programs.webp",
+                icon: "🎓",
+                duration: "4 Years",
+                courses: [
+                  "Pharmaceutical Sciences",
+                  "Biotechnology",
+                  "Engineering",
+                ],
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-500 hover:-translate-y-3"
+              >
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={item.img}
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+
+                  <span className="absolute top-3 left-3 bg-white text-blue-600 text-xs font-semibold px-3 py-1 rounded-full shadow">
+                    {item.duration}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                    <span>{item.icon}</span>
+                    {item.title}
+                  </h3>
+
+                  <p className="text-sm text-green-600 font-semibold mb-4">
+                    {item.salary}
+                  </p>
+
+                  <ul className="space-y-2 text-gray-600 text-sm">
+                    {item.courses.map((course, index) => (
+                      <li
+                        key={index}
+                        className="hover:text-blue-600 transition"
+                      >
+                        {course}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* <button className="mt-5 text-sm font-semibold text-blue-600 hover:text-orange-500 transition">
+                    Explore Programs →
+                  </button> */}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* POPULAR COURSES IN IRELAND */}
+      {/* TOP UNIVERSITIES */}
       <section
-        id="popular-courses"
-        className="py-28 bg-gradient-to-b from-white via-blue-50 to-white"
+        id="Top Universities"
+        className="pt-6 pb-10 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-6">
-          {/* Heading */}
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Popular Courses in <span className="text-blue-600">Ireland</span>
-            </h2>
+        {/* Background Glow */}
+        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-green-300/30 blur-[120px] rounded-full"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-300/30 blur-[120px] rounded-full"></div>
 
-            <p className="mt-6 text-lg text-gray-600">
-              Ireland is particularly known for technology and business
-              programs.
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          {/* Heading */}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
+              Top Universities in <span className="text-blue-600">USA</span>
+            </h2>
+            <p className="mt-4 text-gray-600 text-lg">
+              Explore top universities and their locations at a glance.
             </p>
           </div>
 
-          {/* Courses Grid */}
-          <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {/* Technology Programs */}
-            <div className="bg-white p-10 rounded-3xl border shadow-lg hover:shadow-2xl transition hover:-translate-y-2">
-              <div className="text-4xl mb-4">💻</div>
-
-              <h3 className="text-xl font-semibold text-gray-900">
-                Technology Programs
-              </h3>
-
-              <ul className="mt-4 space-y-2 text-gray-600">
-                <li>● Computer Science</li>
-                <li>● Data Science</li>
-                <li>● Artificial Intelligence</li>
-                <li>● Cybersecurity</li>
-              </ul>
+          {/* TABLE */}
+          <div className="overflow-hidden border border-gray-400 rounded-lg">
+            {/* Header */}
+            <div className="grid md:grid-cols-4 bg-yellow-500 text-black font-semibold">
+              <div className="p-4 border-r border-gray-400 text-center">
+                COLLEGES NAME
+              </div>
+              <div className="p-4 border-r border-gray-400 text-center">
+                LOCATION
+              </div>
+              <div className="p-4 border-r border-gray-400 text-center">
+                NATIONAL RANKING
+              </div>
+              <div className="p-4 text-center">WORLD RANKING</div>
             </div>
 
-            {/* Business Programs */}
-            <div className="bg-white p-10 rounded-3xl border shadow-lg hover:shadow-2xl transition hover:-translate-y-2">
-              <div className="text-4xl mb-4">📊</div>
+            {/* Rows */}
+            {[
+              {
+                name: "University College Dublin",
+                location: "Dublin",
+                national: "126th",
+                world: "201–250th",
+              },
+              {
+                name: "Trinity College Dublin",
+                location: "Dublin",
+                national: "87th",
+                world: "139th",
+              },
+              {
+                name: "University College Cork",
+                location: "Cork",
+                national: "3rd",
+                world: "273rd",
+              },
+              {
+                name: "University of Galway",
+                location: "Galway",
+                national: "1st",
+                world: "289th",
+              },
+              {
+                name: "Dublin City University",
+                location: "Dublin",
+                national: "5th",
+                world: "421st",
+              },
+              {
+                name: "University of Limerick",
+                location: "Limerick",
+                national: "145th",
+                world: "421st",
+              },
+              {
+                name: "Maynooth University",
+                location: "Maynooth",
+                national: "801–850th",
+                world: "5th",
+              },
+            ].map((row, i) => (
+              <div
+                key={i}
+                className={`grid md:grid-cols-4 border-t border-gray-400 ${
+                  i % 2 === 0 ? "bg-gray-200" : "bg-white"
+                }`}
+              >
+                {/* College */}
+                <div className="p-4 border-r border-gray-400 font-semibold text-gray-900 text-center">
+                  {row.name}
+                </div>
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                Business Programs
-              </h3>
+                {/* Location */}
+                <div className="p-4 border-r border-gray-400 text-gray-800 text-center">
+                  {row.location}
+                </div>
 
-              <ul className="mt-4 space-y-2 text-gray-600">
-                <li>● MBA</li>
-                <li>● Business Analytics</li>
-                <li>● International Business</li>
-                <li>● Finance</li>
-              </ul>
-            </div>
+                {/* National Ranking */}
+                <div className="p-4 border-r border-gray-400 text-gray-800 text-center">
+                  {row.national}
+                </div>
 
-            {/* Other Programs */}
-            <div className="bg-white p-10 rounded-3xl border shadow-lg hover:shadow-2xl transition hover:-translate-y-2">
-              <div className="text-4xl mb-4">🎓</div>
-
-              <h3 className="text-xl font-semibold text-gray-900">
-                Other Popular Programs
-              </h3>
-
-              <ul className="mt-4 space-y-2 text-gray-600">
-                <li>● Pharmaceutical Sciences</li>
-                <li>● Biotechnology</li>
-                <li>● Engineering</li>
-              </ul>
-            </div>
+                {/* World Ranking */}
+                <div className="p-4 text-gray-800 text-center">{row.world}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -248,7 +724,7 @@ export default function StudyIreland() {
       {/* INTAKES IN IRELAND */}
       <section
         id="intakes"
-        className="py-28 bg-gradient-to-b from-white via-blue-50 to-white"
+        className="pt-7 pb-10 bg-gradient-to-b from-white via-blue-50 to-white"
       >
         <div className="max-w-7xl mx-auto px-6">
           {/* Heading */}
@@ -265,7 +741,7 @@ export default function StudyIreland() {
           {/* Intake Cards */}
           <div className="mt-20 grid md:grid-cols-2 gap-10">
             {/* September Intake */}
-            <div className="relative p-10 rounded-3xl bg-white border shadow-lg hover:shadow-2xl transition hover:-translate-y-2">
+            <div className="relative p-10 rounded-3xl bg-yellow-200 border shadow-lg hover:shadow-2xl transition hover:-translate-y-2">
               <div className="absolute -top-5 left-8 bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
                 Main Intake
               </div>
@@ -282,7 +758,7 @@ export default function StudyIreland() {
             </div>
 
             {/* January Intake */}
-            <div className="p-10 rounded-3xl bg-white border shadow-lg hover:shadow-2xl transition hover:-translate-y-2">
+            <div className="p-10 rounded-3xl bg-yellow-200 border shadow-lg hover:shadow-2xl transition hover:-translate-y-2">
               <div className="text-4xl mb-4">📚</div>
 
               <h3 className="text-2xl font-semibold text-gray-900">
@@ -296,7 +772,7 @@ export default function StudyIreland() {
           </div>
 
           {/* Timeline Banner */}
-          <div className="mt-20 bg-gradient-to-r from-green-600 to-emerald-500 text-white rounded-3xl p-12 text-center shadow-xl">
+          <div className="mt-20 bg-gradient-to-r from-blue-600 to-emerald-500 text-white rounded-3xl p-12 text-center shadow-xl">
             <h3 className="text-2xl font-semibold">Application Timeline</h3>
 
             <p className="mt-6 text-lg opacity-90">
@@ -308,251 +784,1123 @@ export default function StudyIreland() {
         </div>
       </section>
 
-      {/* ELIGIBILITY REQUIREMENTS */}
+      {/* OUR PROCESS */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4">
+        {/* Heading */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Our <span className="text-blue-500">Process</span>
+          </h2>
+
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            A complete roadmap designed to guide you through every step of your
+            international education journey.
+          </p>
+        </div>
+
+        {/* Timeline */}
+        <div className="relative">
+          {/* Center Line */}
+          <div className="absolute left-1/2 top-0 w-[3px] bg-gradient-to-b from-blue-200 via-blue-500 to-blue-800 h-full transform -translate-x-1/2 blur-[0.5px]"></div>
+
+          {steps.map((step, index) => {
+            const isLeft = index % 2 === 0;
+
+            return (
+              <div
+                key={index}
+                className={`flex items-center mb-14 ${
+                  isLeft ? "flex-row" : "flex-row-reverse"
+                }`}
+              >
+                {/* Content Box */}
+                <div className="w-1/2 px-4">
+                  <div
+                    className={`relative rounded-2xl px-6 py-5 text-white shadow-xl transition-all duration-500 
+              hover:scale-[1.04] hover:shadow-2xl backdrop-blur-lg border border-white/20
+
+              ${
+                index % 3 === 0
+                  ? "bg-yellow-500"
+                  : index % 3 === 1
+                    ? "bg-yellow-500"
+                    : "bg-yellow-500"
+              }`}
+                  >
+                    {/* Glow Border Effect */}
+                    <div className="absolute inset-0 rounded-2xl bg-white/10 opacity-0 hover:opacity-100 transition duration-500"></div>
+
+                    {/* Title */}
+                    <h4 className="font-semibold text-black text-lg relative z-10">
+                      {step.title}
+                    </h4>
+
+                    {/* Detail */}
+                    <p className="text-md text-blue-900 opacity-90 mt-2 leading-relaxed relative z-10">
+                      {step.detail}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step Circle */}
+                <div className="relative z-10 group">
+                  <div
+                    className="w-14 h-14 flex items-center justify-center rounded-full 
+              border-4 border-blue-400 bg-white font-bold text-blue-600 shadow-lg
+              transition duration-300 group-hover:scale-110 group-hover:shadow-blue-300"
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+
+                  {/* Glow Effect */}
+                  <div
+                    className="absolute inset-0 rounded-full bg-blue-400 opacity-30 blur-xl 
+              scale-150 z-[-1] animate-pulse"
+                  ></div>
+                </div>
+
+                {/* Empty side */}
+                <div className="w-1/2"></div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* eligibility */}
       <section
         id="eligibility"
-        className="py-28 bg-gradient-to-b from-white via-blue-50 to-white"
+        className="pt-0 pb-10 bg-gradient-to-b from-white via-blue-50 to-white"
       >
-        <div className="max-w-7xl mx-auto px-6">
-          {/* Heading */}
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Main Container */}
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-12 shadow-2xl text-center text-white relative overflow-hidden">
+            {/* Background Glow */}
+            <div className="absolute -top-20 -left-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+
+            {/* Heading */}
+            <h2 className="text-4xl md:text-5xl font-bold">
               Eligibility Requirements to Study in{" "}
-              <span className="text-blue-600">Ireland</span>
+              <span className="text-white-600">Ireland</span>
             </h2>
 
-            <p className="mt-6 text-lg text-gray-600">
+            <p className="mt-6 text-lg opacity-90 max-w-3xl mx-auto">
               Admission requirements depend on the course and university.
             </p>
-          </div>
 
-          {/* Requirement Cards */}
-          <div className="mt-20 grid md:grid-cols-2 gap-10">
-            {/* Academic Requirements */}
-            <div className="p-10 rounded-3xl bg-white border shadow-lg hover:shadow-2xl transition hover:-translate-y-2">
-              <div className="text-4xl mb-4">🎓</div>
+            {/* Tabs */}
+            <div className="mt-10 flex flex-wrap justify-center gap-6">
+              <button
+                onClick={() => setTab("academic")}
+                className={`px-8 py-3 rounded-full font-semibold transition duration-300 ${
+                  tab === "academic"
+                    ? "bg-white text-blue-600 shadow-xl scale-105"
+                    : "bg-white/20 text-white hover:bg-white/30"
+                }`}
+              >
+                🎓 Academic Requirements
+              </button>
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                Academic Requirements
-              </h3>
+              <button
+                onClick={() => setTab("language")}
+                className={`px-8 py-3 rounded-full font-semibold transition duration-300 ${
+                  tab === "language"
+                    ? "bg-white text-blue-600 shadow-xl scale-105"
+                    : "bg-white/20 text-white hover:bg-white/30"
+                }`}
+              >
+                🌎 English Language Proficiency
+              </button>
 
-              <p className="mt-4 text-gray-600">
-                Students applying for postgraduate programs must hold a
-                recognized bachelor’s degree.
-              </p>
+              {/* <button
+                onClick={() => setTab("tests")}
+                className={`px-8 py-3 rounded-full font-semibold transition duration-300 ${tab === "tests"
+                  ? "bg-white text-blue-600 shadow-xl scale-105"
+                  : "bg-white/20 text-white hover:bg-white/30"
+                  }`}
+              >
+                📝 Standardized Tests
+              </button> */}
             </div>
 
-            {/* English Language */}
-            <div className="p-10 rounded-3xl bg-white border shadow-lg hover:shadow-2xl transition hover:-translate-y-2">
-              <div className="text-4xl mb-4">🌍</div>
+            {/* Content Card */}
+            <div className="mt-12 bg-white rounded-3xl p-10 shadow-xl text-gray-700">
+              {tab === "academic" && (
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <img
+                    src="/image/academic-qualification.jpg"
+                    className="rounded-2xl shadow-lg w-full h-60 object-cover"
+                  />
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                English Language Proficiency
-              </h3>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-gray-900">
+                      Academic Requirements
+                    </h3>
 
-              <p className="mt-4 text-gray-600">
+                    <p className="mt-4 space-y-3">
+                      Students applying for postgraduate programs must hold a
+                      recognized bachelor’s degree.
+                    </p>
+
+                    {/* <ul className="mt-4 space-y-3">
+                      <li>• Undergraduate: Completion of secondary school</li>
+
+                      <li>
+                        • Graduate: A bachelor’s degree from an accredited
+                        institution
+                      </li>
+                    </ul> */}
+                  </div>
+                </div>
+              )}
+
+              {tab === "language" && (
+                <div>
+                  <h3 className="text-2xl font-semibold text-gray-900">
+                    English Language Proficiency
+                  </h3>
+                  <p className="mt-4 text-gray-600">
+                    International students must demonstrate English proficiency
+                    through exams such as:
+                  </p>
+
+                  <ul className="mt-4 space-y-3">
+                    <li>● International English Language Testing System</li>
+                    <li>● Test of English as a Foreign Language</li>
+                  </ul>
+                </div>
+              )}
+
+              {/* {tab === "tests" && (
+                <div>
+                  <h3 className="text-2xl font-semibold text-gray-900">
+                    Standardized Tests
+                  </h3>
+                   <p className="mt-4 text-gray-600">
                 International students must demonstrate English proficiency
                 through exams such as:
               </p>
 
-              <ul className="mt-4 space-y-2 text-gray-600">
-                <li>● International English Language Testing System</li>
-                <li>● Test of English as a Foreign Language</li>
-              </ul>
+                  <ul className="mt-4 space-y-3">
+                    <li>• Graduate Record Examination</li>
+                    <li>• Graduate Management Admission Test</li>
+                  </ul>
+                </div>
+              )} */}
             </div>
           </div>
         </div>
       </section>
 
-      {/* COST OF STUDYING IN IRELAND */}
+      {/* COST */}
       <section
         id="fees"
-        className="py-28 bg-gradient-to-b from-white via-blue-50 to-white"
+        className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-6">
+        {/* Animated Background Lights */}
+        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-blue-400/30 blur-[120px] rounded-full animate-float"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-400/30 blur-[120px] rounded-full animate-float delay-2000"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Heading */}
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Cost of Studying in{" "}
-              <span className="text-blue-600">Ireland</span>
+              Cost of Studying in <span className="text-blue-600">Ireland</span>
             </h2>
+
+            <p className="mt-6 text-lg text-gray-600">
+              The cost of studying in the Ireland depends on the university,
+              location, and program.
+            </p>
           </div>
 
-          {/* Cost Cards */}
-          <div className="mt-20 grid lg:grid-cols-2 gap-10">
+          {/* Cards */}
+          <div className="mt-20 grid lg:grid-cols-2 gap-12">
             {/* Tuition Fees */}
-            <div className="bg-white p-10 rounded-3xl border shadow-lg hover:shadow-2xl transition">
-              <div className="text-4xl mb-4">🎓</div>
+            <div className="group relative p-10 rounded-3xl bg-white/70 backdrop-blur-xl border border-blue-200 shadow-xl hover:shadow-2xl transition duration-500 overflow-hidden">
+              {/* Animated gradient border */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500 via-indigo-500 to-sky-400 opacity-0 group-hover:opacity-100 blur-sm"></div>
 
-              <h3 className="text-2xl font-semibold text-gray-900">
-                Tuition Fees
-              </h3>
+              {/* inner content wrapper */}
+              <div className="relative bg-white/90 rounded-3xl p-8 z-10">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-6 group-hover:text-blue-600 transition">
+                  Tuition Fees
+                </h3>
 
-              <div className="mt-6 space-y-4 text-gray-600">
-                <div className="flex justify-between bg-green-50 p-4 rounded-xl">
-                  <span>Undergraduate Programs</span>
-                  <span className="font-semibold text-green-600">
-                    €10,000 – €25,000
-                  </span>
-                </div>
+                {/* pricing cards */}
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="relative p-6 rounded-xl bg-gradient-to-br from-blue-50 to-white shadow-md hover:shadow-xl transition hover:-translate-y-1">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-blue-500 rounded-t-xl"></div>
 
-                <div className="flex justify-between bg-green-50 p-4 rounded-xl">
-                  <span>Master’s Programs</span>
-                  <span className="font-semibold text-green-600">
-                    €12,000 – €30,000
-                  </span>
+                    <h4 className="text-lg font-semibold text-gray-900">
+                      Undergraduate Programs
+                    </h4>
+
+                    <p className="mt-3 text-blue-600 font-bold text-2xl">
+                      €10,000 – €25,000
+                    </p>
+
+                    <p className="text-gray-500 text-sm mt-1">per year</p>
+                  </div>
+
+                  <div className="relative p-6 rounded-xl bg-gradient-to-br from-indigo-50 to-white shadow-md hover:shadow-xl transition hover:-translate-y-1">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-indigo-500 rounded-t-xl"></div>
+
+                    <h4 className="text-lg font-semibold text-gray-900">
+                      Master’s Programs
+                    </h4>
+
+                    <p className="mt-3 text-indigo-600 font-bold text-2xl">
+                      €12,000 – €30,000
+                    </p>
+
+                    <p className="text-gray-500 text-sm mt-1">per year</p>
+                  </div>
                 </div>
               </div>
-
-              <p className="text-sm text-gray-500 mt-3">per year</p>
             </div>
 
             {/* Living Expenses */}
-            <div className="bg-white p-10 rounded-3xl border shadow-lg hover:shadow-2xl transition">
-              <div className="text-4xl mb-4">🏠</div>
+            <div className="group relative p-10 rounded-3xl bg-white/70 backdrop-blur-xl border border-indigo-200 shadow-xl hover:shadow-2xl transition duration-500 overflow-hidden">
+              {/* animated gradient border */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-400 opacity-0 group-hover:opacity-100 blur-sm"></div>
 
-              <h3 className="text-2xl font-semibold text-gray-900">
-                Living Expenses
-              </h3>
+              <div className="relative bg-white/90 rounded-3xl p-8 z-10">
+                <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-indigo-600 transition">
+                  Living Expenses
+                </h3>
 
-              <p className="mt-6 text-gray-600">
-                International students generally spend around
-              </p>
-
-              <div className="mt-8 bg-green-50 rounded-xl p-6 text-center">
-                <p className="text-3xl font-bold text-green-600">
-                  €10,000 – €12,000
+                <p className="mt-6 text-gray-600 leading-relaxed">
+                  International students generally spend around
                 </p>
 
-                <p className="text-gray-500 mt-1">per year</p>
-              </div>
+                {/* highlighted price */}
+                <div className="mt-8 relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-200 via-blue-200 to-purple-200 blur-xl opacity-60 rounded-xl"></div>
 
-              <p className="mt-6 text-gray-600">
-                on accommodation, food, transportation, and personal expenses.
-              </p>
+                  <div className="relative bg-white rounded-xl p-6 text-center shadow-lg">
+                    <p className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
+                      €10,000 – €12,000
+                    </p>
+
+                    <p className="text-gray-500 mt-1">per year</p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+
+        {/* Animation */}
+        <style jsx>{`
+          @keyframes float {
+            0% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-40px);
+            }
+            100% {
+              transform: translateY(0px);
+            }
+          }
+
+          .animate-float {
+            animation: float 14s ease-in-out infinite;
+          }
+
+          .delay-2000 {
+            animation-delay: 2s;
+          }
+        `}</style>
+      </section>
+
+      {/* fees */}
+      <section className="pt-6 pb-10 bg-gray-100">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Heading */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-black mb-10">
+              Study in Ireland{" "}
+              <span className="text-blue-600">Fee Structure 2026</span>
+            </h2>
+          </div>
+
+          {/* Table */}
+          <div className="overflow-hidden border border-gray-400 rounded-lg">
+            {/* Header */}
+            <div className="grid md:grid-cols-3 bg-yellow-500 text-black font-bold">
+              <div className="p-4 border-r border-gray-400">DEGREE TYPE</div>
+              <div className="p-4 border-r border-gray-400">
+                APPROX. FEES IN (EUR)
+              </div>
+              <div className="p-4">APPROX. FEES IN (INR)</div>
+            </div>
+
+            {/* Rows */}
+            {[
+              {
+                type: "section",
+                title: "Tuition Fees For EU/EEA Students",
+              },
+              {
+                type: "data",
+                degree: "Undergraduate and Doctoral",
+                eur: "3,000 – 30,000 EUR",
+                inr: "₹3,00,540 – ₹30,05,250",
+              },
+              {
+                type: "section",
+                title: "Tuition Fees For Non-EU/EEA Students",
+              },
+              {
+                type: "data",
+                degree: "Undergraduate Degree",
+                eur: "9,850 – 55,000 EUR",
+                inr: "₹9,86,841 – ₹55,09,240",
+              },
+              {
+                type: "data",
+                degree: "Master’s and PhD Degrees",
+                eur: "9,950 – 35,000 EUR",
+                inr: "₹9,96,800 – ₹35,06,335",
+              },
+            ].map((row, i) =>
+              row.type === "section" ? (
+                // Section Row (Full Width)
+                <div
+                  key={i}
+                  className="grid md:grid-cols-3 border-t border-gray-400 bg-gray-300"
+                >
+                  <div className="p-4 font-semibold text-gray-900 col-span-3">
+                    {row.title}
+                  </div>
+                </div>
+              ) : (
+                // Normal Row
+                <div
+                  key={i}
+                  className={`grid md:grid-cols-3 border-t border-gray-400 ${
+                    i % 2 === 0 ? "bg-gray-200" : "bg-white"
+                  }`}
+                >
+                  {/* Degree */}
+                  <div className="p-4 border-r border-gray-400 font-semibold text-gray-900">
+                    {row.degree}
+                  </div>
+
+                  {/* EUR */}
+                  <div className="p-4 border-r border-gray-400 text-gray-800">
+                    {row.eur}
+                  </div>
+
+                  {/* INR */}
+                  <div className="p-4 text-gray-800">{row.inr}</div>
+                </div>
+              ),
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Cost of Living in Ireland */}
+      <section className="pt-4 pb-10 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
+        {/* Background Glow */}
+        <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-300/20 blur-3xl rounded-full"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-300/20 blur-3xl rounded-full"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Heading */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900">
+              Cost of <span className="text-blue-600">Living in Irelans</span>
+            </h2>
+            <p className="mt-4 text-gray-600 text-lg">
+              Estimated expenses for international students in the Ireland.
+            </p>
+          </div>
+
+          {/* Table */}
+          <div className="overflow-hidden border border-gray-400 rounded-lg">
+            {/* Header */}
+            <div className="grid md:grid-cols-3 bg-yellow-500 text-black font-semibold">
+              <div className="p-4 border-r border-gray-400 text-lg">
+                EXPENSES TYPE
+              </div>
+              <div className="p-4 border-r border-gray-400 text-lg">
+                APPROX. MONTHLY COST (EUR)
+              </div>
+              <div className="p-4 text-lg">APPROX. MONTHLY COST (INR)</div>
+            </div>
+
+            {/* Rows */}
+            {[
+              {
+                title: "Food",
+                eur: "€250 – €400",
+                inr: "₹25,083 – ₹40,126",
+              },
+              {
+                title: "Accommodation",
+                eur: "€500 – €1,200",
+                inr: "₹50,145 – ₹1,20,354",
+              },
+              {
+                title: "Transportation",
+                eur: "€100 – €150",
+                inr: "₹10,029 – ₹15,044",
+              },
+              {
+                title: "Utilities & Internet",
+                eur: "€80 – €150",
+                inr: "₹8,024 – ₹15,044",
+              },
+              {
+                title: "Books & Supplies",
+                eur: "€75 – €100",
+                inr: "₹7,524 – ₹10,037",
+              },
+              {
+                title: "Leisure & Personal Expenses",
+                eur: "€100 – €200",
+                inr: "₹10,037 – ₹20,064",
+              },
+            ].map((row, i) => (
+              <div
+                key={i}
+                className={`grid md:grid-cols-3 border-t border-gray-400 ${
+                  i % 2 === 0 ? "bg-gray-200" : "bg-white"
+                }`}
+              >
+                {/* Expense */}
+                <div className="p-4 border-r border-gray-400 font-semibold text-gray-900">
+                  {row.title}
+                </div>
+
+                {/* EUR */}
+                <div className="p-4 border-r border-gray-400 text-gray-800">
+                  {row.eur}
+                </div>
+
+                {/* INR */}
+                <div className="p-4 text-gray-800">{row.inr}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* SCHOLARSHIPS IN IRELAND */}
-      <section className="py-28 bg-gradient-to-b from-white via-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <section
+        id="scholarships"
+        className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
+      >
+        {/* Background glow */}
+        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-blue-300/30 blur-[120px] rounded-full animate-float"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-300/30 blur-[120px] rounded-full animate-float delay-2000"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Heading */}
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
               Scholarships in <span className="text-blue-600">Ireland</span>
             </h2>
+
+            <p className="mt-6 text-lg text-gray-600">
+              Ireland offers scholarships to international students to support
+              tuition fees and living expenses.
+            </p>
           </div>
 
-          <div className="mt-20 max-w-3xl mx-auto">
-            <div className="bg-white rounded-3xl border shadow-lg p-10 text-center hover:shadow-2xl transition hover:-translate-y-2">
-              <div className="text-4xl mb-4">🎓</div>
+          {/* ✅ SINGLE CENTER CARD */}
+          <div className="mt-20 flex justify-center">
+            <div className="group relative rounded-3xl p-[2px] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 w-full max-w-xl transition duration-300 hover:scale-[1.02]">
+              <div className="bg-white rounded-3xl p-10 h-full shadow-xl overflow-hidden relative">
+                {/* hover glow */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 
+            bg-gradient-to-br from-blue-100/40 via-indigo-100/20 to-purple-100/30"
+                ></div>
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                Government of Ireland International Education Scholarship
-              </h3>
+                <div className="relative z-10 text-center">
+                  {/* Icon */}
+                  <div
+                    className="w-16 h-16 mx-auto mb-5 flex items-center justify-center 
+              bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full text-2xl shadow-lg 
+              group-hover:scale-110 transition"
+                  >
+                    🎓
+                  </div>
 
-              <p className="mt-4 text-gray-600">
-                Students may apply for scholarships such as the Government of
-                Ireland International Education Scholarship.
-              </p>
+                  {/* Title */}
+                  <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition">
+                    Government of Ireland International Education Scholarship
+                  </h3>
 
-              <p className="mt-4 text-gray-600">
-                These scholarships may cover tuition fees and living expenses.
+                  {/* Details */}
+                  <div className="mt-4">
+                    <p className="mt-4 text-gray-600">
+                      Students may apply for scholarships such as the Government
+                      of Ireland International Education Scholarship.
+                    </p>
+
+                    <p className="mt-4 text-gray-600">
+                      These scholarships may cover tuition fees and living
+                      expenses.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Info Box */}
+          <div className="mt-20 relative bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white rounded-3xl p-12 text-center shadow-2xl overflow-hidden">
+            <div className="absolute -top-10 -left-10 w-72 h-72 bg-white/10 blur-3xl rounded-full animate-float"></div>
+            <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 blur-3xl rounded-full animate-float delay-2000"></div>
+
+            <div className="relative z-10">
+              <p className="text-lg max-w-3xl mx-auto">
+                Scholarships help reduce financial burden and make studying in
+                Ireland more accessible for international students.
               </p>
             </div>
           </div>
         </div>
+
+        {/* Animation */}
+        <style jsx>{`
+          @keyframes float {
+            0% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-40px);
+            }
+            100% {
+              transform: translateY(0px);
+            }
+          }
+
+          .animate-float {
+            animation: float 14s ease-in-out infinite;
+          }
+
+          .delay-2000 {
+            animation-delay: 2s;
+          }
+        `}</style>
       </section>
 
-      {/* WORK OPPORTUNITIES IN IRELAND */}
-      <section className="py-28 bg-gradient-to-b from-white via-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* Work Opportunities */}
+      <section
+        id="jobs"
+        className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
+      >
+        {/* Background glow */}
+        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-blue-300/30 blur-[120px] rounded-full animate-float"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-300/30 blur-[120px] rounded-full animate-float delay-2000"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Heading */}
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Work Opportunities in{" "}
-              <span className="text-blue-600">Ireland</span>
+              Work Opportunities for Students in
+              <span className="text-blue-600"> Ireland</span>
             </h2>
+
+            <p className="mt-6 text-lg text-gray-600">
+              International students are allowed to work while studying in the
+              Ireland.
+            </p>
           </div>
 
-          <div className="mt-20 grid md:grid-cols-2 gap-10">
-            {/* Part Time */}
-            <div className="bg-white rounded-3xl border shadow-lg p-10 hover:shadow-2xl transition hover:-translate-y-2">
-              <div className="text-4xl mb-4">💼</div>
+          {/* Cards */}
+          <div className="mt-20 grid md:grid-cols-2 gap-12">
+            {/* Part-Time Work */}
+            <div className="group relative rounded-3xl p-[2px] bg-gradient-to-r from-blue-500 via-indigo-500 to-sky-400 hover:scale-[1.02] transition duration-300">
+              <div className="bg-white rounded-3xl p-10 shadow-xl h-full relative overflow-hidden">
+                {/* hover glow */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 
+          bg-gradient-to-br from-blue-100/40 via-indigo-100/20 to-sky-100/30"
+                ></div>
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                Part-Time Work
-              </h3>
+                <div className="relative z-10">
+                  {/* icon */}
+                  <div
+                    className="w-16 h-16 mb-6 flex items-center justify-center 
+            bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-2xl text-2xl shadow-lg 
+            group-hover:scale-110 transition"
+                  >
+                    💼
+                  </div>
 
-              <p className="mt-4 text-gray-600">
-                International students are allowed to work
-                <span className="font-semibold"> 20 hours per week </span>
-                during their studies.
-              </p>
+                  {/* title */}
+                  <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-blue-600 transition">
+                    Part-Time Work
+                  </h3>
+
+                  {/* divider */}
+                  <div className="mt-3 w-12 h-1 bg-blue-600 rounded-full group-hover:w-20 transition-all duration-300"></div>
+
+                  {/* content */}
+                  <p className="mt-6 text-gray-600 leading-relaxed">
+                    International students are allowed to work 20 hours per week
+                    during their studies.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            {/* Post Study */}
-            <div className="bg-white rounded-3xl border shadow-lg p-10 hover:shadow-2xl transition hover:-translate-y-2">
-              <div className="text-4xl mb-4">🚀</div>
+            {/* Post Study Work */}
+            <div className="group relative rounded-3xl p-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-400 hover:scale-[1.02] transition duration-300">
+              <div className="bg-white rounded-3xl p-10 shadow-xl h-full relative overflow-hidden">
+                {/* hover glow */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 
+          bg-gradient-to-br from-indigo-100/40 via-blue-100/20 to-purple-100/30"
+                ></div>
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                Post Study Work Opportunities
-              </h3>
+                <div className="relative z-10">
+                  {/* icon */}
+                  <div
+                    className="w-16 h-16 mb-6 flex items-center justify-center 
+            bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-2xl text-2xl shadow-lg 
+            group-hover:scale-110 transition"
+                  >
+                    🚀
+                  </div>
 
-              <p className="mt-4 text-gray-600">
-                Graduates can stay in Ireland for
-                <span className="font-semibold"> up to 2 years </span>
-                under the post-study work visa scheme.
-              </p>
+                  {/* title */}
+                  <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-indigo-600 transition">
+                    Post-Study Work Opportunities
+                  </h3>
+
+                  {/* divider */}
+                  <div className="mt-3 w-12 h-1 bg-indigo-600 rounded-full group-hover:w-20 transition-all duration-300"></div>
+
+                  {/* content */}
+                  <p className="mt-6 text-gray-600 leading-relaxed">
+                    Graduates can stay in Ireland for up to 2 years under the
+                    post-study work visa scheme.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-20 relative">
+            {/* line */}
+            <div className="hidden md:block absolute top-8 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-300 via-indigo-400 to-purple-400 opacity-40"></div>
+
+            {/* animated progress line */}
+            <div className="hidden md:block absolute top-8 left-0 h-[3px] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 animate-progress"></div>
+
+            <div className="grid md:grid-cols-4 gap-10 text-center relative z-10">
+              {[
+                {
+                  icon: "🎓",
+                  title: "Study in Ireland",
+                },
+                {
+                  icon: "💼",
+                  title: "Part-Time Work",
+                },
+                {
+                  icon: "🚀",
+                  title: "OPT / Full-Time Job",
+                },
+                {
+                  icon: "🌟",
+                  title: "Career Growth",
+                },
+              ].map((step, i) => (
+                <div key={i} className="group relative">
+                  {/* step circle */}
+                  <div
+                    className="w-16 h-16 mx-auto flex items-center justify-center 
+        bg-gradient-to-r from-blue-500 to-indigo-600 text-white 
+        rounded-full text-2xl shadow-xl 
+        group-hover:scale-110 transition duration-300"
+                  >
+                    {step.icon}
+                  </div>
+
+                  {/* pulse ring */}
+                  <div
+                    className="absolute inset-0 w-16 h-16 mx-auto rounded-full 
+        border-2 border-blue-400 opacity-40 animate-ping"
+                  ></div>
+
+                  {/* title */}
+                  <p className="mt-4 text-sm font-semibold text-gray-700">
+                    {step.title}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
+
+        {/* Animation */}
+        <style jsx>{`
+          @keyframes float {
+            0% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-40px);
+            }
+            100% {
+              transform: translateY(0px);
+            }
+          }
+
+          .animate-float {
+            animation: float 14s ease-in-out infinite;
+          }
+
+          .delay-2000 {
+            animation-delay: 2s;
+          }
+        `}</style>
+
+        <style jsx>{`
+          @keyframes progress {
+            0% {
+              width: 0%;
+            }
+            100% {
+              width: 100%;
+            }
+          }
+
+          .animate-progress {
+            animation: progress 4s ease-in-out forwards;
+          }
+        `}</style>
       </section>
 
-      {/* IRELAND STUDENT VISA */}
-      <section className="py-28 bg-gradient-to-b from-white via-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* visa */}
+      <section
+        id="visa"
+        className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
+      >
+        {/* Background glow */}
+        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-blue-300/30 blur-[120px] rounded-full animate-float"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-300/30 blur-[120px] rounded-full animate-float delay-2000"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Heading */}
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Ireland Student <span className="text-blue-600">Visa</span>
+              Student Visa for <span className="text-blue-600">Ireland</span>
             </h2>
+
+            <p className="mt-6 text-lg text-gray-600">
+              Students who receive admission from a Ireland must apply for the
+              F-1 Student Visa.
+            </p>
           </div>
 
-          <div className="mt-16 max-w-3xl mx-auto">
-            <div className="bg-white border rounded-3xl shadow-lg p-10 text-center hover:shadow-2xl transition hover:-translate-y-2">
-              <div className="text-4xl mb-4">📄</div>
+          {/* Timeline Line */}
+          <div className="relative mt-20">
+            {/* base line */}
+            <div className="hidden lg:block absolute top-8 left-0 right-0 h-[3px] bg-blue-200"></div>
 
-              <p className="text-gray-600 text-lg">
+            {/* animated line */}
+            <div className="hidden lg:block absolute top-8 left-0 h-[3px] bg-gradient-to-r from-blue-500 to-indigo-600 animate-progress"></div>
+
+            {/* Steps */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 relative z-10">
+              {[
+                "Receive admission from a Ireland university",
+                "Receive the I-20 form from the university",
+                "Pay the SEVIS fee",
+                "Complete the DS-160 visa application form",
+                "Schedule and attend the visa interview",
+              ].map((step, i) => (
+                <div
+                  key={i}
+                  className="group relative p-6 bg-white/80 backdrop-blur-lg rounded-3xl border border-blue-100 shadow-lg hover:shadow-2xl hover:-translate-y-3 transition duration-300 text-center"
+                >
+                  {/* step circle */}
+                  <div
+                    className="w-14 h-14 mx-auto flex items-center justify-center 
+            bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full text-lg font-bold shadow-lg 
+            group-hover:scale-110 transition"
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+
+                  {/* pulse ring */}
+                  <div className="absolute inset-0 w-14 h-14 mx-auto rounded-full border-2 border-blue-400 opacity-30 animate-ping"></div>
+
+                  {/* text */}
+                  <p className="mt-4 text-gray-700 text-sm leading-relaxed">
+                    {step}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Important Note */}
+          <div className="mt-20 relative bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white rounded-3xl p-12 text-center shadow-2xl overflow-hidden">
+            {/* glow */}
+            <div className="absolute -top-10 -left-10 w-72 h-72 bg-white/10 blur-3xl rounded-full animate-float"></div>
+            <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 blur-3xl rounded-full animate-float delay-2000"></div>
+
+            <div className="relative z-10">
+              <p className="text-lg max-w-3xl mx-auto">
                 Students admitted to Irish universities must apply for the
-                <span className="font-semibold">
-                  {" "}
-                  Ireland Student Visa (D Study Visa)
-                </span>
-                .
+                Ireland Student Visa (D Study Visa).
               </p>
             </div>
           </div>
         </div>
+
+        {/* Animation */}
+        <style jsx>{`
+          @keyframes float {
+            0% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-40px);
+            }
+            100% {
+              transform: translateY(0px);
+            }
+          }
+
+          .animate-float {
+            animation: float 14s ease-in-out infinite;
+          }
+
+          .delay-2000 {
+            animation-delay: 2s;
+          }
+
+          @keyframes progress {
+            0% {
+              width: 0%;
+            }
+            100% {
+              width: 100%;
+            }
+          }
+
+          .animate-progress {
+            animation: progress 4s ease-in-out forwards;
+          }
+        `}</style>
       </section>
 
-      {/* BOOK FREE CONSULTATION */}
-      <section className="py-28 bg-gradient-to-r from-green-600 to-emerald-500 text-white text-center">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold">
-            Book Free Consultation
-          </h2>
+      {/* Why Choose Beyond Admission */}
+      <section className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">
+        {/*  Background glow */}
+        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-blue-400/40 blur-[150px] rounded-full animate-float"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-300/40 blur-[150px] rounded-full animate-float delay-2000"></div>
 
-          <p className="mt-6 text-lg opacity-90">
-            Speak with our expert counsellors to receive personalized guidance
-            on studying in Ireland.
-          </p>
+        <div className="max-w-4xl mx-auto px-6 relative z-10">
+          {/* Heading */}
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              Why Choose <span className="text-blue-600">Beyond Admission</span>
+            </h2>
 
-          <Link
-            to="/contact"
-            className="inline-block mt-10 px-12 py-4 bg-white text-green-600 rounded-full font-semibold shadow-lg hover:scale-105 transition"
-          >
-            Book Free Counselling
-          </Link>
+            <p className="mt-6 text-lg text-gray-600">
+              Beyond Admission provides expert guidance to help students
+              successfully study abroad.
+            </p>
+          </div>
+
+          {/* Timeline */}
+          <div className="mt-16 relative">
+            {/* Center Line Glow */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-[3px] bg-gradient-to-b from-blue-400 via-indigo-500 to-purple-500 shadow-[0_0_15px_rgba(99,102,241,0.6)]"></div>
+
+            {[
+              {
+                icon: "🎯",
+                title: "Career Counselling",
+                detail:
+                  "Get personalized career guidance based on your academic background, interests, and future goals. Our experts help you choose the right course and country for long-term success.",
+              },
+              {
+                icon: "🏫",
+                title: "University Shortlisting",
+                detail:
+                  "Shortlist top universities based on your profile, budget, preferred location, and career opportunities. We ensure a balanced list of safe, moderate, and dream universities.",
+              },
+              {
+                icon: "📝",
+                title: "Application Assistance",
+                detail:
+                  "Complete support for filling applications, document submission, and meeting deadlines. We ensure error-free applications to maximize your chances of acceptance.",
+              },
+              {
+                icon: "💰",
+                title: "Scholarship Guidance",
+                detail:
+                  "Explore and apply for scholarships, grants, and financial aid options. Our team helps you reduce your overall study cost with the best funding opportunities.",
+              },
+              {
+                icon: "📄",
+                title: "Visa Documentation Support",
+                detail:
+                  "End-to-end assistance for visa filing including documentation, SOP preparation, and mock interviews to ensure a smooth and successful visa approval process.",
+              },
+              {
+                icon: "✈",
+                title: "Pre-Departure Guidance",
+                detail:
+                  "Complete guidance on accommodation, forex exchange, travel arrangements, packing essentials, and settling abroad to make your transition smooth and stress-free.",
+              },
+            ].map((step, i) => (
+              <div
+                key={i}
+                className="relative mb-12 grid grid-cols-2 items-center"
+              >
+                {/* LEFT SIDE */}
+                {i % 2 === 0 ? (
+                  <div className="flex justify-end pr-8">
+                    <div className="group w-full max-w-sm p-[2px] rounded-2xl bg-gradient-to-r from-blue-500 to-indigo-600">
+                      {/* Glass Card */}
+                      <div className="backdrop-blur-xl bg-white/70 rounded-2xl p-5 shadow-xl transition duration-300 group-hover:scale-105 group-hover:shadow-2xl">
+                        {/* Top Row */}
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg shadow-md group-hover:rotate-6 transition duration-300">
+                            {step.icon}
+                          </div>
+
+                          <p className="text-lg font-semibold text-gray-800">
+                            {step.title}
+                          </p>
+                        </div>
+
+                        {/* Detail */}
+                        <p className="text-md text-gray-600 leading-relaxed">
+                          {step.detail}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
+
+                {/* RIGHT SIDE */}
+                {i % 2 !== 0 ? (
+                  <div className="flex justify-start pl-8">
+                    <div className="group w-full max-w-sm p-[2px] rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600">
+                      {/* Glass Card */}
+                      <div className="backdrop-blur-xl bg-white/70 rounded-2xl p-5 shadow-xl transition duration-300 group-hover:scale-105 group-hover:shadow-2xl">
+                        {/* Top Row */}
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg shadow-md group-hover:rotate-6 transition duration-300">
+                            {step.icon}
+                          </div>
+
+                          <p className="text-lg font-semibold text-gray-800">
+                            {step.title}
+                          </p>
+                        </div>
+
+                        {/* Detail */}
+                        <p className="text-md text-gray-600 leading-relaxed">
+                          {step.detail}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
+
+                {/* Center Dot */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full shadow-lg border-2 border-white"></div>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Highlight */}
+          <div className="mt-20 relative bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white rounded-3xl p-10 text-center shadow-xl overflow-hidden">
+            <div className="absolute -top-10 -left-10 w-72 h-72 bg-white/10 blur-3xl rounded-full animate-float"></div>
+            <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 blur-3xl rounded-full animate-float delay-2000"></div>
+
+            <div className="relative z-10">
+              <p className="text-lg max-w-2xl mx-auto">
+                Our experienced counsellors support students throughout the
+                entire admission process.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Animation */}
+        <style jsx>{`
+          @keyframes float {
+            0% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-30px);
+            }
+            100% {
+              transform: translateY(0px);
+            }
+          }
+
+          .animate-float {
+            animation: float 12s ease-in-out infinite;
+          }
+
+          .delay-2000 {
+            animation-delay: 2s;
+          }
+        `}</style>
+      </section>
+      {/* CTA */}
+      <section className="relative pt-6 pb-20 bg-gradient-to-r from-blue-700 to-indigo-800 text-white overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 opacity-20">
+          <img src="/image/usa-bg.png" className="w-full h-full object-cover" />
+        </div>
+
+        {/* Glow Effects */}
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+
+        <div className="relative max-w-5xl mx-auto px-6">
+          {/* Glass Card */}
+          <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-12 md:p-16 text-center shadow-2xl">
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+              Book Free Study Abroad Consultation
+            </h2>
+
+            <p className="mt-6 text-lg opacity-90">
+              Speak with our expert counsellors to receive personalized guidance
+              on studying in Ireland.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="mt-10 flex justify-center gap-6 flex-wrap">
+              <Link
+                to="/contact"
+                className="px-10 py-4 bg-white text-blue-700 font-semibold rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition duration-300 inline-block"
+              >
+                Apply Now
+              </Link>
+
+              <button className="px-10 py-4 border-2 border-white rounded-full font-semibold hover:bg-white hover:text-blue-700 hover:scale-105 transition duration-300">
+                Free Consultation
+              </button>
+            </div>
+          </div>
         </div>
       </section>
     </div>

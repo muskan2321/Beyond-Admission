@@ -1,97 +1,389 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 export default function StudyAustralia() {
+   const [tab, setTab] = useState("academic");
+  const steps = [
+    {
+      title: "Profile Evaluation",
+      detail:
+        "Analyze academic background, achievements, extracurricular activities, and career goals to suggest the best-fit universities and programs. Personalized guidance helps in building a strong application strategy.",
+    },
+    {
+      title: "Prepare Exams",
+      detail:
+        "Prepare for IELTS, TOEFL, GRE, or GMAT based on your target universities. Get expert guidance, mock tests, and strategies to achieve high scores and improve your chances of admission.",
+    },
+    {
+      title: "Shortlist University",
+      detail:
+        "Select universities based on global ranking, tuition fees, scholarships, course curriculum, and future job opportunities. A balanced shortlist ensures higher chances of acceptance.",
+    },
+    {
+      title: "Writing Process (CV, LOR, SOP, Essays)",
+      detail:
+        "Create strong and impactful documents including SOP, LOR, CV, and essays. Highlight your strengths, achievements, and goals effectively to stand out in competitive applications.",
+    },
+    {
+      title: "Applying",
+      detail:
+        "Submit applications through official university portals with complete accuracy. Track deadlines, upload required documents, and ensure error-free submission for maximum success.",
+    },
+    {
+      title: "Offer Letter",
+      detail:
+        "Receive admission offers from universities and compare them based on ranking, ROI, course value, and location to make the best decision for your future.",
+    },
+    {
+      title: "Visa & Loan",
+      detail:
+        "Apply for student visa with proper documentation and guidance. Get assistance in arranging finances, education loans, and preparing for visa interviews confidently.",
+    },
+    {
+      title: "Pre-Departure Services",
+      detail:
+        "Complete guidance for accommodation, forex exchange, flight booking, travel insurance, and essential packing tips to ensure a smooth transition abroad.",
+    },
+    {
+      title: "Post-Departure Services",
+      detail:
+        "Our support continues even after you arrive abroad. We assist with airport pickup, accommodation, local orientation, and university onboarding to ensure a smooth and hassle-free transition.",
+    },
+  ];
+
   return (
     <div className="bg-white font-[Inter]">
       {/* HERO SECTION */}
-      <section className="relative py-32 bg-gradient-to-r from-blue-600 to-indigo-700 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <img src="/image/usa-bg.png" className="w-full h-full object-cover" />
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/image/usa-bg.png"
+            className="w-full h-full object-cover scale-110"
+            alt="Study in USA"
+          />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 text-center">
-          <h1 className="text-6xl font-extrabold">Study in Australia</h1>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
 
-          <p className="mt-6 text-lg max-w-3xl mx-auto opacity-90">
-            Australia is one of the most attractive destinations for
-            international students due to its high-quality education system,
-            modern campuses, and strong employment opportunities.
-          </p>
-
-          <Link
-            to="/contact"
-            className="inline-block mt-10 px-10 py-4 bg-white text-blue-600 font-semibold rounded-full shadow-lg hover:scale-105 transition"
-          >
-            Apply Now
-          </Link>
+        {/* Animated Blobs */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/30 blur-3xl rounded-full animate-blob"></div>
+          <div className="absolute bottom-10 right-10 w-80 h-80 bg-indigo-500/30 blur-3xl rounded-full animate-blob delay-2000"></div>
         </div>
+
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center z-10">
+          {/* LEFT */}
+          <div>
+            <div className="inline-block mb-6 px-5 py-2 bg-white/10 backdrop-blur-md rounded-full text-white text-sm border border-white/20">
+              🎓 Your Global Education Partner
+            </div>
+
+            <h1 className="text-12xl md:text-7xl font-bold text-white leading-tight">
+              Study in{" "}
+              <span className="bg-gradient-to-r from-blue-200 to-indigo-200 bg-clip-text text-transparent">
+                Australia
+              </span>
+            </h1>
+
+            {/*  FIXED TEXT */}
+            <p className="mt-6 text-lg md:text-xl text-white/80 max-w-xl">
+              Australia is one of the most attractive destinations for
+              international students due to its high-quality education system,
+              modern campuses, and strong employment opportunities.
+            </p>
+
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <Link to="/contact">
+                <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full font-semibold shadow-xl hover:scale-105 transition">
+                  Apply Now
+                </button>
+              </Link>
+
+              <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full font-semibold shadow-xl hover:scale-105 transition">
+                {" "}
+                Free Counselling
+              </button>
+            </div>
+          </div>
+
+          {/* RIGHT */}
+          {/* <div className="relative hidden md:block">
+                  <div className="absolute top-10 left-10 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-white shadow-xl animate-float">
+                    🎓 Top Universities
+                  </div>
+      
+                  <div className="absolute top-40 right-0 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-white shadow-xl animate-float delay-2000">
+                    💼 Career Opportunities
+                  </div>
+      
+                  <div className="absolute bottom-10 left-20 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-white shadow-xl animate-float delay-4000">
+                    💰 Scholarships Available
+                  </div>
+                </div> */}
+        </div>
+
+        {/* ✅ FIXED STYLE */}
+        <style>{`
+          @keyframes blob {
+            0%, 100% { transform: translate(0,0) scale(1); }
+            50% { transform: translate(20px,-30px) scale(1.1); }
+          }
+      
+          .animate-blob {
+            animation: blob 10s infinite;
+          }
+      
+          @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+          }
+      
+          .animate-float {
+            animation: float 6s ease-in-out infinite;
+          }
+      
+          .delay-2000 { animation-delay: 2s; }
+          .delay-4000 { animation-delay: 4s; }
+        `}</style>
       </section>
 
-      {/* STUDY IN AUSTRALIA ABOUT SECTION */}
-      <section className="py-28 bg-gradient-to-b from-white via-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 py-10 flex flex-wrap justify-center gap-4">
+        <a
+          href="#why-usa"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Why USA?
+        </a>
+
+        <a
+          href="#Popular Courses"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Popular Courses
+        </a>
+
+        <a
+          href="#Top Universities"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Top Universities
+        </a>
+
+        <a
+          href="#intakes"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Intakes
+        </a>
+
+        <a
+          href="#fees"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Fees & Expenses
+        </a>
+
+        <a
+          href="#eligibility"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Eligibility
+        </a>
+
+        <a
+          href="#scholarships"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Scholarships
+        </a>
+
+        <a
+          href="#jobs"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Jobs
+        </a>
+
+        <a
+          href="#visa"
+          className="px-6 py-2 bg-blue-200 rounded-full hover:bg-red-300"
+        >
+          Visa
+        </a>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 py-10 flex flex-wrap justify-center gap-4 pt-2">
+        <Link
+          to="/ms-australia"
+          className="px-6 py-2 bg-yellow-400 rounded-full hover:bg-blue-300"
+        >
+          MS In Australia
+        </Link>
+
+        <Link
+          to="/mba-australia"
+          className="px-6 py-2 bg-yellow-400 rounded-full hover:bg-blue-300"
+        >
+          MBA In Australia
+        </Link>
+
+        <Link
+          to="/ug-australia"
+          className="px-6 py-2 bg-yellow-400 rounded-full hover:bg-blue-300"
+        >
+          UG In Australia
+        </Link>
+      </div>
+
+      {/* INTRO SECTION */}
+      <section className="relative pt-12 pb-24 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">
+        {/* Animated Background Lights */}
+        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-blue-400/30 rounded-full blur-[120px] animate-float"></div>
+
+        <div className="absolute top-40 -right-40 w-[600px] h-[600px] bg-indigo-400/30 rounded-full blur-[130px] animate-float delay-2000"></div>
+
+        <div className="absolute bottom-0 left-1/2 w-[500px] h-[500px] bg-sky-300/30 rounded-full blur-[120px] animate-float delay-4000"></div>
+
+        {/* Subtle Pattern */}
+        <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#2563eb_1px,transparent_1px)] [background-size:40px_40px]"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Heading */}
-          <div className="text-center max-w-3xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
               Study in <span className="text-blue-600">Australia</span> for
               Indian Students
             </h2>
 
-            <p className="mt-6 text-lg text-gray-600">
+            <p className="mt-4 text-gray-600 text-lg">
               Study in Australia – Universities, Courses, Fees & Visa Guide
             </p>
           </div>
 
-          {/* Content Layout */}
-          <div className="mt-16 grid lg:grid-cols-2 gap-12 items-center">
-            {/* Image */}
-            <div className="relative">
+          {/* Main Grid */}
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+            {/* Image Section */}
+            <div className="relative group">
+              <div className="absolute -inset-2 bg-blue-200/40 blur-2xl rounded-3xl"></div>
+
               <img
                 src="/image/usa-bg.png"
-                className="rounded-3xl shadow-xl w-full h-full object-cover"
+                alt="Study in USA"
+                className="relative rounded-3xl shadow-xl w-full h-[450px] object-cover transition duration-500 group-hover:scale-105"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-tr from-green-600/30 to-transparent rounded-3xl"></div>
+              <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-lg flex justify-between items-center">
+                <div>
+                  <p className="text-sm text-gray-500">Success Rate</p>
+                  <p className="text-3xl font-bold text-blue-600">98%</p>
+                </div>
 
-              {/* Floating Badge */}
-              <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md rounded-xl px-6 py-3 shadow-lg">
-                <p className="text-sm font-semibold text-gray-800">
-                  🌏 Top Study Destination
-                </p>
+                <div className="text-right">
+                  <p className="text-sm text-gray-500">Students Placed</p>
+                  <p className="text-xl font-semibold text-gray-800">15,000+</p>
+                </div>
               </div>
             </div>
 
-            {/* Content Card */}
-            <div className="bg-white rounded-3xl shadow-2xl p-10 md:p-12 border border-gray-100">
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Australia is one of the most attractive destinations for
-                international students due to its high-quality education system,
-                modern campuses, and strong employment opportunities.
-              </p>
+            {/* Content Section */}
+            <div>
+              <div className="bg-white rounded-3xl shadow-xl p-10 border border-gray-100">
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">
+                  Why Choose Australia
+                </h3>
 
-              <p className="mt-6 text-lg text-gray-600 leading-relaxed">
-                Australian universities are known for innovation, research
-                excellence, and strong industry connections.
-              </p>
+                <p className="text-gray-600 leading-relaxed">
+                  Australia is one of the most attractive destinations for
+                  international students due to its high-quality education
+                  system, modern campuses, and strong employment opportunities.
+                  Australian universities are known for innovation, research
+                  excellence, and strong industry connections.
+                </p>
 
-              <p className="mt-6 text-lg text-gray-600 leading-relaxed">
-                Students from all over the world choose Australia for its
-                welcoming environment, excellent quality of life, and globally
-                recognized degrees.
-              </p>
+                <p className="mt-4 text-gray-600 leading-relaxed">
+                  Students from all over the world choose Australia for its
+                  welcoming environment, excellent quality of life, and globally
+                  recognized degrees. Beyond Admission helps students secure
+                  admissions in leading Australian universities by providing
+                  complete guidance on applications, scholarships, and visa
+                  procedures.
+                </p>
+              </div>
 
-              <p className="mt-6 text-lg text-gray-600 leading-relaxed">
-                Beyond Admission helps students secure admissions in leading
-                Australian universities by providing complete guidance on
-                applications, scholarships, and visa procedures.
-              </p>
+              {/* Benefits */}
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                {[
+                  "World-class education",
+                  "Strong career opportunities",
+                  "Global networking",
+                  "Scholarship options",
+                  "Post-study work visa",
+                  "Globally recognized degree",
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 bg-yellow-500 hover:bg-blue-100 transition rounded-xl p-3 text-m font-medium text-black"
+                  >
+                    <span className="text-black font-bold">✓</span>
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex justify-center">
+                <button className="mt-8 px-20 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition">
+                  Start Your Journey
+                </button>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Animation */}
+        <style jsx>{`
+          @keyframes float {
+            0% {
+              transform: translateY(0px) translateX(0px);
+            }
+            50% {
+              transform: translateY(-40px) translateX(20px);
+            }
+            100% {
+              transform: translateY(0px) translateX(0px);
+            }
+          }
+
+          .animate-float {
+            animation: float 14s ease-in-out infinite;
+          }
+
+          .delay-2000 {
+            animation-delay: 2s;
+          }
+
+          .delay-4000 {
+            animation-delay: 4s;
+          }
+        `}</style>
       </section>
 
-      {/* WHY STUDY AUSTRALIA */}
-      <section className="py-28 bg-gradient-to-b from-white via-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* WHY STUDY USA */}
+      <section
+        id="why-usa"
+        className="relative pt-4 pb-28 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
+      >
+        {/* Animated background lights */}
+        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-400/30 blur-[120px] rounded-full animate-float"></div>
+        <div className="absolute top-40 -right-40 w-[600px] h-[600px] bg-indigo-400/30 blur-[130px] rounded-full animate-float delay-2000"></div>
+        <div className="absolute bottom-0 left-1/3 w-[500px] h-[500px] bg-sky-300/30 blur-[120px] rounded-full animate-float delay-4000"></div>
+
+        {/* subtle grid */}
+        <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(#2563eb_1px,transparent_1px)] [background-size:40px_40px]"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Heading */}
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
@@ -103,123 +395,232 @@ export default function StudyAustralia() {
             </p>
           </div>
 
-          {/* Benefits Grid */}
-          <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {/* Globally Ranked Universities */}
-            <div className="p-8 rounded-3xl bg-white shadow-lg hover:shadow-2xl transition">
-              <div className="text-4xl mb-4">🎓</div>
+          {/* Benefits */}
+          <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Card */}
+            <div className="group relative p-8 rounded-3xl bg-yellow-200 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-400/20 via-indigo-400/20 to-sky-400/20"></div>
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                Globally Ranked Universities
-              </h3>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition">
+                  🎓
+                </div>
 
-              <p className="mt-3 text-gray-600">
-                Australia is home to several universities ranked among the best
-                in the world.
-              </p>
+                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition">
+                  Globally Ranked Universities
+                </h3>
 
-              <p className="mt-4 font-semibold text-gray-800">
-                Some leading universities include:
-              </p>
+                <p className="mt-3 text-gray-600">
+                  Australia is home to several universities ranked among the
+                  best in the world.
+                </p>
 
-              <ul className="mt-3 space-y-2 text-gray-600">
-                <li>● University of Melbourne</li>
-                <li>● University of Sydney</li>
-                <li>● Australian National University</li>
-              </ul>
+                <p className="mt-4 font-semibold text-gray-800">
+                  Some leading universities include:
+                </p>
+
+                <ul className="mt-3 space-y-2 text-gray-600">
+                  <li>● University of Melbourne</li>
+                  <li>● University of Sydney</li>
+                  <li>● Australian National University</li>
+                </ul>
+              </div>
             </div>
 
             {/* High Quality of Life */}
-            <div className="p-8 rounded-3xl bg-white shadow-lg hover:shadow-2xl transition">
-              <div className="text-4xl mb-4">🌏</div>
+            <div className="group relative p-8 rounded-3xl bg-yellow-200 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-400/20 via-indigo-400/20 to-sky-400/20"></div>
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                High Quality of Life
-              </h3>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition">
+                  🌏
+                </div>
 
-              <p className="mt-3 text-gray-600">
-                Australia offers a safe environment with modern infrastructure
-                and a multicultural society.
-              </p>
+                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition">
+                  High Quality of Life
+                </h3>
+
+                <p className="mt-3 text-gray-600">
+                  Australia offers a safe environment with modern infrastructure
+                  and a multicultural society.
+                </p>
+              </div>
             </div>
 
             {/* Work Opportunities */}
-            <div className="p-8 rounded-3xl bg-white shadow-lg hover:shadow-2xl transition">
-              <div className="text-4xl mb-4">💼</div>
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                Work Opportunities
-              </h3>
+            <div className="group relative p-8 rounded-3xl bg-yellow-200 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-400/20 via-indigo-400/20 to-sky-400/20"></div>
 
-              <p className="mt-3 text-gray-600">
-                Students can gain practical experience through part-time jobs
-                and internships while studying in Australia.
-              </p>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition">
+                  💼
+                </div>
+
+                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition">
+                  Work Opportunities
+                </h3>
+
+                <p className="mt-3 text-gray-600">
+                  Students can gain practical experience through part-time jobs
+                  and internships while studying in Australia.
+                </p>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Animation */}
+        <style jsx>{`
+          @keyframes float {
+            0% {
+              transform: translateY(0px) translateX(0px);
+            }
+            50% {
+              transform: translateY(-40px) translateX(20px);
+            }
+            100% {
+              transform: translateY(0px) translateX(0px);
+            }
+          }
+
+          .animate-float {
+            animation: float 14s ease-in-out infinite;
+          }
+
+          .delay-2000 {
+            animation-delay: 2s;
+          }
+
+          .delay-4000 {
+            animation-delay: 4s;
+          }
+        `}</style>
       </section>
 
-      {/* POPULAR COURSES IN AUSTRALIA */}
-      <section className="py-28 bg-gradient-to-b from-white via-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-6">
-          {/* Heading */}
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Popular Courses in{" "}
-              <span className="text-blue-600">Australia</span>
-            </h2>
-          </div>
+      {/* POPULAR COURSES */}
+      <section
+        id="Popular Courses"
+        className="pt-4 pb-16 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden"
+      >
+        {/* Background Glow */}
+        <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-300/20 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-orange-300/20 rounded-full blur-3xl"></div>
 
-          {/* Courses Grid */}
-          <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {/* Engineering */}
-            <div className="bg-white p-10 rounded-3xl border shadow-lg hover:shadow-2xl transition hover:-translate-y-2 text-center">
-              <div className="text-4xl mb-4">⚙️</div>
-              <h3 className="text-xl font-semibold text-gray-900">
-                Engineering and Technology
-              </h3>
-            </div>
+        <div className="max-w-7xl mx-auto px-6 relative">
+          <h2 className="text-4xl font-bold text-center mb-16">
+            Popular Courses in <span className="text-blue-500">Australia</span>
+          </h2>
 
-            {/* IT */}
-            <div className="bg-white p-10 rounded-3xl border shadow-lg hover:shadow-2xl transition hover:-translate-y-2 text-center">
-              <div className="text-4xl mb-4">💻</div>
-              <h3 className="text-xl font-semibold text-gray-900">
-                Information Technology
-              </h3>
-            </div>
+          <div className="grid md:grid-cols-3 gap-10">
+            {[
+              {
+                title: "Engineering & Technology",
+                img: "/image/Engineering & Technology.webp",
+                icon: "⚙️",
+                salary: "$90,000+ Avg Salary",
+                duration: "2 Years",
+                courses: [
+                  "MS Computer Science",
+                  "MS Data Science",
+                  "MS Artificial Intelligence",
+                  "MS Mechanical Engineering",
+                ],
+              },
+              {
+                title: "Information Technology",
+                img: "/image/Business & Management.avif",
+                icon: "💻",
+                salary: "$85,000+ Avg Salary",
+                duration: "1-2 Years",
+                courses: ["MBA", "Business Analytics", "Finance", "Marketing"],
+              },
+              {
+                title: "Business and Management",
+                img: "/image/Undergraduate Programs.webp",
+                icon: "📊",
+                salary: "$60,000+ Avg Salary",
+                duration: "4 Years",
+                courses: [
+                  "Bachelor Computer Science",
+                  "Bachelor Engineering",
+                  "BBA",
+                  "Bachelor Economics",
+                ],
+              },
+              {
+                title: "Healthcare and Nursing",
+                img: "/image/Undergraduate Programs.webp",
+                icon: "🏥",
+                salary: "$60,000+ Avg Salary",
+                duration: "4 Years",
+                courses: [
+                  "Bachelor Computer Science",
+                  "Bachelor Engineering",
+                  "BBA",
+                  "Bachelor Economics",
+                ],
+              },
+              {
+                title: "Environmental Sciences",
+                img: "/image/Undergraduate Programs.webp",
+                icon: "🌱",
+                salary: "$60,000+ Avg Salary",
+                duration: "4 Years",
+                courses: [
+                  "Bachelor Computer Science",
+                  "Bachelor Engineering",
+                  "BBA",
+                  "Bachelor Economics",
+                ],
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-500 hover:-translate-y-3"
+              >
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={item.img}
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+                  />
 
-            {/* Business */}
-            <div className="bg-white p-10 rounded-3xl border shadow-lg hover:shadow-2xl transition hover:-translate-y-2 text-center">
-              <div className="text-4xl mb-4">📊</div>
-              <h3 className="text-xl font-semibold text-gray-900">
-                Business and Management
-              </h3>
-            </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
 
-            {/* Healthcare */}
-            <div className="bg-white p-10 rounded-3xl border shadow-lg hover:shadow-2xl transition hover:-translate-y-2 text-center">
-              <div className="text-4xl mb-4">🏥</div>
-              <h3 className="text-xl font-semibold text-gray-900">
-                Healthcare and Nursing
-              </h3>
-            </div>
+                  <span className="absolute top-3 left-3 bg-white text-blue-600 text-xs font-semibold px-3 py-1 rounded-full shadow">
+                    {item.duration}
+                  </span>
+                </div>
 
-            {/* Environmental */}
-            <div className="bg-white p-10 rounded-3xl border shadow-lg hover:shadow-2xl transition hover:-translate-y-2 text-center">
-              <div className="text-4xl mb-4">🌱</div>
-              <h3 className="text-xl font-semibold text-gray-900">
-                Environmental Sciences
-              </h3>
-            </div>
-          </div>
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                    <span>{item.icon}</span>
+                    {item.title}
+                  </h3>
 
-          {/* Highlight Banner */}
-          <div className="mt-20 bg-gradient-to-r from-blue-600 to-emerald-500 text-white rounded-3xl p-12 text-center shadow-xl">
-            <p className="text-lg max-w-3xl mx-auto">
-              These programs provide excellent career opportunities both in
-              Australia and internationally.
-            </p>
+                  <p className="text-sm text-green-600 font-semibold mb-4">
+                    {item.salary}
+                  </p>
+
+                  <ul className="space-y-2 text-gray-600 text-sm">
+                    {item.courses.map((course, index) => (
+                      <li
+                        key={index}
+                        className="hover:text-blue-600 transition"
+                      >
+                        {course}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* <button className="mt-5 text-sm font-semibold text-blue-600 hover:text-orange-500 transition">
+                    Explore Programs →
+                  </button> */}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -302,6 +703,89 @@ export default function StudyAustralia() {
         </div>
       </section>
 
+      {/* Our Process */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4">
+        {/* Heading */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Our <span className="text-blue-500">Process</span>
+          </h2>
+
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            A complete roadmap designed to guide you through every step of your
+            international education journey.
+          </p>
+        </div>
+
+        {/* Timeline */}
+        <div className="relative">
+          {/* Center Line */}
+          <div className="absolute left-1/2 top-0 w-[3px] bg-gradient-to-b from-blue-200 via-blue-500 to-blue-800 h-full transform -translate-x-1/2 blur-[0.5px]"></div>
+
+          {steps.map((step, index) => {
+            const isLeft = index % 2 === 0;
+
+            return (
+              <div
+                key={index}
+                className={`flex items-center mb-14 ${
+                  isLeft ? "flex-row" : "flex-row-reverse"
+                }`}
+              >
+                {/* Content Box */}
+                <div className="w-1/2 px-4">
+                  <div
+                    className={`relative rounded-2xl px-6 py-5 text-white shadow-xl transition-all duration-500 
+              hover:scale-[1.04] hover:shadow-2xl backdrop-blur-lg border border-white/20
+
+              ${
+                index % 3 === 0
+                  ? "bg-yellow-500"
+                  : index % 3 === 1
+                    ? "bg-yellow-500"
+                    : "bg-yellow-500"
+              }`}
+                  >
+                    {/* Glow Border Effect */}
+                    <div className="absolute inset-0 rounded-2xl bg-white/10 opacity-0 hover:opacity-100 transition duration-500"></div>
+
+                    {/* Title */}
+                    <h4 className="font-semibold text-black text-lg relative z-10">
+                      {step.title}
+                    </h4>
+
+                    {/* Detail */}
+                    <p className="text-md text-blue-900 opacity-90 mt-2 leading-relaxed relative z-10">
+                      {step.detail}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step Circle */}
+                <div className="relative z-10 group">
+                  <div
+                    className="w-14 h-14 flex items-center justify-center rounded-full 
+              border-4 border-blue-400 bg-white font-bold text-blue-600 shadow-lg
+              transition duration-300 group-hover:scale-110 group-hover:shadow-blue-300"
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+
+                  {/* Glow Effect */}
+                  <div
+                    className="absolute inset-0 rounded-full bg-blue-400 opacity-30 blur-xl 
+              scale-150 z-[-1] animate-pulse"
+                  ></div>
+                </div>
+
+                {/* Empty side */}
+                <div className="w-1/2"></div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
       {/* ELIGIBILITY REQUIREMENTS */}
       <section
         id="eligibility"
@@ -365,58 +849,220 @@ export default function StudyAustralia() {
         </div>
       </section>
 
-      {/* COST OF STUDYING IN AUSTRALIA */}
+      {/* COST */}
       <section
         id="fees"
-        className="py-28 bg-gradient-to-b from-white via-blue-50 to-white"
+        className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-6">
+        {/* Animated Background Lights */}
+        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-blue-400/30 blur-[120px] rounded-full animate-float"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-400/30 blur-[120px] rounded-full animate-float delay-2000"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Heading */}
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
               Cost of Studying in{" "}
               <span className="text-blue-600">Australia</span>
             </h2>
+
+            <p className="mt-6 text-lg text-gray-600">
+              The cost of studying in the USA depends on the university,
+              location, and program.
+            </p>
           </div>
 
-          {/* Cost Cards */}
-          <div className="mt-20 grid lg:grid-cols-2 gap-10">
+          {/* Cards */}
+          <div className="mt-20 grid lg:grid-cols-2 gap-12">
             {/* Tuition Fees */}
-            <div className="bg-white p-10 rounded-3xl border shadow-lg hover:shadow-2xl transition">
-              <div className="text-4xl mb-4">🎓</div>
+            <div className="group relative p-10 rounded-3xl bg-white/70 backdrop-blur-xl border border-blue-200 shadow-xl hover:shadow-2xl transition duration-500 overflow-hidden">
+              {/* Animated gradient border */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500 via-indigo-500 to-sky-400 opacity-0 group-hover:opacity-100 blur-sm"></div>
 
-              <h3 className="text-2xl font-semibold text-gray-900">
-                Average Tuition Fees
-              </h3>
+              {/* inner content wrapper */}
+              <div className="relative bg-white/90 rounded-3xl p-8 z-10">
+                <div className="text-4xl mb-4">🎓</div>
 
-              <p className="mt-6 text-gray-600">
-                Average tuition fees range from
-                <span className="font-semibold">
-                  {" "}
-                  AUD 20,000 to AUD 45,000{" "}
-                </span>
-                per year depending on the program.
-              </p>
+                <h3 className="text-2xl font-semibold text-gray-900">
+                  Average Tuition Fees
+                </h3>
+
+                <p className="mt-6 text-gray-600">
+                  Average tuition fees range from
+                  <span className="font-semibold">
+                    {" "}
+                    AUD 20,000 to AUD 45,000{" "}
+                  </span>
+                  per year depending on the program.
+                </p>
+              </div>
             </div>
 
             {/* Living Expenses */}
-            <div className="bg-white p-10 rounded-3xl border shadow-lg hover:shadow-2xl transition">
-              <div className="text-4xl mb-4">🏠</div>
+            <div className="group relative p-10 rounded-3xl bg-white/70 backdrop-blur-xl border border-indigo-200 shadow-xl hover:shadow-2xl transition duration-500 overflow-hidden">
+              {/* animated gradient border */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-400 opacity-0 group-hover:opacity-100 blur-sm"></div>
 
-              <h3 className="text-2xl font-semibold text-gray-900">
-                Living Expenses
-              </h3>
+              <div className="relative bg-white/90 rounded-3xl p-8 z-10">
+                <div className="text-4xl mb-4">🏠</div>
 
-              <p className="mt-6 text-gray-600">
-                Living expenses are approximately
-              </p>
+                <h3 className="text-2xl font-semibold text-gray-900">
+                  Living Expenses
+                </h3>
 
-              <div className="mt-8 bg-green-50 rounded-xl p-6 text-center">
-                <p className="text-3xl font-bold text-green-600">AUD 21,000</p>
+                <p className="mt-6 text-gray-600">
+                  Living expenses are approximately
+                </p>
 
-                <p className="text-gray-500 mt-1">per year</p>
+                <div className="mt-8 bg-green-50 rounded-xl p-6 text-center">
+                  <p className="text-3xl font-bold text-green-600">
+                    AUD 21,000
+                  </p>
+
+                  <p className="text-gray-500 mt-1">per year</p>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Animation */}
+        <style jsx>{`
+          @keyframes float {
+            0% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-40px);
+            }
+            100% {
+              transform: translateY(0px);
+            }
+          }
+
+          .animate-float {
+            animation: float 14s ease-in-out infinite;
+          }
+
+          .delay-2000 {
+            animation-delay: 2s;
+          }
+        `}</style>
+      </section>
+
+      {/* Cost of Living in USA */}
+      <section className="pt-10 pb-20 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
+        {/* Background Glow */}
+        <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-300/20 blur-3xl rounded-full"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-300/20 blur-3xl rounded-full"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Heading */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900">
+              Cost of Living in <span className="text-blue-600">Australia</span>
+            </h2>
+            <p className="mt-4 text-gray-600 text-lg">
+              Estimated expenses for international students in the Australia
+            </p>
+          </div>
+
+          {/* Table */}
+          <div className="overflow-hidden rounded-3xl shadow-2xl border border-white/40 backdrop-blur-xl">
+            {/* Header */}
+            <div className="grid md:grid-cols-3 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white font-semibold text-lg">
+              <div className="p-5">Expenses</div>
+              <div className="p-5">Average Cost</div>
+              <div className="p-5">External Factors</div>
+            </div>
+
+            {/* Rows */}
+            {[
+              {
+                title: "Annual Tuition Fee",
+                cost: "INR 20 lakh - INR 50 lakh per year",
+                extra: [
+                  "Depends upon the chosen university",
+                  "Depends upon the study in Australia course selected",
+                ],
+              },
+              {
+                title: "Accommodation",
+                cost: "INR 64,000 - INR 1,30,000",
+                extra: [
+                  "University accommodation or private",
+                  "Includes food, transportation, medical or other important expenses",
+                ],
+              },
+              {
+                title: "Food",
+                cost: "On Campus: INR 20000 monthly\nOff Campus: INR 33000 - 50000 monthly",
+                extra: ["On campus", "Off campus"],
+              },
+              {
+                title: "Phone Subscription",
+                cost: "INR 4000 monthly",
+                extra: [],
+              },
+              {
+                title: "Groceries",
+                cost: "INR 20000 monthly",
+                extra: [],
+              },
+              {
+                title: "Public Transportation",
+                cost: "INR 8000 monthly",
+                extra: [],
+              },
+              {
+                title: "Health Insurance",
+                cost: "INR 20000 monthly",
+                extra: [
+                  "Plan covering pre-existing conditions",
+                  "Student’s age",
+                ],
+              },
+              {
+                title: "Other Utilities",
+                cost: "INR 12000 monthly",
+                extra: ["Electricity", "Water", "Gas", "Internet"],
+              },
+            ].map((row, i) => (
+              <div
+                key={i}
+                className="group grid md:grid-cols-3 items-center bg-white/80 backdrop-blur-md border-t border-white/50 
+          hover:bg-white hover:shadow-xl hover:scale-[1.01] transition duration-300"
+              >
+                {/* Expense */}
+                <div className="p-5 font-semibold text-gray-900 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                  {row.title}
+                </div>
+
+                {/* Cost */}
+                <div className="p-5 whitespace-pre-line">
+                  <span className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-xl font-semibold text-sm shadow-sm">
+                    {row.cost}
+                  </span>
+                </div>
+
+                {/* External */}
+                <div className="p-5 text-gray-700 text-sm">
+                  {row.extra.length > 0 ? (
+                    <ul className="space-y-1">
+                      {row.extra.map((item, idx) => (
+                        <li key={idx} className="flex gap-2 items-start">
+                          <span className="text-blue-500 mt-1">•</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <span className="text-gray-400">—</span>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -424,103 +1070,635 @@ export default function StudyAustralia() {
       {/* SCHOLARSHIPS IN AUSTRALIA */}
       <section
         id="scholarships"
-        className="py-28 bg-gradient-to-b from-white via-blue-50 to-white"
+        className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-6">
+        {/* Background glow */}
+        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-blue-300/30 blur-[120px] rounded-full animate-float"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-300/30 blur-[120px] rounded-full animate-float delay-2000"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Heading */}
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Scholarships in <span className="text-blue-600">Australia</span>
+              Scholarships for International Students in
+              <span className="text-blue-600"> Australia</span>
             </h2>
+
+            <p className="mt-6 text-lg text-gray-600">
+              Many universities and organizations offer scholarships to
+              international students to help reduce the cost of education in
+              Australia.
+            </p>
           </div>
 
-          {/* Scholarship Cards */}
+          {/* Cards */}
           <div className="mt-20 grid md:grid-cols-2 gap-10">
-            {/* Australia Awards Scholarship */}
-            <div className="bg-white rounded-3xl border shadow-lg p-10 hover:shadow-2xl transition hover:-translate-y-2">
-              <div className="text-4xl mb-4">🎓</div>
+            {[
+              {
+                icon: "🎓",
+                title: "Australia Awards Scholarships",
+                details:
+                  "Covers tuition fees, living expenses, travel costs, and provides financial support for eligible international students studying in Australia.",
+              },
+              {
+                icon: "🏆",
+                title: "Destination Australia Scholarship",
+                details:
+                  "Offers financial support to international students who choose to study in regional Australia at participating institutions.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="group relative rounded-3xl p-[2px] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 transition duration-300 hover:scale-[1.02]"
+              >
+                <div className="bg-white rounded-3xl p-10 h-full shadow-xl overflow-hidden relative">
+                  {/* hover glow */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 
+      bg-gradient-to-br from-blue-100/40 via-indigo-100/20 to-purple-100/30"
+                  ></div>
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                Australia Awards Scholarships
-              </h3>
+                  <div className="relative z-10 text-center">
+                    {/* Icon */}
+                    <div
+                      className="w-16 h-16 mx-auto mb-5 flex items-center justify-center 
+        bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full text-2xl shadow-lg 
+        group-hover:scale-110 transition"
+                    >
+                      {item.icon}
+                    </div>
 
-              <p className="mt-4 text-gray-600">
-                Students can apply for scholarships such as Australia Awards
-                Scholarships which support international students studying in
-                Australia.
+                    {/* Title */}
+                    <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition">
+                      {item.title}
+                    </h3>
+
+                    {/* EXPAND DETAILS */}
+                    <div className="mt-4 max-h-0 overflow-hidden group-hover:max-h-40 transition-all duration-500">
+                      <p className="text-gray-600 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition duration-500 delay-100">
+                        {item.details}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Info Box */}
+          <div className="mt-20 relative bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white rounded-3xl p-12 text-center shadow-2xl overflow-hidden">
+            {/* glow */}
+            <div className="absolute -top-10 -left-10 w-72 h-72 bg-white/10 blur-3xl rounded-full animate-float"></div>
+            <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 blur-3xl rounded-full animate-float delay-2000"></div>
+
+            <div className="relative z-10">
+              <p className="text-lg max-w-3xl mx-auto">
+                Scholarships may be awarded based on academic merit, leadership
+                qualities, regional study preferences, or financial need.
               </p>
             </div>
           </div>
-
-          {/* Highlight Banner */}
-          <div className="mt-20 bg-gradient-to-r from-green-600 to-emerald-500 text-white rounded-3xl p-12 text-center shadow-xl">
-            <p className="text-lg max-w-3xl mx-auto">
-              These scholarships may cover tuition fees, travel expenses, and
-              living costs.
-            </p>
-          </div>
         </div>
+
+        <style>{`
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-40px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .animate-float {
+      animation: float 14s ease-in-out infinite;
+    }
+
+    .delay-2000 {
+      animation-delay: 2s;
+    }
+  `}</style>
       </section>
 
-      {/* WORK OPPORTUNITIES & VISA */}
-      <section className="py-28 bg-gradient-to-b from-white via-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-6">
-          {/* Grid */}
-          <div className="grid md:grid-cols-2 gap-10">
-            {/* Work Opportunities */}
-            <div className="bg-white p-10 rounded-3xl border shadow-lg hover:shadow-2xl transition hover:-translate-y-2">
-              <div className="text-4xl mb-4">💼</div>
+      {/* WORK OPPORTUNITIES & VISA - AUSTRALIA */}
+      <section
+        id="jobs"
+        className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
+      >
+        {/* Background glow */}
+        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-blue-300/30 blur-[120px] rounded-full animate-float"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-300/30 blur-[120px] rounded-full animate-float delay-2000"></div>
 
-              <h3 className="text-2xl font-semibold text-gray-900">
-                Work Opportunities
-              </h3>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Heading */}
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              Work Opportunities for Students in
+              <span className="text-blue-600"> Australia</span>
+            </h2>
 
-              <p className="mt-4 text-gray-600">
-                Students in Australia can work
-                <span className="font-semibold"> 48 hours per fortnight </span>
-                during their studies.
-              </p>
+            <p className="mt-6 text-lg text-gray-600">
+              International students are allowed to work while studying in
+              Australia.
+            </p>
+          </div>
+
+          {/* Cards */}
+          <div className="mt-20 grid md:grid-cols-2 gap-12">
+            {/* Part-Time Work */}
+            <div className="group relative rounded-3xl p-[2px] bg-gradient-to-r from-blue-500 via-indigo-500 to-sky-400 hover:scale-[1.02] transition duration-300">
+              <div className="bg-white rounded-3xl p-10 shadow-xl h-full relative overflow-hidden">
+                {/* hover glow */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 
+            bg-gradient-to-br from-blue-100/40 via-indigo-100/20 to-sky-100/30"
+                ></div>
+
+                <div className="relative z-10">
+                  {/* icon */}
+                  <div
+                    className="w-16 h-16 mb-6 flex items-center justify-center 
+              bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-2xl text-2xl shadow-lg 
+              group-hover:scale-110 transition"
+                  >
+                    💼
+                  </div>
+
+                  {/* title */}
+                  <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-blue-600 transition">
+                    Work Opportunities
+                  </h3>
+
+                  {/* divider */}
+                  <div className="mt-3 w-12 h-1 bg-blue-600 rounded-full group-hover:w-20 transition-all duration-300"></div>
+
+                  {/* content */}
+                  <p className="mt-6 text-gray-600 leading-relaxed">
+                    Students in Australia can work up to{" "}
+                    <span className="font-semibold">
+                      48 hours per fortnight
+                    </span>{" "}
+                    during their studies.
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Australia Student Visa */}
-            <div className="bg-white p-10 rounded-3xl border shadow-lg hover:shadow-2xl transition hover:-translate-y-2">
-              <div className="text-4xl mb-4">📄</div>
+            <div className="group relative rounded-3xl p-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-400 hover:scale-[1.02] transition duration-300">
+              <div className="bg-white rounded-3xl p-10 shadow-xl h-full relative overflow-hidden">
+                {/* hover glow */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 
+            bg-gradient-to-br from-indigo-100/40 via-blue-100/20 to-purple-100/30"
+                ></div>
 
-              <h3 className="text-2xl font-semibold text-gray-900">
-                Australia Student Visa
-              </h3>
+                <div className="relative z-10">
+                  {/* icon */}
+                  <div
+                    className="w-16 h-16 mb-6 flex items-center justify-center 
+              bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-2xl text-2xl shadow-lg 
+              group-hover:scale-110 transition"
+                  >
+                    📄
+                  </div>
 
-              <p className="mt-4 text-gray-600">
-                Students must apply for the
-                <span className="font-semibold">
-                  {" "}
-                  Subclass 500 Student Visa{" "}
-                </span>
-                to study in Australia.
+                  {/* title */}
+                  <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-indigo-600 transition">
+                    Australia Student Visa
+                  </h3>
+
+                  {/* divider */}
+                  <div className="mt-3 w-12 h-1 bg-indigo-600 rounded-full group-hover:w-20 transition-all duration-300"></div>
+
+                  {/* content */}
+                  <p className="mt-6 text-gray-600 leading-relaxed">
+                    Students must apply for the{" "}
+                    <span className="font-semibold">
+                      Subclass 500 Student Visa
+                    </span>{" "}
+                    to study in Australia.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Timeline */}
+          <div className="mt-20 relative">
+            {/* line */}
+            <div className="hidden md:block absolute top-8 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-300 via-indigo-400 to-purple-400 opacity-40"></div>
+
+            {/* animated progress line */}
+            <div className="hidden md:block absolute top-8 left-0 h-[3px] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 animate-progress"></div>
+
+            <div className="grid md:grid-cols-4 gap-10 text-center relative z-10">
+              {[
+                {
+                  icon: "🎓",
+                  title: "Study in Australia",
+                },
+                {
+                  icon: "💼",
+                  title: "Part-Time Work",
+                },
+                {
+                  icon: "🚀",
+                  title: "Post-Study Work",
+                },
+                {
+                  icon: "🌟",
+                  title: "Career Growth",
+                },
+              ].map((step, i) => (
+                <div key={i} className="group relative">
+                  {/* step circle */}
+                  <div
+                    className="w-16 h-16 mx-auto flex items-center justify-center 
+              bg-gradient-to-r from-blue-500 to-indigo-600 text-white 
+              rounded-full text-2xl shadow-xl 
+              group-hover:scale-110 transition duration-300"
+                  >
+                    {step.icon}
+                  </div>
+
+                  {/* pulse ring */}
+                  <div
+                    className="absolute inset-0 w-16 h-16 mx-auto rounded-full 
+              border-2 border-blue-400 opacity-40 animate-ping"
+                  ></div>
+
+                  {/* title */}
+                  <p className="mt-4 text-sm font-semibold text-gray-700">
+                    {step.title}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <style>{`
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-40px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .animate-float {
+      animation: float 14s ease-in-out infinite;
+    }
+
+    .delay-2000 {
+      animation-delay: 2s;
+    }
+
+    @keyframes progress {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    .animate-progress {
+      animation: progress 4s ease-in-out forwards;
+    }
+  `}</style>
+      </section>
+
+      <section
+        id="visa"
+        className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
+      >
+        {/* Background glow */}
+        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-blue-300/30 blur-[120px] rounded-full animate-float"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-300/30 blur-[120px] rounded-full animate-float delay-2000"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Heading */}
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              Student Visa for <span className="text-blue-600">Australia</span>
+            </h2>
+
+            <p className="mt-6 text-lg text-gray-600">
+              Students who receive admission from an Australian institution must
+              apply for the Subclass 500 Student Visa.
+            </p>
+          </div>
+
+          {/* Timeline Line */}
+          <div className="relative mt-20">
+            {/* base line */}
+            <div className="hidden lg:block absolute top-8 left-0 right-0 h-[3px] bg-blue-200"></div>
+
+            {/* animated line */}
+            <div className="hidden lg:block absolute top-8 left-0 h-[3px] bg-gradient-to-r from-blue-500 to-indigo-600 animate-progress"></div>
+
+            {/* Steps */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 relative z-10">
+              {[
+                "Receive admission from an Australian university or college",
+                "Receive the Confirmation of Enrolment (CoE)",
+                "Arrange Overseas Student Health Cover (OSHC)",
+                "Prepare and submit the Subclass 500 visa application",
+                "Attend biometrics or health checks if required",
+              ].map((step, i) => (
+                <div
+                  key={i}
+                  className="group relative p-6 bg-white/80 backdrop-blur-lg rounded-3xl border border-blue-100 shadow-lg hover:shadow-2xl hover:-translate-y-3 transition duration-300 text-center"
+                >
+                  {/* step circle */}
+                  <div
+                    className="w-14 h-14 mx-auto flex items-center justify-center 
+              bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full text-lg font-bold shadow-lg 
+              group-hover:scale-110 transition"
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+
+                  {/* pulse ring */}
+                  <div className="absolute inset-0 w-14 h-14 mx-auto rounded-full border-2 border-blue-400 opacity-30 animate-ping"></div>
+
+                  {/* text */}
+                  <p className="mt-4 text-gray-700 text-sm leading-relaxed">
+                    {step}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Important Note */}
+          <div className="mt-20 relative bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white rounded-3xl p-12 text-center shadow-2xl overflow-hidden">
+            {/* glow */}
+            <div className="absolute -top-10 -left-10 w-72 h-72 bg-white/10 blur-3xl rounded-full animate-float"></div>
+            <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 blur-3xl rounded-full animate-float delay-2000"></div>
+
+            <div className="relative z-10">
+              <p className="text-lg max-w-3xl mx-auto">
+                Proper preparation and documentation are important for
+                successful visa approval in Australia.
               </p>
             </div>
           </div>
         </div>
+
+        <style>{`
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-40px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .animate-float {
+      animation: float 14s ease-in-out infinite;
+    }
+
+    .delay-2000 {
+      animation-delay: 2s;
+    }
+
+    @keyframes progress {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    .animate-progress {
+      animation: progress 4s ease-in-out forwards;
+    }
+  `}</style>
       </section>
 
-      {/* BOOK FREE CONSULTATION */}
-      <section className="py-28 bg-gradient-to-r from-green-600 to-emerald-500 text-white text-center">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold">
-            Book Free Consultation
-          </h2>
+      {/* Why Choose Beyond Admission */}
+      <section className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">
+        {/*  Background glow */}
+        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-blue-400/40 blur-[150px] rounded-full animate-float"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-300/40 blur-[150px] rounded-full animate-float delay-2000"></div>
 
-          <p className="mt-6 text-lg opacity-90">
-            Speak with our expert counsellors to start your study in Australia
-            journey.
-          </p>
+        <div className="max-w-4xl mx-auto px-6 relative z-10">
+          {/* Heading */}
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              Why Choose <span className="text-blue-600">Beyond Admission</span>
+            </h2>
 
-          <Link
-            to="/contact"
-            className="inline-block mt-10 px-12 py-4 bg-white text-green-600 rounded-full font-semibold shadow-lg hover:scale-105 transition"
-          >
-            Book Free Counselling
-          </Link>
+            <p className="mt-6 text-lg text-gray-600">
+              Beyond Admission provides expert guidance to help students
+              successfully study abroad.
+            </p>
+          </div>
+
+          {/* Timeline */}
+          <div className="mt-16 relative">
+            {/* Center Line Glow */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-[3px] bg-gradient-to-b from-blue-400 via-indigo-500 to-purple-500 shadow-[0_0_15px_rgba(99,102,241,0.6)]"></div>
+
+            {[
+              {
+                icon: "🎯",
+                title: "Career Counselling",
+                detail:
+                  "Get personalized career guidance based on your academic background, interests, and future goals. Our experts help you choose the right course and country for long-term success.",
+              },
+              {
+                icon: "🏫",
+                title: "University Shortlisting",
+                detail:
+                  "Shortlist top universities based on your profile, budget, preferred location, and career opportunities. We ensure a balanced list of safe, moderate, and dream universities.",
+              },
+              {
+                icon: "📝",
+                title: "Application Assistance",
+                detail:
+                  "Complete support for filling applications, document submission, and meeting deadlines. We ensure error-free applications to maximize your chances of acceptance.",
+              },
+              {
+                icon: "💰",
+                title: "Scholarship Guidance",
+                detail:
+                  "Explore and apply for scholarships, grants, and financial aid options. Our team helps you reduce your overall study cost with the best funding opportunities.",
+              },
+              {
+                icon: "📄",
+                title: "Visa Documentation Support",
+                detail:
+                  "End-to-end assistance for visa filing including documentation, SOP preparation, and mock interviews to ensure a smooth and successful visa approval process.",
+              },
+              {
+                icon: "✈",
+                title: "Pre-Departure Guidance",
+                detail:
+                  "Complete guidance on accommodation, forex exchange, travel arrangements, packing essentials, and settling abroad to make your transition smooth and stress-free.",
+              },
+            ].map((step, i) => (
+              <div
+                key={i}
+                className="relative mb-12 grid grid-cols-2 items-center"
+              >
+                {/* LEFT SIDE */}
+                {i % 2 === 0 ? (
+                  <div className="flex justify-end pr-8">
+                    <div className="group w-full max-w-sm p-[2px] rounded-2xl bg-gradient-to-r from-blue-500 to-indigo-600">
+                      {/* Glass Card */}
+                      <div className="backdrop-blur-xl bg-white/70 rounded-2xl p-5 shadow-xl transition duration-300 group-hover:scale-105 group-hover:shadow-2xl">
+                        {/* Top Row */}
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg shadow-md group-hover:rotate-6 transition duration-300">
+                            {step.icon}
+                          </div>
+
+                          <p className="text-lg font-semibold text-gray-800">
+                            {step.title}
+                          </p>
+                        </div>
+
+                        {/* Detail */}
+                        <p className="text-md text-gray-600 leading-relaxed">
+                          {step.detail}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
+
+                {/* RIGHT SIDE */}
+                {i % 2 !== 0 ? (
+                  <div className="flex justify-start pl-8">
+                    <div className="group w-full max-w-sm p-[2px] rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600">
+                      {/* Glass Card */}
+                      <div className="backdrop-blur-xl bg-white/70 rounded-2xl p-5 shadow-xl transition duration-300 group-hover:scale-105 group-hover:shadow-2xl">
+                        {/* Top Row */}
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg shadow-md group-hover:rotate-6 transition duration-300">
+                            {step.icon}
+                          </div>
+
+                          <p className="text-lg font-semibold text-gray-800">
+                            {step.title}
+                          </p>
+                        </div>
+
+                        {/* Detail */}
+                        <p className="text-md text-gray-600 leading-relaxed">
+                          {step.detail}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
+
+                {/* Center Dot */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full shadow-lg border-2 border-white"></div>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Highlight */}
+          <div className="mt-20 relative bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white rounded-3xl p-10 text-center shadow-xl overflow-hidden">
+            <div className="absolute -top-10 -left-10 w-72 h-72 bg-white/10 blur-3xl rounded-full animate-float"></div>
+            <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 blur-3xl rounded-full animate-float delay-2000"></div>
+
+            <div className="relative z-10">
+              <p className="text-lg max-w-2xl mx-auto">
+                Our experienced counsellors support students throughout the
+                entire admission process.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Animation */}
+        <style jsx>{`
+          @keyframes float {
+            0% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-30px);
+            }
+            100% {
+              transform: translateY(0px);
+            }
+          }
+
+          .animate-float {
+            animation: float 12s ease-in-out infinite;
+          }
+
+          .delay-2000 {
+            animation-delay: 2s;
+          }
+        `}</style>
+      </section>
+
+      {/* CTA */}
+      <section className="relative pt-6 pb-20 bg-gradient-to-r from-blue-700 to-indigo-800 text-white overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 opacity-20">
+          <img src="/image/usa-bg.png" className="w-full h-full object-cover" />
+        </div>
+
+        {/* Glow Effects */}
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+
+        <div className="relative max-w-5xl mx-auto px-6">
+          {/* Glass Card */}
+          <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-12 md:p-16 text-center shadow-2xl">
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+              Book Free Study Abroad Consultation
+            </h2>
+
+            <p className="mt-6 text-lg opacity-90">
+              If you are planning to study in the USA, our expert counsellors
+              can guide you through the entire process.
+            </p>
+
+            <p className="mt-4 text-lg opacity-90">
+              Fill out the consultation form to receive personalized guidance on
+              universities, courses, scholarships, and visa procedures.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="mt-10 flex justify-center gap-6 flex-wrap">
+              <Link
+                to="/contact"
+                className="px-10 py-4 bg-white text-blue-700 font-semibold rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition duration-300 inline-block"
+              >
+                Apply Now
+              </Link>
+
+              <button className="px-10 py-4 border-2 border-white rounded-full font-semibold hover:bg-white hover:text-blue-700 hover:scale-105 transition duration-300">
+                Free Consultation
+              </button>
+            </div>
+          </div>
         </div>
       </section>
     </div>

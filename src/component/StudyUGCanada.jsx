@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const StudyUGCanada = () => {
   const [open, setOpen] = useState(null);
@@ -6,12 +7,90 @@ const StudyUGCanada = () => {
   return (
     <div>
       {/* HERO SECTION */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center">
-        <h1 className="text-5xl font-bold mb-6">Study UG in Canada</h1>
-        <p className="max-w-3xl mx-auto text-lg">
-          Explore world-class education, flexible learning, and global career
-          opportunities in the Canada.
-        </p>
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/image/usa-bg.png"
+            className="w-full h-full object-cover scale-110"
+            alt="Study UG in USA"
+          />
+        </div>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
+
+        {/* Animated Blobs */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/30 blur-3xl rounded-full animate-blob"></div>
+          <div className="absolute bottom-10 right-10 w-80 h-80 bg-indigo-500/30 blur-3xl rounded-full animate-blob delay-2000"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center z-10">
+          {/* LEFT */}
+          <div>
+            {/* Badge */}
+            <div className="inline-block mb-6 px-5 py-2 bg-white/10 backdrop-blur-md rounded-full text-white text-sm border border-white/20">
+              🎓 Undergraduate Programs • Canada
+            </div>
+
+            {/* Heading */}
+            <h1 className="text-4xl md:text-7xl font-bold text-white leading-tight">
+              Study{" "}
+              <span className="bg-gradient-to-r from-blue-200 to-indigo-200 bg-clip-text text-transparent">
+                UG in Canada
+              </span>
+            </h1>
+
+            {/* Subtext */}
+            <p className="mt-6 text-lg md:text-xl text-white/80 max-w-xl">
+              Explore world-class undergraduate education, flexible learning,
+              and global career opportunities after 12th.
+            </p>
+
+            {/* Buttons */}
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <Link to="/contact">
+                <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full font-semibold shadow-xl hover:scale-105 transition">
+                  Apply Now 🚀
+                </button>
+              </Link>
+
+              <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full font-semibold shadow-xl hover:scale-105 transition">
+                Free Counselling
+              </button>
+            </div>
+
+            
+           
+          </div>
+        </div>
+
+        {/* ANIMATIONS */}
+        <style>{`
+    @keyframes blob {
+      0%, 100% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(20px,-30px) scale(1.1); }
+    }
+
+    .animate-blob {
+      animation: blob 10s infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .delay-2000 { animation-delay: 2s; }
+    .delay-4000 { animation-delay: 4s; }
+  `}</style>
       </section>
       {/* ================= HERO + WHY ================= */}
       <section className="py-20 bg-gradient-to-b from-white via-blue-50 to-white">
