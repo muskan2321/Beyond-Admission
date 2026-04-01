@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import NepalCollegeSlider from "./NepalCollegeSlider";
 
 export default function MBBSnepal() {
   // for FAQ start
@@ -251,6 +252,7 @@ export default function MBBSnepal() {
           FAQ
         </a>
       </div>
+      <NepalCollegeSlider />
 
       {/* INTRO SECTION */}
       <section className="relative pt-12 pb-24 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">

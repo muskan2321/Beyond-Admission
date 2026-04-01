@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import UniversityCardList from "./UniversityCardList";
 
 export default function StudyUK() {
   const [tab, setTab] = useState("academic");
@@ -50,6 +51,13 @@ export default function StudyUK() {
         "Our support continues even after you arrive abroad. We assist with airport pickup, accommodation, local orientation, and university onboarding to ensure a smooth and hassle-free transition.",
     },
   ];
+   const universities = [
+     "University of Oxford",
+     "University of Cambridge",
+     "Imperial College London",
+     "UCL",
+     "University of Edinburgh",
+   ];
   return (
     <div className="bg-white font-[Inter]">
       {/* HERO */}
@@ -121,6 +129,14 @@ export default function StudyUK() {
                  </div>
                </div> */}
         </div>
+         {/* RIGHT SIDE FLOATING CARD */}
+                <div className="hidden lg:block absolute right-10 top-1/2 -translate-y-1/2 z-20">
+                  <UniversityCardList
+                    title="UK"
+                    universities={universities}
+                    onApplyClick={() => alert("Popup Open")}
+                  />
+                </div>
 
         {/* ✅ FIXED STYLE */}
         <style>{`

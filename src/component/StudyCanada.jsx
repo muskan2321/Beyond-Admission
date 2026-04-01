@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import UniversityCardList from "./UniversityCardList";
 
 export default function StudyCanada() {
   const steps = [
@@ -49,6 +50,13 @@ export default function StudyCanada() {
         "Our support continues even after you arrive abroad. We assist with airport pickup, accommodation, local orientation, and university onboarding to ensure a smooth and hassle-free transition.",
     },
   ];
+   const universities = [
+     "University of Toronto",
+     "University of British Columbia",
+     " McGill University",
+     "University of Alberta",
+     "University of Ottawa",
+   ];
 
   const [tab, setTab] = useState("academic");
   return (
@@ -122,6 +130,14 @@ export default function StudyCanada() {
             </div>
           </div> */}
         </div>
+         {/* RIGHT SIDE FLOATING CARD */}
+                        <div className="hidden lg:block absolute right-10 top-1/2 -translate-y-1/2 z-20">
+                          <UniversityCardList
+                            title="Canada"
+                            universities={universities}
+                            onApplyClick={() => alert("Popup Open")}
+                          />
+                        </div>
 
         {/* ✅ FIXED STYLE */}
         <style>{`

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import UniversityCardList from "./UniversityCardList";
 
 export default function StudyUSA() {
   const [tab, setTab] = useState("academic");
@@ -49,7 +50,17 @@ const steps = [
     detail:
       "Our support continues even after you arrive abroad. We assist with airport pickup, accommodation, local orientation, and university onboarding to ensure a smooth and hassle-free transition.",
   },
-];
+  ];
+   const universities = [
+     "Harvard University",
+     "Stanford University",
+     "MIT",
+     "UC Berkeley",
+     "Columbia University",
+     "University of Chicago",
+     "Yale University",
+     "Johns Hopkins University",
+   ];
 
 
  
@@ -124,6 +135,14 @@ const steps = [
             </div>
           </div> */}
         </div>
+        {/* RIGHT SIDE FLOATING CARD */}
+        <div className="hidden lg:block absolute right-10 top-1/2 -translate-y-1/2 z-20">
+          <UniversityCardList
+            title="USA"
+            universities={universities}
+            onApplyClick={() => alert("Popup Open")}
+          />
+        </div>
 
         {/* ✅ FIXED STYLE */}
         <style>{`
@@ -150,6 +169,7 @@ const steps = [
     .delay-4000 { animation-delay: 4s; }
   `}</style>
       </section>
+
       <div className="max-w-7xl mx-auto px-6 py-10 flex flex-wrap justify-center gap-4">
         <a
           href="#why-usa"

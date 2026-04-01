@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import UniversityCardList from "./UniversityCardList";
 export default function StudyAustralia() {
    const [tab, setTab] = useState("academic");
   const steps = [
@@ -49,7 +50,13 @@ export default function StudyAustralia() {
         "Our support continues even after you arrive abroad. We assist with airport pickup, accommodation, local orientation, and university onboarding to ensure a smooth and hassle-free transition.",
     },
   ];
-
+const universities = [
+  "University of Sydney",
+  "University of Melbourne",
+  "Australian National University",
+  "University of Queensland",
+  "Monash University",
+];
   return (
     <div className="bg-white font-[Inter]">
       {/* HERO SECTION */}
@@ -123,6 +130,15 @@ export default function StudyAustralia() {
                   </div>
                 </div> */}
         </div>
+         {/* RIGHT SIDE FLOATING CARD */}
+                        <div className="hidden lg:block absolute right-10 top-1/2 -translate-y-1/2 z-20">
+                          <UniversityCardList
+                            title="Australia"
+                            universities={universities}
+                            onApplyClick={() => alert("Popup Open")}
+                          />
+                        </div>
+        
 
         {/* ✅ FIXED STYLE */}
         <style>{`
@@ -373,7 +389,7 @@ export default function StudyAustralia() {
       {/* WHY STUDY USA */}
       <section
         id="why-usa"
-        className="relative pt-4 pb-28 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
+        className="relative pt-4 pb-10 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
       >
         {/* Animated background lights */}
         <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-400/30 blur-[120px] rounded-full animate-float"></div>
@@ -501,7 +517,7 @@ export default function StudyAustralia() {
       {/* POPULAR COURSES */}
       <section
         id="Popular Courses"
-        className="pt-4 pb-16 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden"
+        className="pt-4 pb-10 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden"
       >
         {/* Background Glow */}
         <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-300/20 rounded-full blur-3xl"></div>
@@ -548,32 +564,32 @@ export default function StudyAustralia() {
                   "Bachelor Economics",
                 ],
               },
-              {
-                title: "Healthcare and Nursing",
-                img: "/image/Undergraduate Programs.webp",
-                icon: "🏥",
-                salary: "$60,000+ Avg Salary",
-                duration: "4 Years",
-                courses: [
-                  "Bachelor Computer Science",
-                  "Bachelor Engineering",
-                  "BBA",
-                  "Bachelor Economics",
-                ],
-              },
-              {
-                title: "Environmental Sciences",
-                img: "/image/Undergraduate Programs.webp",
-                icon: "🌱",
-                salary: "$60,000+ Avg Salary",
-                duration: "4 Years",
-                courses: [
-                  "Bachelor Computer Science",
-                  "Bachelor Engineering",
-                  "BBA",
-                  "Bachelor Economics",
-                ],
-              },
+              // {
+              //   title: "Healthcare and Nursing",
+              //   img: "/image/Undergraduate Programs.webp",
+              //   icon: "🏥",
+              //   salary: "$60,000+ Avg Salary",
+              //   duration: "4 Years",
+              //   courses: [
+              //     "Bachelor Computer Science",
+              //     "Bachelor Engineering",
+              //     "BBA",
+              //     "Bachelor Economics",
+              //   ],
+              // },
+              // {
+              //   title: "Environmental Sciences",
+              //   img: "/image/Undergraduate Programs.webp",
+              //   icon: "🌱",
+              //   salary: "$60,000+ Avg Salary",
+              //   duration: "4 Years",
+              //   courses: [
+              //     "Bachelor Computer Science",
+              //     "Bachelor Engineering",
+              //     "BBA",
+              //     "Bachelor Economics",
+              //   ],
+              // },
             ].map((item, i) => (
               <div
                 key={i}
@@ -625,10 +641,95 @@ export default function StudyAustralia() {
         </div>
       </section>
 
+      {/* TOP UNIVERSITIES */}
+      <section
+        id="Top Universities"
+        className="pt-6 pb-10 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden"
+      >
+        {/* Background Glow */}
+        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-green-300/30 blur-[120px] rounded-full"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-300/30 blur-[120px] rounded-full"></div>
+
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          {/* Heading */}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
+              Top Universities in{" "}
+              <span className="text-blue-600">Australia</span>
+            </h2>
+            <p className="mt-4 text-gray-600 text-lg">
+              Explore top universities and their locations at a glance.
+            </p>
+          </div>
+
+          {/* TABLE */}
+          <div className="overflow-hidden border border-gray-400">
+            {/* Header */}
+            <div className="grid md:grid-cols-2 bg-yellow-500 text-white font-semibold">
+              <div className="p-4 border-r border-gray-400 text-center text-black">
+                UNIVERSITY NAME
+              </div>
+              <div className="p-4 text-center text-black">LOCATION</div>
+            </div>
+
+            {/* Rows */}
+            {[
+              {
+                name: "University of Sydney",
+                location: "Sydney, NSW",
+              },
+              {
+                name: "University of Melbourne",
+                location: "Melbourne, VIC",
+              },
+              {
+                name: "Australian National University",
+                location: "Canberra, ACT",
+              },
+              {
+                name: "Monash University",
+                location: "Melbourne, VIC",
+              },
+              {
+                name: "University of Queensland",
+                location: "Brisbane, QLD",
+              },
+              {
+                name: "University of New South Wales",
+                location: "Sydney, NSW",
+              },
+              {
+                name: "University of Adelaide",
+                location: "Adelaide, SA",
+              },
+              {
+                name: "University of Western Australia",
+                location: "Perth, WA",
+              },
+            ].map((row, i) => (
+              <div
+                key={i}
+                className="grid md:grid-cols-2 border-t border-gray-400 bg-gray-200"
+              >
+                {/* University */}
+                <div className="p-4 border-r border-gray-400 font-semibold text-gray-900 text-center">
+                  {row.name}
+                </div>
+
+                {/* Location */}
+                <div className="p-4 text-gray-800 text-center">
+                  {row.location}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* INTAKES IN AUSTRALIA */}
       <section
         id="intakes"
-        className="py-28 bg-gradient-to-b from-white via-blue-50 to-white"
+        className="pt-6 pb-10 bg-gradient-to-b from-white via-blue-50 to-white"
       >
         <div className="max-w-7xl mx-auto px-6">
           {/* Heading */}
@@ -645,7 +746,7 @@ export default function StudyAustralia() {
           {/* Intake Cards */}
           <div className="mt-20 grid md:grid-cols-3 gap-10">
             {/* February Intake */}
-            <div className="relative p-10 rounded-3xl bg-white border shadow-lg hover:shadow-2xl transition hover:-translate-y-2 text-center">
+            <div className="relative p-10 rounded-3xl bg-yellow-200 border shadow-lg hover:shadow-2xl transition hover:-translate-y-2 text-center">
               <div className="absolute -top-5 left-8 bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
                 Main Intake
               </div>
@@ -663,7 +764,7 @@ export default function StudyAustralia() {
             </div>
 
             {/* July Intake */}
-            <div className="p-10 rounded-3xl bg-white border shadow-lg hover:shadow-2xl transition hover:-translate-y-2 text-center">
+            <div className="p-10 rounded-3xl bg-yellow-200 border shadow-lg hover:shadow-2xl transition hover:-translate-y-2 text-center">
               <div className="text-4xl mb-4">📚</div>
 
               <h3 className="text-2xl font-semibold text-gray-900">
@@ -677,7 +778,7 @@ export default function StudyAustralia() {
             </div>
 
             {/* November Intake */}
-            <div className="p-10 rounded-3xl bg-white border shadow-lg hover:shadow-2xl transition hover:-translate-y-2 text-center">
+            <div className="p-10 rounded-3xl bg-yellow-200 border shadow-lg hover:shadow-2xl transition hover:-translate-y-2 text-center">
               <div className="text-4xl mb-4">🌏</div>
 
               <h3 className="text-2xl font-semibold text-gray-900">
@@ -691,7 +792,7 @@ export default function StudyAustralia() {
           </div>
 
           {/* Timeline Banner */}
-          <div className="mt-20 bg-gradient-to-r from-green-600 to-emerald-500 text-white rounded-3xl p-12 text-center shadow-xl">
+          <div className="mt-20 bg-blue-500 text-white rounded-3xl p-12 text-center shadow-xl">
             <h3 className="text-2xl font-semibold">Application Timeline</h3>
 
             <p className="mt-6 text-lg opacity-90">
@@ -807,7 +908,7 @@ export default function StudyAustralia() {
           {/* Requirement Cards */}
           <div className="mt-20 grid md:grid-cols-2 gap-10">
             {/* Academic Requirements */}
-            <div className="p-10 rounded-3xl bg-white border shadow-lg hover:shadow-2xl transition hover:-translate-y-2">
+            <div className="p-10 rounded-3xl bg-yellow-200 border shadow-lg hover:shadow-2xl transition hover:-translate-y-2">
               <div className="text-4xl mb-4">🎓</div>
 
               <h3 className="text-xl font-semibold text-gray-900">
@@ -821,7 +922,7 @@ export default function StudyAustralia() {
             </div>
 
             {/* English Language */}
-            <div className="p-10 rounded-3xl bg-white border shadow-lg hover:shadow-2xl transition hover:-translate-y-2">
+            <div className="p-10 rounded-3xl bg-yellow-200 border shadow-lg hover:shadow-2xl transition hover:-translate-y-2">
               <div className="text-4xl mb-4">🌏</div>
 
               <h3 className="text-xl font-semibold text-gray-900">
@@ -840,7 +941,7 @@ export default function StudyAustralia() {
           </div>
 
           {/* Highlight Banner */}
-          <div className="mt-20 bg-gradient-to-r from-green-600 to-emerald-500 text-white rounded-3xl p-12 text-center shadow-xl">
+          <div className="mt-20 bg-blue-500 text-white rounded-3xl p-12 text-center shadow-xl">
             <p className="text-lg max-w-3xl mx-auto">
               Universities may have additional requirements depending on the
               course and level of study.
@@ -867,7 +968,7 @@ export default function StudyAustralia() {
             </h2>
 
             <p className="mt-6 text-lg text-gray-600">
-              The cost of studying in the USA depends on the university,
+              The cost of studying in the Australia depends on the university,
               location, and program.
             </p>
           </div>
@@ -950,8 +1051,106 @@ export default function StudyAustralia() {
         `}</style>
       </section>
 
-      {/* Cost of Living in USA */}
-      <section className="pt-10 pb-20 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
+      {/* fees */}
+      <section className="pt-6 pb-10 bg-gray-100">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Heading */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-black mb-10">
+              Study in USA{" "}
+              <span className="text-blue-600">Fee Structure 2026</span>
+            </h2>
+          </div>
+
+          {/* Table */}
+          <div className="overflow-hidden border border-gray-400">
+            {/* Header */}
+            <div className="grid md:grid-cols-3 bg-yellow-500 text-black font-bold">
+              <div className="p-4 border-r border-gray-400">PARTICULAR</div>
+              <div className="p-4 border-r border-gray-400">
+                APPROX. FEES IN (AUD)
+              </div>
+              <div className="p-4">APPROX. FEES IN (INR)</div>
+            </div>
+
+            {/* Section: Indian Students */}
+            <div className="p-4 bg-gray-300 font-bold border-t border-gray-400">
+              For Indian Students
+            </div>
+
+            {[
+              {
+                program: "Bachelor Degree",
+                aud: "19,896 – 44,753 AUD",
+                inr: "1,07,000 – 2,490,000 INR",
+              },
+              {
+                program: "Master Degree",
+                aud: "21,892 – 49,753 AUD",
+                inr: "12,18,000 – 2,768,000 INR",
+              },
+              {
+                program: "Doctoral Degree",
+                aud: "17,892 – 41,774 AUD",
+                inr: "9,96,000 – 2,325,000 INR",
+              },
+              {
+                program: "Vocational Education and Training (VET)",
+                aud: "3,970 – 21,869 AUD",
+                inr: "2,21,000 – 1,218,000 INR",
+              },
+            ].map((row, i) => (
+              <div
+                key={i}
+                className="grid md:grid-cols-3 border-t border-gray-400 bg-gray-200"
+              >
+                <div className="p-4 border-r border-gray-400 font-bold">
+                  {row.program}
+                </div>
+                <div className="p-4 border-r border-gray-400">{row.aud}</div>
+                <div className="p-4">{row.inr}</div>
+              </div>
+            ))}
+
+            {/* Section: International Students */}
+            <div className="p-4 bg-gray-300 font-bold border-t border-gray-400">
+              For International Students
+            </div>
+
+            {[
+              {
+                program: "Bachelor Degree",
+                aud: "15,000 – 30,000 AUD",
+                inr: "8,35,335 – 1,67,067 INR",
+              },
+              {
+                program: "Master Degree",
+                aud: "20,000 – 37,000 AUD",
+                inr: "11,14,089 – 20,60,941 INR",
+              },
+              {
+                program: "Doctoral Degree",
+                aud: "14,000 – 37,000 AUD",
+                inr: "7,79,815 – 20,60,941 INR",
+              },
+            ].map((row, i) => (
+              <div
+                key={i}
+                className="grid md:grid-cols-3 border-t border-gray-400 bg-gray-200"
+              >
+                <div className="p-4 border-r border-gray-400 font-bold">
+                  {row.program}
+                </div>
+                <div className="p-4 border-r border-gray-400">{row.aud}</div>
+                <div className="p-4">{row.inr}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Cost of Living in Australia */}
+      <section className="pt-4 pb-10 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
         {/* Background Glow */}
         <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-300/20 blur-3xl rounded-full"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-300/20 blur-3xl rounded-full"></div>
@@ -960,107 +1159,72 @@ export default function StudyAustralia() {
           {/* Heading */}
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900">
-              Cost of Living in <span className="text-blue-600">Australia</span>
+              Cost of <span className="text-blue-600">Living in Australia</span>
             </h2>
             <p className="mt-4 text-gray-600 text-lg">
-              Estimated expenses for international students in the Australia
+              Estimated expenses for international students in the Australia can
+              vary based on lifestyle and location.
             </p>
           </div>
 
           {/* Table */}
-          <div className="overflow-hidden rounded-3xl shadow-2xl border border-white/40 backdrop-blur-xl">
+          <div className="overflow-hidden border border-gray-400">
             {/* Header */}
-            <div className="grid md:grid-cols-3 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white font-semibold text-lg">
-              <div className="p-5">Expenses</div>
-              <div className="p-5">Average Cost</div>
-              <div className="p-5">External Factors</div>
+            <div className="grid md:grid-cols-3 bg-yellow-500 text-black font-bold">
+              <div className="p-4 border-r border-gray-400">EXPENSES</div>
+              <div className="p-4 border-r border-gray-400">
+                APPROX. COST IN (AUD)
+              </div>
+              <div className="p-4">APPROX. COST IN (INR)</div>
             </div>
 
             {/* Rows */}
             {[
               {
-                title: "Annual Tuition Fee",
-                cost: "INR 20 lakh - INR 50 lakh per year",
-                extra: [
-                  "Depends upon the chosen university",
-                  "Depends upon the study in Australia course selected",
-                ],
+                expense: "Accommodation",
+                aud: "300 – 900 AUD",
+                inr: "16,711 – 50,146 INR",
               },
               {
-                title: "Accommodation",
-                cost: "INR 64,000 - INR 1,30,000",
-                extra: [
-                  "University accommodation or private",
-                  "Includes food, transportation, medical or other important expenses",
-                ],
+                expense: "Transportation",
+                aud: "50 – 100 AUD",
+                inr: "2,785 – 5,571 INR",
               },
               {
-                title: "Food",
-                cost: "On Campus: INR 20000 monthly\nOff Campus: INR 33000 - 50000 monthly",
-                extra: ["On campus", "Off campus"],
+                expense: "Food and Groceries",
+                aud: "200 – 400 AUD",
+                inr: "11,141 – 22,282 INR",
               },
               {
-                title: "Phone Subscription",
-                cost: "INR 4000 monthly",
-                extra: [],
+                expense: "Utilities & Internet",
+                aud: "80 – 150 AUD",
+                inr: "4,456 – 8,356 INR",
               },
               {
-                title: "Groceries",
-                cost: "INR 20000 monthly",
-                extra: [],
+                expense: "Miscellaneous",
+                aud: "80 – 200 AUD",
+                inr: "4,456 – 11,141 INR",
               },
               {
-                title: "Public Transportation",
-                cost: "INR 8000 monthly",
-                extra: [],
-              },
-              {
-                title: "Health Insurance",
-                cost: "INR 20000 monthly",
-                extra: [
-                  "Plan covering pre-existing conditions",
-                  "Student’s age",
-                ],
-              },
-              {
-                title: "Other Utilities",
-                cost: "INR 12000 monthly",
-                extra: ["Electricity", "Water", "Gas", "Internet"],
+                expense: "Health Insurance",
+                aud: "40 AUD",
+                inr: "2,228 INR",
               },
             ].map((row, i) => (
               <div
                 key={i}
-                className="group grid md:grid-cols-3 items-center bg-white/80 backdrop-blur-md border-t border-white/50 
-          hover:bg-white hover:shadow-xl hover:scale-[1.01] transition duration-300"
+                className="grid md:grid-cols-3 border-t border-gray-400 bg-gray-200"
               >
                 {/* Expense */}
-                <div className="p-5 font-semibold text-gray-900 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  {row.title}
+                <div className="p-4 border-r border-gray-400 font-bold">
+                  {row.expense}
                 </div>
 
-                {/* Cost */}
-                <div className="p-5 whitespace-pre-line">
-                  <span className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-xl font-semibold text-sm shadow-sm">
-                    {row.cost}
-                  </span>
-                </div>
+                {/* AUD */}
+                <div className="p-4 border-r border-gray-400">{row.aud}</div>
 
-                {/* External */}
-                <div className="p-5 text-gray-700 text-sm">
-                  {row.extra.length > 0 ? (
-                    <ul className="space-y-1">
-                      {row.extra.map((item, idx) => (
-                        <li key={idx} className="flex gap-2 items-start">
-                          <span className="text-blue-500 mt-1">•</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <span className="text-gray-400">—</span>
-                  )}
-                </div>
+                {/* INR */}
+                <div className="p-4">{row.inr}</div>
               </div>
             ))}
           </div>
@@ -1068,119 +1232,111 @@ export default function StudyAustralia() {
       </section>
 
       {/* SCHOLARSHIPS IN AUSTRALIA */}
-      <section
-        id="scholarships"
-        className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
-      >
-        {/* Background glow */}
-        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-blue-300/30 blur-[120px] rounded-full animate-float"></div>
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-300/30 blur-[120px] rounded-full animate-float delay-2000"></div>
-
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <section className="pt-7 pb-10 bg-gray-100">
+        <div className="max-w-6xl mx-auto px-6">
           {/* Heading */}
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Scholarships for International Students in
-              <span className="text-blue-600"> Australia</span>
+          <div className="text-center mb-7">
+            <h2 className="text-4xl font-bold text-gray-900">
+              Scholarships in{" "}
+              <span className="text-blue-600">
+                USA for Indian Students 2026
+              </span>
             </h2>
-
-            <p className="mt-6 text-lg text-gray-600">
-              Many universities and organizations offer scholarships to
-              international students to help reduce the cost of education in
-              Australia.
-            </p>
           </div>
 
-          {/* Cards */}
-          <div className="mt-20 grid md:grid-cols-2 gap-10">
+          {/* Description */}
+          <p className="text-black-700 mb-2 leading-relaxed">
+            Australia offers several scholarships to Indian students wishing to
+            pursue higher education at the undergraduate, master's, and doctoral
+            levels. Australian institutions, the government, and private groups
+            all offer scholarships that help students pay for tuition, living
+            expenses, and other academic expenses. Details on Scholarships to
+            Study in Australia are provided below.
+          </p>
+
+          {/* Table */}
+          <div className="overflow-hidden border border-gray-400">
+            {/* Header */}
+            <div className="grid grid-cols-2 bg-yellow-500 text-black font-semibold">
+              <div className="p-4 border-r border-gray-400">
+                SCHOLARSHIP NAME
+              </div>
+              <div className="p-4">OFFERED BY</div>
+            </div>
+
+            {/* Government Scholarships */}
+            <div className="col-span-2 p-4 bg-gray-300 font-bold border-t border-gray-400">
+              Government-Funded Scholarships
+            </div>
+
             {[
               {
-                icon: "🎓",
-                title: "Australia Awards Scholarships",
-                details:
-                  "Covers tuition fees, living expenses, travel costs, and provides financial support for eligible international students studying in Australia.",
+                name: "Australia Awards Scholarships",
+                by: "Australian Government",
               },
               {
-                icon: "🏆",
-                title: "Destination Australia Scholarship",
-                details:
-                  "Offers financial support to international students who choose to study in regional Australia at participating institutions.",
+                name: "Destination Australia Scholarships",
+                by: "Australian Government",
               },
-            ].map((item, i) => (
+              {
+                name: "Australian Government Research Training Program Scholarships",
+                by: "Australian Government",
+              },
+            ].map((item, index) => (
               <div
-                key={i}
-                className="group relative rounded-3xl p-[2px] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 transition duration-300 hover:scale-[1.02]"
+                key={index}
+                className="grid grid-cols-2 border-t border-gray-400 bg-gray-200"
               >
-                <div className="bg-white rounded-3xl p-10 h-full shadow-xl overflow-hidden relative">
-                  {/* hover glow */}
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 
-      bg-gradient-to-br from-blue-100/40 via-indigo-100/20 to-purple-100/30"
-                  ></div>
-
-                  <div className="relative z-10 text-center">
-                    {/* Icon */}
-                    <div
-                      className="w-16 h-16 mx-auto mb-5 flex items-center justify-center 
-        bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full text-2xl shadow-lg 
-        group-hover:scale-110 transition"
-                    >
-                      {item.icon}
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition">
-                      {item.title}
-                    </h3>
-
-                    {/* EXPAND DETAILS */}
-                    <div className="mt-4 max-h-0 overflow-hidden group-hover:max-h-40 transition-all duration-500">
-                      <p className="text-gray-600 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition duration-500 delay-100">
-                        {item.details}
-                      </p>
-                    </div>
-                  </div>
+                <div className="p-4 border-r border-gray-400 font-bold">
+                  {item.name}
                 </div>
+                <div className="p-4">{item.by}</div>
+              </div>
+            ))}
+
+            {/* University Scholarships */}
+            <div className="col-span-2 p-4 bg-gray-300 font-bold border-t border-gray-400">
+              University-Specific Scholarships
+            </div>
+
+            {[
+              {
+                name: "University of Adelaide Global Citizens Scholarships",
+                by: "University of Adelaide",
+              },
+              {
+                name: "University of Sydney International Scholarships (USydIS)",
+                by: "University of Sydney",
+              },
+              {
+                name: "Monash University Scholarships",
+                by: "Monash University",
+              },
+              {
+                name: "Melbourne Research Scholarships (MRS)",
+                by: "University of Melbourne",
+              },
+              {
+                name: "Macquarie University Scholarships",
+                by: "Macquarie University",
+              },
+              {
+                name: "UNSW Sydney International Student Award",
+                by: "UNSW Sydney",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="grid grid-cols-2 border-t border-gray-400 bg-gray-200"
+              >
+                <div className="p-4 border-r border-gray-400 font-bold">
+                  {item.name}
+                </div>
+                <div className="p-4">{item.by}</div>
               </div>
             ))}
           </div>
-
-          {/* Info Box */}
-          <div className="mt-20 relative bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white rounded-3xl p-12 text-center shadow-2xl overflow-hidden">
-            {/* glow */}
-            <div className="absolute -top-10 -left-10 w-72 h-72 bg-white/10 blur-3xl rounded-full animate-float"></div>
-            <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 blur-3xl rounded-full animate-float delay-2000"></div>
-
-            <div className="relative z-10">
-              <p className="text-lg max-w-3xl mx-auto">
-                Scholarships may be awarded based on academic merit, leadership
-                qualities, regional study preferences, or financial need.
-              </p>
-            </div>
-          </div>
         </div>
-
-        <style>{`
-    @keyframes float {
-      0% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-40px);
-      }
-      100% {
-        transform: translateY(0px);
-      }
-    }
-
-    .animate-float {
-      animation: float 14s ease-in-out infinite;
-    }
-
-    .delay-2000 {
-      animation-delay: 2s;
-    }
-  `}</style>
       </section>
 
       {/* WORK OPPORTUNITIES & VISA - AUSTRALIA */}

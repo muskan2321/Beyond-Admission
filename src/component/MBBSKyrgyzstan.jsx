@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import KyrgyzstanCollegeSlider from "./KyrgyzstanCollegeSlider";
 
 export default function MBBSKyrgyzstan() {
   // for FAQ start
@@ -205,7 +206,7 @@ export default function MBBSKyrgyzstan() {
           FAQ
         </a>
       </div>
-
+      <KyrgyzstanCollegeSlider />
       {/* INTRO SECTION */}
       <section className="relative pt-12 pb-24 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">
         {/* Animated Background Lights */}

@@ -1,14 +1,16 @@
 import { useEffect, useRef } from "react";
 
 const colleges = [
-  { name: "Tbilisi State Medical University (TSMU)" },
-  { name: "Georgian American University" },
-  { name: "Georgian National University" },
-  { name: "Kutaisi International University (KIU)" },
-  { name: "BAU International University" },
+  { name: "Kemerovo State Medical University" },
+  { name: "Siberian State Medical University" },
+  { name: "Volgograd State Medical University" },
+  { name: "Voronezh State Medical University" },
+  { name: "North Caucasian State Academy" },
+  { name: "Bashkir State Medical University" },
+  { name: "Crimea Federal University" },
 ];
 
-export default function GeorgiaCollegeSlider() {
+export default function RussiaCollegeSlider({ onApplyClick }) {
   const sliderRef = useRef(null);
 
   useEffect(() => {
@@ -33,11 +35,7 @@ export default function GeorgiaCollegeSlider() {
 
   return (
     <div className="bg-gradient-to-r from-cyan-700 to-blue-600 py-8 mt-16 overflow-hidden">
-      {/* Heading */}
-      {/* <h2 className="text-center text-2xl font-bold text-white mb-6">
-        Top MBBS Colleges in Georgia 
-      </h2> */}
-
+      {" "}
       {/* Slider */}
       <div ref={sliderRef} className="flex gap-4 overflow-x-hidden px-4">
         {[...colleges, ...colleges].map((item, index) => (

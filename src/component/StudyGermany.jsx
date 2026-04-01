@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import UniversityCardList from "./UniversityCardList";
 
 export default function StudyGermany() {
   const [tab, setTab] = useState("academic");
@@ -50,6 +51,13 @@ export default function StudyGermany() {
       detail:
         "Our support continues even after you arrive abroad. We assist with airport pickup, accommodation, local orientation, and university onboarding to ensure a smooth and hassle-free transition.",
     },
+  ];
+  const universities = [
+    "Technical University of Munich (TUM)",
+    "University of Hamburg",
+    "Ludwig Maximilian University of Munich",
+    "Free University of Berlin",
+    "Humboldt University of Berlin",
   ];
 
   return (
@@ -125,6 +133,14 @@ export default function StudyGermany() {
             </div>
           </div> */}
         </div>
+        {/* RIGHT SIDE FLOATING CARD */}
+                        <div className="hidden lg:block absolute right-10 top-1/2 -translate-y-1/2 z-20">
+                          <UniversityCardList
+                            title="Germany"
+                            universities={universities}
+                            onApplyClick={() => alert("Popup Open")}
+                          />
+                        </div>
 
         {/* ✅ FIXED STYLE */}
         <style>

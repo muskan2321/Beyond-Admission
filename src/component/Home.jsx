@@ -20,6 +20,7 @@ import { FaMoneyBillWave } from "react-icons/fa";
 import CollegeSliderCard from "../component/CollegeSliderCard";
 import FloatingSidebar from "../component/FloatingSidebar";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 import { Link } from "react-router-dom";
@@ -1177,148 +1178,126 @@ function Home() {
   };
   // Study MBBS Abroad destination end
   // studt in india start
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+ const navigate = useNavigate();
 
   const categories = [
     {
       name: "Medical",
+      path: "/ug-medical",
       icon: "🏥",
       desc: "Medical & Healthcare Programs",
       color: "from-green-500 to-emerald-500",
-      subOptions: [
-        { name: "MBBS", path: "/mbbs" },
-        { name: "BAMS", path: "/bams" },
-        { name: "BDS", path: "/bds" },
-        { name: "BHMS", path: "/bhms" },
-        { name: "MD/MS", path: "/md-ms" },
-      ],
     },
     {
       name: "Management",
+      path: "/ug-management",
       icon: "💼",
       desc: "Business & Management Studies",
       color: "from-blue-500 to-indigo-500",
-      subOptions: [
-        { name: "BBA", path: "/bba" },
-        { name: "BMS", path: "/bms" },
-        { name: "BBM", path: "/bbm" },
-        { name: "B.Com", path: "/bcom" },
-        { name: "MBA", path: "/mba" },
-        { name: "MCA", path: "/mca" },
-      ],
     },
     {
       name: "Engineering",
+      path: "/ug-engineering",
       icon: "⚙️",
       desc: "Engineering & Technology",
       color: "from-orange-500 to-red-500",
-      subOptions: [
-        { name: "B.Tech", path: "/btech" },
-        { name: "M.Tech", path: "/mtech" },
-      ],
     },
     {
       name: "Humanities",
+      path: "/ug-humanities",
       icon: "📚",
       desc: "Arts & Humanities",
       color: "from-purple-500 to-pink-500",
-      subOptions: [
-        { name: "BA", path: "/ba" },
-        { name: "MA", path: "/ma" },
-      ],
     },
-  ];
+  ]
   // studt in india end
   const [showPopup, setShowPopup] = useState(false);
   
 
   return (
     <>
-      
       {/* 1.hero section */}
-     <div className="relative w-full min-h-screen overflow-hidden z-0">
-     {/* Hidden background image to ensure bg5 looks "full" on first load */}
-     <img src="/image/bg5.jpg" className="hidden" alt="bg-preload" />
-    <FloatingSidebar />
+      <div className="relative w-full min-h-screen overflow-hidden z-0">
+        {/* Hidden background image to ensure bg5 looks "full" on first load */}
+        <img src="/image/bg5.jpg" className="hidden" alt="bg-preload" />
+        <FloatingSidebar />
 
-    <Slider {...settings} className="hero-slider">
-      {[
-        "/image/bg5.jpg",
-      ].map((img, i) => (
-        <div key={i}>
-          <div className="relative w-full h-screen overflow-hidden">
-            {/* Background Image */}
-            <img
-              src={img}
-              alt={`slide-${i}`}
-              className="w-full h-full object-cover object-bottom"
-            />
+        <Slider {...settings} className="hero-slider">
+          {["/image/bg5.jpg"].map((img, i) => (
+            <div key={i}>
+              <div className="relative w-full h-screen overflow-hidden">
+                {/* Background Image */}
+                <img
+                  src={img}
+                  alt={`slide-${i}`}
+                  className="w-full h-full object-cover object-bottom"
+                />
 
-            {/* Very light overlay to preserve image brightness but keep text readable */}
-            <div className="absolute inset-0 bg-black/20"></div>
-          </div>
-        </div>
-      ))}
-    </Slider>
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-black/40"></div>
+              </div>
+            </div>
+          ))}
+        </Slider>
 
-    <div
-      className="
+        <div
+          className="
       absolute inset-0 text-white
       overflow-y-auto lg:overflow-visible
       flex items-start lg:items-center
        pt-32 lg:pt-0 z-10 pt-24 sm:pt-32
     "
-    >
-      <div className="w-full max-w-3xl px-4 sm:px-6 pb-20 mt-10 ml-4 sm:ml-8 lg:ml-16">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-accent/20 px-4 py-2 text-sm font-medium text-accent">
-          <FaGraduationCap />
-          Trusted by 10,000+ Students
-        </div>
+        >
+          <div className="w-full max-w-3xl px-4 sm:px-6 pb-20 mt-10 ml-4 sm:ml-8 lg:ml-16">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-accent/20 px-4 py-2 text-sm font-medium text-accent">
+              <FaGraduationCap />
+              Trusted by 10,000+ Students
+            </div>
 
-        <h1 className="font-display text-xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-          Your Trusted Counselling Partner for{" "}
-          <span className="text-orange-400">
-            Admissions in India & Abroad
-          </span>
-        </h1>
+            <h1 className="font-display text-xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+              Your Trusted Counselling Partner for{" "}
+              <span className="text-orange-400">
+                Admissions in India & Abroad
+              </span>
+            </h1>
 
-        <p className="mt-6 text-lg sm:text-xl text-white/80">
-          Unlock your dream career with expert guidance.
-        </p>
+            <p className="mt-6 text-lg sm:text-xl text-white/80">
+              Unlock your dream career with expert guidance.
+            </p>
 
-        <div className="mt-10 flex flex-wrap gap-4">
-          {/* Apply Now */}
-          <button
-            onClick={() => setShowPopup(true)}
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-8 text-white font-semibold shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:from-amber-600 hover:to-orange-600"
-          >
-            Apply Now <FaArrowRight className="text-sm" />
-          </button>
+            <div className="mt-10 flex flex-wrap gap-4">
+              {/* Apply Now */}
+              <button
+                onClick={() => setShowPopup(true)}
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-8 text-white font-semibold shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:from-amber-600 hover:to-orange-600"
+              >
+                Apply Now <FaArrowRight className="text-sm" />
+              </button>
 
-          {/* Free Counseling */}
-          <button
-            onClick={() => setShowPopup(true)}
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-8 text-white font-semibold shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:from-amber-600 hover:to-orange-600"
-          >
-            Free Counselling
-          </button>
+              {/* Free Counseling */}
+              <button
+                onClick={() => setShowPopup(true)}
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-8 text-white font-semibold shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:from-amber-600 hover:to-orange-600"
+              >
+                Free Counselling
+              </button>
 
-          <Link
-            to="/contact"
-            className="inline-flex h-12 items-center justify-center rounded-full bg-white/10 px-8 text-white font-semibold backdrop-blur-md border border-white/20 transition-all duration-300 hover:bg-green-500 hover:border-green-500 hover:shadow-lg hover:-translate-y-1"
-          >
-            📞 Call Now
-          </Link>
+              <Link
+                to="/contact"
+                className="inline-flex h-12 items-center justify-center rounded-full bg-white/10 px-8 text-white font-semibold backdrop-blur-md border border-white/20 transition-all duration-300 hover:bg-green-500 hover:border-green-500 hover:shadow-lg hover:-translate-y-1"
+              >
+                📞 Call Now
+              </Link>
+            </div>
+          </div>
+
+          <CollegeSliderCard />
         </div>
       </div>
 
-      <CollegeSliderCard />
-    </div>
-  </div>
+      {/*   POPUP  */}
+      <HomePopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
 
-  {/*   POPUP  */}
-  <HomePopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
-      
       {/*2. About Section */}
       <section className="relative pt-4 pb-8 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">
         {/* Background Glow */}
@@ -1662,11 +1641,10 @@ function Home() {
                   { name: "MS in USA", path: "/ms-usa" },
                   { name: "MS in UK", path: "/ms-uk" },
                   { name: "MS in Canada", path: "/ms-canada" },
-                  { name: "MS in Ireland", path: "/ms-ireland"},
+                  { name: "MS in Ireland", path: "/ms-ireland" },
                   {
                     name: "MS in Australia",
                     path: "/ms-australia",
-                    
                   },
                   { name: "MS in Germany", path: "/ms-germany" },
                 ],
@@ -1686,7 +1664,6 @@ function Home() {
                   {
                     name: "MBA in Australia",
                     path: "/mba-australia",
-                    
                   },
                   { name: "MBA in Germany", path: "/mba-germany" },
                 ],
@@ -1706,7 +1683,6 @@ function Home() {
                   {
                     name: "UG in Australia",
                     path: "/ug-australia",
-                    
                   },
                   { name: "UG in Germany", path: "/ug-germany" },
                 ],
@@ -2425,211 +2401,55 @@ function Home() {
         </div>
       </section>
       {/* 12.Study in India */}
-      <section className="pt-12 pb-20 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-visible">
-        {/* Glow Background */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"></div>
-
-        <div className="relative max-w-7xl mx-auto px-4">
+      <section className="pt-12 pb-20 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative">
+        <div className="max-w-7xl mx-auto px-4">
           {/* Heading */}
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-block px-4 py-1 bg-green-100 rounded-full mb-4">
-              <span className="text-sm font-semibold text-green-600">
-                Career Pathways
-              </span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">
-              Explore Opportunities
+            {/* Heading */}
+            <h2 className="mt-6 text-center text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">
+              Study in India
               <br />
-              <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-                Study in India
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                Popular Courses
               </span>
             </h2>
-            <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto">
-              Discover your perfect career path with India's most prestigious
-              programs and institutions
+            <p className="mt-4 text-lg text-slate-600">
+              Choose your career path and start your journey
             </p>
           </div>
 
           {/* Cards */}
           <div className="mt-16 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-            {categories.map((item, i) => {
-              const [isOpen, setIsOpen] = useState(false);
-              let timeoutId;
-
-              const handleMouseEnter = () => {
-                clearTimeout(timeoutId);
-                setIsOpen(true);
-              };
-
-              const handleMouseLeave = () => {
-                timeoutId = setTimeout(() => {
-                  setIsOpen(false);
-                }, 200);
-              };
-
-              return (
-                <div
-                  key={i}
-                  className="relative"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  {/* Main Card */}
-                  <div className="group relative block transform transition-all duration-500 hover:-translate-y-3">
-                    {/* Gradient Border Effect */}
-                    <div
-                      className={`absolute -inset-0.5 bg-gradient-to-r ${item.color} rounded-2xl opacity-0 group-hover:opacity-100 blur-md transition-all duration-500`}
-                    ></div>
-
-                    {/* Glow Hover */}
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-r ${item.color} rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500`}
-                    ></div>
-
-                    {/* Card Content */}
-                    <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-slate-100 p-6 text-center overflow-hidden group-hover:border-transparent transition-all duration-500">
-                      {/* Background Pattern */}
-                      <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-r from-gray-50 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
-
-                      {/* Icon Container */}
-                      <div className="relative">
-                        <div
-                          className={`absolute inset-0 bg-gradient-to-r ${item.color} rounded-full blur-xl opacity-0 group-hover:opacity-30 transition-all duration-500`}
-                        ></div>
-                        <div
-                          className={`relative w-20 h-20 mx-auto bg-gradient-to-br ${item.color} rounded-2xl flex items-center justify-center mb-5 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}
-                        >
-                          <div className="text-3xl">{item.icon}</div>
-                        </div>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="text-xl font-bold text-slate-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-green-600 group-hover:to-blue-600 group-hover:bg-clip-text transition-all duration-300">
-                        {item.name}
-                      </h3>
-
-                      {/* Desc */}
-                      <p className="mt-2 text-sm text-slate-500 group-hover:text-slate-600 transition-all duration-300">
-                        {item.desc}
-                      </p>
-
-                      {/* Stats Badge */}
-                      <div className="mt-4 flex items-center justify-center gap-2">
-                        <div className="flex items-center gap-1 text-xs text-slate-400">
-                          <svg
-                            className="w-3 h-3"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                          </svg>
-                          <span>{item.subOptions?.length || 0}+ Programs</span>
-                        </div>
-                      </div>
-
-                      {/* Animated Bottom Line */}
-                      <div className="mt-5 h-[2px] w-12 bg-gradient-to-r from-green-500 to-blue-500 group-hover:w-full transition-all duration-500 mx-auto"></div>
-
-                      {/* Dropdown Indicator */}
-                      <div className="mt-5 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-y-0 translate-y-2">
-                        <div className="flex items-center justify-center gap-2 text-green-600">
-                          <span>Explore Courses</span>
-                          <svg
-                            className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M19 9l-7 7-7-7"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
+            {categories.map((item, i) => (
+              <div
+                key={i}
+                onClick={() => navigate(item.path)}
+                className="cursor-pointer group relative transform transition-all duration-300 hover:-translate-y-2"
+              >
+                {/* Card */}
+                <div className="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300">
+                  {/* Icon */}
+                  <div
+                    className={`w-16 h-16 mx-auto bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center text-2xl mb-4`}
+                  >
+                    {item.icon}
                   </div>
 
-                  {/* Enhanced Dropdown Menu */}
-                  {isOpen && item.subOptions && (
-                    <div
-                      className="absolute top-full left-0 right-0 mt-3 bg-white rounded-xl shadow-2xl border border-slate-100 overflow-hidden z-50 animate-slideDown"
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      <div className="relative">
-                        {/* Dropdown Header */}
-                        <div
-                          className={`bg-gradient-to-r ${item.color} px-4 py-2`}
-                        >
-                          <p className="text-xs font-semibold text-white/80">
-                            Available Programs
-                          </p>
-                        </div>
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-gray-800">
+                    {item.name}
+                  </h3>
 
-                        {/* Options List */}
-                        <div className="py-2 max-h-64 overflow-y-auto">
-                          {item.subOptions.map((option, idx) => (
-                            <Link
-                              key={idx}
-                              to={option.path}
-                              className="group/option block px-4 py-3 hover:bg-gradient-to-r hover:from-green-50 hover:to-blue-50 transition-all duration-300 border-b border-slate-50 last:border-0"
-                            >
-                              <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-3">
-                                  <div
-                                    className={`w-2 h-2 rounded-full bg-gradient-to-r ${item.color} opacity-0 group-hover/option:opacity-100 transition-all duration-300`}
-                                  ></div>
-                                  <span className="text-sm font-medium text-slate-700 group-hover/option:text-green-600 transition-colors duration-300">
-                                    {option.name}
-                                  </span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                  <span className="text-xs text-green-500 opacity-0 group-hover/option:opacity-100 transition-all duration-300 transform group-hover/option:translate-x-1">
-                                    Apply Now
-                                  </span>
-                                  <svg
-                                    className="w-4 h-4 text-green-500 opacity-0 group-hover/option:opacity-100 transition-all duration-300 transform group-hover/option:translate-x-1"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      strokeWidth={2}
-                                      d="M9 5l7 7-7 7"
-                                    />
-                                  </svg>
-                                </div>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
+                  {/* Desc */}
+                  <p className="mt-2 text-sm text-gray-500">{item.desc}</p>
 
-                        {/* Dropdown Footer */}
-                        <div className="bg-gray-50 px-4 py-2 border-t border-slate-100">
-                          <p className="text-xs text-center text-slate-500">
-                            Click to explore detailed curriculum & admission
-                            process
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+                  {/* Button */}
+                  <button className="mt-4 text-m bg-yellow-500 text-bold text-black px-4 py-2 rounded-full group-hover:bg-blue-600 transition">
+                    Explore Program →
+                  </button>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </section>

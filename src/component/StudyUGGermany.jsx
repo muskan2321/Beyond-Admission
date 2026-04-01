@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import UniversityCardList from "./UniversityCardList";
 
 export default function StudyGermany() {
   const [activeFaq, setActiveFaq] = useState(null);

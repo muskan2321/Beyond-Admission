@@ -1,52 +1,63 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import UniversityCardList from "./UniversityCardList";
 
 export default function MSUSA() {
   const [tab, setTab] = useState("academic");
- const steps = [
-   {
-     title: "Profile Evaluation",
-     detail:
-       "Analyze academic background, skills, and career goals to suggest best-fit universities.",
-   },
-   {
-     title: "Prepare Exams",
-     detail:
-       "Prepare for IELTS, TOEFL, GRE or GMAT based on your target universities.",
-   },
-   {
-     title: "Shortlist University",
-     detail:
-       "Select universities based on ranking, budget, course, and job opportunities.",
-   },
-   {
-     title: "Writing Process (CV, LOR, SOP, Essays)",
-     detail:
-       "Create strong documents including SOP, LOR, CV, and essays for application.",
-   },
-   {
-     title: "Applying",
-     detail: "Submit applications on portals and track deadlines carefully.",
-   },
-   {
-     title: "Offer Letter",
-     detail: "Receive and compare offers to choose the best university.",
-   },
-   {
-     title: "Visa & Loan",
-     detail: "Apply for visa and arrange finances or education loan.",
-   },
-   {
-     title: "Pre-Departure Services",
-     detail:
-       "Guidance for accommodation, forex, flight booking, and insurance.",
-   },
-   {
-     title: "Application Requirement",
-     detail:
-       "Ensure documents like transcripts, passport, scores, and financial proof are ready.",
-   },
- ];
+const steps = [
+  {
+    title: "Profile Evaluation",
+    detail:
+      "Analyze academic background, achievements, extracurricular activities, and career goals to suggest the best-fit universities and programs. Personalized guidance helps in building a strong application strategy.",
+  },
+  {
+    title: "Prepare Exams",
+    detail:
+      "Prepare for IELTS, TOEFL, GRE, or GMAT based on your target universities. Get expert guidance, mock tests, and strategies to achieve high scores and improve your chances of admission.",
+  },
+  {
+    title: "Shortlist University",
+    detail:
+      "Select universities based on global ranking, tuition fees, scholarships, course curriculum, and future job opportunities. A balanced shortlist ensures higher chances of acceptance.",
+  },
+  {
+    title: "Writing Process (CV, LOR, SOP, Essays)",
+    detail:
+      "Create strong and impactful documents including SOP, LOR, CV, and essays. Highlight your strengths, achievements, and goals effectively to stand out in competitive applications.",
+  },
+  {
+    title: "Applying",
+    detail:
+      "Submit applications through official university portals with complete accuracy. Track deadlines, upload required documents, and ensure error-free submission for maximum success.",
+  },
+  {
+    title: "Offer Letter",
+    detail:
+      "Receive admission offers from universities and compare them based on ranking, ROI, course value, and location to make the best decision for your future.",
+  },
+  {
+    title: "Visa & Loan",
+    detail:
+      "Apply for student visa with proper documentation and guidance. Get assistance in arranging finances, education loans, and preparing for visa interviews confidently.",
+  },
+  {
+    title: "Pre-Departure Services",
+    detail:
+      "Complete guidance for accommodation, forex exchange, flight booking, travel insurance, and essential packing tips to ensure a smooth transition abroad.",
+  },
+  {
+    title: "Post-Departure Services",
+    detail:
+      "Our support continues even after you arrive abroad. We assist with airport pickup, accommodation, local orientation, and university onboarding to ensure a smooth and hassle-free transition.",
+  },
+  ];
+   const universities = [
+     "University of Oxford",
+     "University of Cambridge",
+     "Imperial College London",
+     "UCL",
+     "University of Edinburgh",
+   ];
 
 
  
@@ -106,6 +117,15 @@ export default function MSUSA() {
             </div>
           </div>
         </div>
+         {/* RIGHT SIDE FLOATING CARD */}
+                        <div className="hidden lg:block absolute right-10 top-1/2 -translate-y-1/2 z-20">
+                          <UniversityCardList
+                            title="USA"
+                            universities={universities}
+                            onApplyClick={() => alert("Popup Open")}
+                          />
+                        </div>
+        
 
         {/*  FIXED STYLE */}
         <style>{`
@@ -195,6 +215,28 @@ export default function MSUSA() {
         >
           Visa
         </a>
+      </div>
+      <div className="max-w-7xl mx-auto px-6 py-10 flex flex-wrap justify-center gap-4 pt-2">
+        <Link
+          to="/study-usa"
+          className="px-6 py-2 bg-yellow-400 rounded-full hover:bg-blue-300"
+        >
+          Study In USA
+        </Link>
+
+        <Link
+          to="/mba-usa"
+          className="px-6 py-2 bg-yellow-400 rounded-full hover:bg-blue-300"
+        >
+          MBA In USA
+        </Link>
+
+        <Link
+          to="/ug-usa"
+          className="px-6 py-2 bg-yellow-400 rounded-full hover:bg-blue-300"
+        >
+          UG In USA
+        </Link>
       </div>
       {/* INTRO SECTION */}
       <section className="relative pt-12 pb-24 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">
@@ -353,7 +395,7 @@ export default function MSUSA() {
           {/* Benefits */}
           <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Card */}
-            <div className="group relative p-8 rounded-3xl bg-white/90 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
+            <div className="group relative p-8 rounded-3xl bg-yellow-200 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-400/20 via-indigo-400/20 to-sky-400/20"></div>
 
               <div className="relative z-10">
@@ -372,7 +414,7 @@ export default function MSUSA() {
               </div>
             </div>
 
-            <div className="group relative p-8 rounded-3xl bg-white/90 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
+            <div className="group relative p-8 rounded-3xl bg-yellow-200 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-400/20 via-indigo-400/20 to-sky-400/20"></div>
 
               <div className="relative z-10">
@@ -391,7 +433,7 @@ export default function MSUSA() {
               </div>
             </div>
 
-            <div className="group relative p-8 rounded-3xl bg-white/90 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
+            <div className="group relative p-8 rounded-3xl bg-yellow-200 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-400/20 via-indigo-400/20 to-sky-400/20"></div>
 
               <div className="relative z-10">
@@ -410,7 +452,7 @@ export default function MSUSA() {
               </div>
             </div>
 
-            <div className="group relative p-8 rounded-3xl bg-white/90 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
+            <div className="group relative p-8 rounded-3xl bg-yellow-200 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-400/20 via-indigo-400/20 to-sky-400/20"></div>
 
               <div className="relative z-10">
@@ -429,7 +471,7 @@ export default function MSUSA() {
               </div>
             </div>
 
-            <div className="group relative p-8 rounded-3xl bg-white/90 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
+            <div className="group relative p-8 rounded-3xl bg-yellow-200 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-400/20 via-indigo-400/20 to-sky-400/20"></div>
 
               <div className="relative z-10">
@@ -448,7 +490,7 @@ export default function MSUSA() {
               </div>
             </div>
 
-            <div className="group relative p-8 rounded-3xl bg-white/90 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
+            <div className="group relative p-8 rounded-3xl bg-yellow-200 backdrop-blur-md border shadow-md hover:shadow-2xl hover:-translate-y-3 transition duration-300 overflow-hidden">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-400/20 via-indigo-400/20 to-sky-400/20"></div>
 
               <div className="relative z-10">
@@ -507,7 +549,8 @@ export default function MSUSA() {
 
         <div className="max-w-7xl mx-auto px-6 relative">
           <h2 className="text-4xl font-bold text-center mb-6">
-            Popular MS Specializations in USA
+            Popular MS Specializations{" "}
+            <span className="text-blue-600">in USA</span>
           </h2>
 
           <p className="text-center text-gray-600 mb-16">
@@ -596,120 +639,7 @@ export default function MSUSA() {
         </div>
       </section>
       {/* TOP UNIVERSITIES */}
-      <section
-        id="Top Universities"
-        className="pt-0 pb-28 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden"
-      >
-        {/* Background Glow */}
-        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-green-300/30 blur-[120px] rounded-full animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-300/30 blur-[120px] rounded-full animate-pulse"></div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          {/* Heading */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Top Universities in USA and Their{" "}
-              <span className="bg-blue-600  bg-clip-text text-transparent">
-                Fees
-              </span>
-            </h2>
-            <p className="mt-4 text-gray-600 text-lg">
-              Explore top universities, programs, and tuition fees in a
-              structured way.
-            </p>
-          </div>
-
-          {/* Table */}
-          <div className="relative rounded-3xl p-[2px] bg-gradient-to-r from-green-500 via-emerald-500 to-blue-500 shadow-2xl">
-            <div className="rounded-3xl overflow-hidden backdrop-blur-xl bg-white/80">
-              {/* Header */}
-              <div className="grid grid-cols-4 bg-blue-600 text-white font-semibold text-lg">
-                <div className="p-6">University</div>
-                <div className="p-6 text-center">UG</div>
-                <div className="p-6 text-center">MS</div>
-                <div className="p-6 text-center">MBA</div>
-              </div>
-
-              {/* Rows */}
-              {[
-                {
-                  name: "University of California, Berkeley",
-                  ug: "₹35L – ₹45L / year",
-                  ms: "₹35L – ₹60L / year",
-                  mba: "₹55L – ₹70L / year",
-                },
-                {
-                  name: "Stanford University",
-                  ug: "₹45L – ₹55L / year",
-                  ms: "₹50L – ₹65L / year",
-                  mba: "₹70L – ₹1Cr / year",
-                },
-                {
-                  name: "MIT",
-                  ug: "₹45L – ₹55L / year",
-                  ms: "₹50L – ₹70L / year",
-                  mba: "₹65L – ₹80L / year",
-                },
-                {
-                  name: "Carnegie Mellon University",
-                  ug: "₹45L – ₹55L / year",
-                  ms: "₹45L – ₹65L / year",
-                  mba: "₹60L – ₹80L / year",
-                },
-                {
-                  name: "University of Texas at Austin",
-                  ug: "₹30L – ₹40L / year",
-                  ms: "₹25L – ₹50L / year",
-                  mba: "₹40L – ₹60L / year",
-                },
-                {
-                  name: "Arizona State University",
-                  ug: "₹25L – ₹35L / year",
-                  ms: "₹20L – ₹45L / year",
-                  mba: "₹35L – ₹55L / year",
-                },
-                {
-                  name: "Northeastern University",
-                  ug: "₹40L – ₹50L / year",
-                  ms: "₹45L – ₹65L / year",
-                  mba: "₹55L – ₹75L / year",
-                },
-              ].map((row, i) => (
-                <div
-                  key={i}
-                  className="grid grid-cols-4 items-center border-t border-gray-100 hover:bg-gradient-to-r hover:from-green-50 hover:to-blue-50 transition duration-300 group"
-                >
-                  {/* University */}
-                  <div className="p-6 font-semibold text-gray-900 group-hover:text-blue-600 transition">
-                    {row.name}
-                  </div>
-
-                  {/* UG */}
-                  <div className="p-6 text-center">
-                    <span className="px-3 py-1 text-sm font-semibold rounded-full bg-green-100 text-green-600">
-                      {row.ug}
-                    </span>
-                  </div>
-
-                  {/* MS */}
-                  <div className="p-6 text-center">
-                    <span className="px-3 py-1 text-sm font-semibold rounded-full bg-blue-100 text-blue-600">
-                      {row.ms}
-                    </span>
-                  </div>
-
-                  {/* MBA */}
-                  <div className="p-6 text-center">
-                    <span className="px-3 py-1 text-sm font-semibold rounded-full bg-yellow-100 text-yellow-700">
-                      {row.mba}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
       {/* INTAKES */}
       <section className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden">
         {/* subtle background glow */}
@@ -738,14 +668,23 @@ export default function MSUSA() {
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-t-3xl"></div>
 
                 <h4 className="text-xl font-semibold text-blue-700 mb-6 flex items-center gap-2">
-                  📅 Fall 2026 Intake Timeline
+                  📅 Fall 2027 Intake Timeline
                 </h4>
 
-                <ul className="space-y-3 text-gray-700 text-sm">
-                  <li>✔ Applications Open Period: Aug – Nov 2026</li>
-                  <li>✔ Deadlines: Dec 2026 – Feb 2027</li>
-                  <li>✔ Offer Letters: Mar – May 2027</li>
-                  <li>✔ Classes Begin: Aug / Sep 2027</li>
+                <ul className="space-y-3 text-black-700 text-md">
+                  <li>
+                    ✔ Applications Open Period:{" "}
+                    <span className="font-bold">Nov – May 2026</span>
+                  </li>
+
+                  <li>
+                    ✔ Offer Letters:{" "}
+                    <span className="font-bold">Jan 2026 – May/June 2026</span>
+                  </li>
+                  <li>
+                    ✔ Classes Begin:{" "}
+                    <span className="font-bold">Aug / Sep 2027</span>
+                  </li>
                 </ul>
 
                 <div className="mt-5 text-xs text-gray-600 bg-blue-50 px-4 py-3 rounded-xl">
@@ -761,11 +700,18 @@ export default function MSUSA() {
                   🌱 Spring 2027 Intake Timeline
                 </h4>
 
-                <ul className="space-y-3 text-gray-700 text-sm">
-                  <li>✔ Applications Open Period: May – Aug 2026</li>
-                  <li>✔ Deadlines: Sep – Oct 2026</li>
-                  <li>✔ Offer Letters: Oct – Nov 2026</li>
-                  <li>✔ Classes Begin: Jan 2027</li>
+                <ul className="space-y-3 text-black-700 text-md">
+                  <li>
+                    ✔ Applications Open Period:{" "}
+                    <span className="font-bold">May – Aug 2026</span>
+                  </li>
+                  <li>
+                    ✔ Offer Letters:{" "}
+                    <span className="font-bold">Oct – Nov 2026</span>
+                  </li>
+                  <li>
+                    ✔ Classes Begin: <span className="font-bold">Jan 2027</span>
+                  </li>
                 </ul>
 
                 <div className="mt-5 text-xs text-gray-600 bg-indigo-50 px-4 py-3 rounded-xl">
@@ -796,12 +742,12 @@ export default function MSUSA() {
             {/* Glow */}
             <div className="absolute top-0 left-0 w-72 h-72 bg-blue-300 opacity-20 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-500 opacity-20 rounded-full blur-3xl"></div>
-
+            {/* our process */}
             <div className="relative z-10 max-w-5xl mx-auto px-4">
               {/* Heading */}
               <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                  Our Process
+                  Our <span className="text-blue-500">Process</span>
                 </h2>
 
                 <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -813,7 +759,7 @@ export default function MSUSA() {
               {/* Timeline */}
               <div className="relative">
                 {/* Center Line */}
-                <div className="absolute left-1/2 top-0 w-1 bg-gradient-to-b from-blue-300 via-blue-500 to-blue-700 h-full transform -translate-x-1/2"></div>
+                <div className="absolute left-1/2 top-0 w-[3px] bg-gradient-to-b from-blue-200 via-blue-500 to-blue-800 h-full transform -translate-x-1/2 blur-[0.5px]"></div>
 
                 {steps.map((step, index) => {
                   const isLeft = index % 2 === 0;
@@ -828,22 +774,27 @@ export default function MSUSA() {
                       {/* Content Box */}
                       <div className="w-1/2 px-4">
                         <div
-                          className={`rounded-2xl px-6 py-5 text-white shadow-xl transition duration-300 hover:scale-105 hover:shadow-2xl
-                    ${
-                      index % 3 === 0
-                        ? "bg-blue-400"
-                        : index % 3 === 1
-                          ? "bg-blue-600"
-                          : "bg-blue-800"
-                    }`}
+                          className={`relative rounded-2xl px-6 py-5 text-white shadow-xl transition-all duration-500 
+              hover:scale-[1.04] hover:shadow-2xl backdrop-blur-lg border border-white/20
+
+              ${
+                index % 3 === 0
+                  ? "bg-yellow-500"
+                  : index % 3 === 1
+                    ? "bg-yellow-500"
+                    : "bg-yellow-500"
+              }`}
                         >
+                          {/* Glow Border Effect */}
+                          <div className="absolute inset-0 rounded-2xl bg-white/10 opacity-0 hover:opacity-100 transition duration-500"></div>
+
                           {/* Title */}
-                          <h4 className="font-semibold text-sm">
+                          <h4 className="font-semibold text-black text-lg relative z-10">
                             {step.title}
                           </h4>
 
                           {/* Detail */}
-                          <p className="text-xs opacity-90 mt-2 leading-relaxed">
+                          <p className="text-md text-blue-900 opacity-90 mt-2 leading-relaxed relative z-10">
                             {step.detail}
                           </p>
                         </div>
@@ -852,9 +803,9 @@ export default function MSUSA() {
                       {/* Step Circle */}
                       <div className="relative z-10 group">
                         <div
-                          className="w-12 h-12 flex items-center justify-center rounded-full 
-    border-4 border-blue-400 bg-white font-bold text-blue-600 shadow-md
-    transition duration-300 group-hover:scale-110"
+                          className="w-14 h-14 flex items-center justify-center rounded-full 
+              border-4 border-blue-400 bg-white font-bold text-blue-600 shadow-lg
+              transition duration-300 group-hover:scale-110 group-hover:shadow-blue-300"
                         >
                           {String(index + 1).padStart(2, "0")}
                         </div>
@@ -862,7 +813,7 @@ export default function MSUSA() {
                         {/* Glow Effect */}
                         <div
                           className="absolute inset-0 rounded-full bg-blue-400 opacity-30 blur-xl 
-    scale-150 z-[-1] animate-pulse"
+              scale-150 z-[-1] animate-pulse"
                         ></div>
                       </div>
 
@@ -1012,244 +963,9 @@ export default function MSUSA() {
         </div>
       </section>
       {/* COST */}
-      <section
-        id="fees"
-        className="relative pt-6 pb-20 bg-gradient-to-b from-white via-blue-50 to-white overflow-hidden"
-      >
-        {/* Animated Background Lights */}
-        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-blue-400/30 blur-[120px] rounded-full animate-float"></div>
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-400/30 blur-[120px] rounded-full animate-float delay-2000"></div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          {/* Heading */}
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Cost of Studying MS in <span className="text-blue-600">USA</span>
-            </h2>
-
-            <p className="mt-6 text-lg text-gray-600">
-              Understanding the cost helps in better financial planning.
-            </p>
-          </div>
-
-          {/* Cards */}
-          <div className="mt-20 grid lg:grid-cols-2 gap-12">
-            {/* Tuition Fees */}
-            <div className="group relative p-10 rounded-3xl bg-white/70 backdrop-blur-xl border border-blue-200 shadow-xl hover:shadow-2xl transition duration-500 overflow-hidden">
-              {/* Animated gradient border */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500 via-indigo-500 to-sky-400 opacity-0 group-hover:opacity-100 blur-sm"></div>
-
-              {/* inner content wrapper */}
-              <div className="relative bg-white/90 rounded-3xl p-8 z-10">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6 group-hover:text-blue-600 transition">
-                  Tuition Fees
-                </h3>
-
-                {/* pricing cards */}
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div className="relative p-6 rounded-xl bg-gradient-to-br from-blue-50 to-white shadow-md hover:shadow-xl transition hover:-translate-y-1">
-                    <div className="absolute top-0 left-0 w-full h-1 bg-blue-500 rounded-t-xl"></div>
-
-                    <h4 className="text-lg font-semibold text-gray-900">
-                      MS Programs
-                    </h4>
-
-                    <p className="mt-3 text-blue-600 font-bold text-2xl">
-                      $20,000 – $60,000
-                    </p>
-
-                    <p className="text-gray-500 text-sm mt-1">per year</p>
-                  </div>
-
-                  <div className="relative p-6 rounded-xl bg-gradient-to-br from-indigo-50 to-white shadow-md hover:shadow-xl transition hover:-translate-y-1">
-                    <div className="absolute top-0 left-0 w-full h-1 bg-indigo-500 rounded-t-xl"></div>
-
-                    <h4 className="text-lg font-semibold text-gray-900">
-                      Total Cost (Approx)
-                    </h4>
-
-                    <p className="mt-3 text-indigo-600 font-bold text-2xl">
-                      ₹25 – ₹60 Lakhs
-                    </p>
-
-                    <p className="text-gray-500 text-sm mt-1">full course</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Living Expenses */}
-            <div className="group relative p-10 rounded-3xl bg-white/70 backdrop-blur-xl border border-indigo-200 shadow-xl hover:shadow-2xl transition duration-500 overflow-hidden">
-              {/* animated gradient border */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-400 opacity-0 group-hover:opacity-100 blur-sm"></div>
-
-              <div className="relative bg-white/90 rounded-3xl p-8 z-10">
-                <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-indigo-600 transition">
-                  Living Expenses
-                </h3>
-
-                <p className="mt-6 text-gray-600 leading-relaxed">
-                  Students typically spend around $10,000 – $18,000 per year on
-                  living expenses including accommodation, food, transportation,
-                  and personal expenses.
-                </p>
-
-                {/* highlighted price */}
-                <div className="mt-8 relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-200 via-blue-200 to-purple-200 blur-xl opacity-60 rounded-xl"></div>
-
-                  <div className="relative bg-white rounded-xl p-6 text-center shadow-lg">
-                    <p className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
-                      $10,000 – $18,000
-                    </p>
-
-                    <p className="text-gray-500 mt-1">per year</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Animation */}
-        <style jsx>{`
-          @keyframes float {
-            0% {
-              transform: translateY(0px);
-            }
-            50% {
-              transform: translateY(-40px);
-            }
-            100% {
-              transform: translateY(0px);
-            }
-          }
-
-          .animate-float {
-            animation: float 14s ease-in-out infinite;
-          }
-
-          .delay-2000 {
-            animation-delay: 2s;
-          }
-        `}</style>
-      </section>
       {/* Cost of Living in USA */}
-      <section className="pt-10 pb-20 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
-        {/* Background Glow */}
-        <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-300/20 blur-3xl rounded-full"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-300/20 blur-3xl rounded-full"></div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          {/* Heading */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900">
-              Cost of Living in <span className="text-blue-600">USA</span>
-            </h2>
-            <p className="mt-4 text-gray-600 text-lg">
-              Estimated expenses for international students in the USA
-            </p>
-          </div>
-
-          {/* Table */}
-          <div className="overflow-hidden rounded-3xl shadow-2xl border border-white/40 backdrop-blur-xl">
-            {/* Header */}
-            <div className="grid md:grid-cols-3 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white font-semibold text-lg">
-              <div className="p-5">Expenses</div>
-              <div className="p-5">Average Cost</div>
-              <div className="p-5">External Factors</div>
-            </div>
-
-            {/* Rows */}
-            {[
-              {
-                title: "Annual Tuition Fee",
-                cost: "INR 20 lakh - INR 50 lakh per year",
-                extra: [
-                  "Depends upon the chosen university",
-                  "Depends upon the study in USA course selected",
-                ],
-              },
-              {
-                title: "Accommodation",
-                cost: "INR 64,000 - INR 1,30,000",
-                extra: [
-                  "University accommodation or private",
-                  "Includes food, transportation, medical or other important expenses",
-                ],
-              },
-              {
-                title: "Food",
-                cost: "On Campus: INR 20000 monthly\nOff Campus: INR 33000 - 50000 monthly",
-                extra: ["On campus", "Off campus"],
-              },
-              {
-                title: "Phone Subscription",
-                cost: "INR 4000 monthly",
-                extra: [],
-              },
-              {
-                title: "Groceries",
-                cost: "INR 20000 monthly",
-                extra: [],
-              },
-              {
-                title: "Public Transportation",
-                cost: "INR 8000 monthly",
-                extra: [],
-              },
-              {
-                title: "Health Insurance",
-                cost: "INR 20000 monthly",
-                extra: [
-                  "Plan covering pre-existing conditions",
-                  "Student’s age",
-                ],
-              },
-              {
-                title: "Other Utilities",
-                cost: "INR 12000 monthly",
-                extra: ["Electricity", "Water", "Gas", "Internet"],
-              },
-            ].map((row, i) => (
-              <div
-                key={i}
-                className="group grid md:grid-cols-3 items-center bg-white/80 backdrop-blur-md border-t border-white/50 
-          hover:bg-white hover:shadow-xl hover:scale-[1.01] transition duration-300"
-              >
-                {/* Expense */}
-                <div className="p-5 font-semibold text-gray-900 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  {row.title}
-                </div>
-
-                {/* Cost */}
-                <div className="p-5 whitespace-pre-line">
-                  <span className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-xl font-semibold text-sm shadow-sm">
-                    {row.cost}
-                  </span>
-                </div>
-
-                {/* External */}
-                <div className="p-5 text-gray-700 text-sm">
-                  {row.extra.length > 0 ? (
-                    <ul className="space-y-1">
-                      {row.extra.map((item, idx) => (
-                        <li key={idx} className="flex gap-2 items-start">
-                          <span className="text-blue-500 mt-1">•</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <span className="text-gray-400">—</span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
       {/* scholarships */}
       <section
         id="scholarships"
@@ -1743,16 +1459,46 @@ export default function MSUSA() {
 
           {/* Timeline */}
           <div className="mt-16 relative">
-            {/*  Center Line Glow */}
+            {/* Center Line Glow */}
             <div className="absolute left-1/2 top-0 bottom-0 w-[3px] bg-gradient-to-b from-blue-400 via-indigo-500 to-purple-500 shadow-[0_0_15px_rgba(99,102,241,0.6)]"></div>
 
             {[
-              { icon: "🎯", title: "Career counselling" },
-              { icon: "🏫", title: "University shortlisting" },
-              { icon: "📝", title: "Application assistance" },
-              { icon: "💰", title: "Scholarship guidance" },
-              { icon: "📄", title: "Visa documentation support" },
-              { icon: "✈", title: "Pre-departure guidance" },
+              {
+                icon: "🎯",
+                title: "Career Counselling",
+                detail:
+                  "Get personalized career guidance based on your academic background, interests, and future goals. Our experts help you choose the right course and country for long-term success.",
+              },
+              {
+                icon: "🏫",
+                title: "University Shortlisting",
+                detail:
+                  "Shortlist top universities based on your profile, budget, preferred location, and career opportunities. We ensure a balanced list of safe, moderate, and dream universities.",
+              },
+              {
+                icon: "📝",
+                title: "Application Assistance",
+                detail:
+                  "Complete support for filling applications, document submission, and meeting deadlines. We ensure error-free applications to maximize your chances of acceptance.",
+              },
+              {
+                icon: "💰",
+                title: "Scholarship Guidance",
+                detail:
+                  "Explore and apply for scholarships, grants, and financial aid options. Our team helps you reduce your overall study cost with the best funding opportunities.",
+              },
+              {
+                icon: "📄",
+                title: "Visa Documentation Support",
+                detail:
+                  "End-to-end assistance for visa filing including documentation, SOP preparation, and mock interviews to ensure a smooth and successful visa approval process.",
+              },
+              {
+                icon: "✈",
+                title: "Pre-Departure Guidance",
+                detail:
+                  "Complete guidance on accommodation, forex exchange, travel arrangements, packing essentials, and settling abroad to make your transition smooth and stress-free.",
+              },
             ].map((step, i) => (
               <div
                 key={i}
@@ -1762,15 +1508,22 @@ export default function MSUSA() {
                 {i % 2 === 0 ? (
                   <div className="flex justify-end pr-8">
                     <div className="group w-full max-w-sm p-[2px] rounded-2xl bg-gradient-to-r from-blue-500 to-indigo-600">
-                      {/*  Glass Card */}
-                      <div className="backdrop-blur-xl bg-white/70 rounded-2xl p-5 shadow-xl flex items-center gap-3 transition duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                        {/*  Icon */}
-                        <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg shadow-md group-hover:rotate-6 transition duration-300">
-                          {step.icon}
+                      {/* Glass Card */}
+                      <div className="backdrop-blur-xl bg-white/70 rounded-2xl p-5 shadow-xl transition duration-300 group-hover:scale-105 group-hover:shadow-2xl">
+                        {/* Top Row */}
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg shadow-md group-hover:rotate-6 transition duration-300">
+                            {step.icon}
+                          </div>
+
+                          <p className="text-lg font-semibold text-gray-800">
+                            {step.title}
+                          </p>
                         </div>
 
-                        <p className="text-sm font-medium text-gray-800">
-                          {step.title}
+                        {/* Detail */}
+                        <p className="text-md text-gray-600 leading-relaxed">
+                          {step.detail}
                         </p>
                       </div>
                     </div>
@@ -1783,15 +1536,22 @@ export default function MSUSA() {
                 {i % 2 !== 0 ? (
                   <div className="flex justify-start pl-8">
                     <div className="group w-full max-w-sm p-[2px] rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600">
-                      {/* 🔥 Glass Card */}
-                      <div className="backdrop-blur-xl bg-white/70 rounded-2xl p-5 shadow-xl flex items-center gap-3 transition duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                        {/* 🔥 Icon */}
-                        <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg shadow-md group-hover:rotate-6 transition duration-300">
-                          {step.icon}
+                      {/* Glass Card */}
+                      <div className="backdrop-blur-xl bg-white/70 rounded-2xl p-5 shadow-xl transition duration-300 group-hover:scale-105 group-hover:shadow-2xl">
+                        {/* Top Row */}
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg shadow-md group-hover:rotate-6 transition duration-300">
+                            {step.icon}
+                          </div>
+
+                          <p className="text-lg font-semibold text-gray-800">
+                            {step.title}
+                          </p>
                         </div>
 
-                        <p className="text-sm font-medium text-gray-800">
-                          {step.title}
+                        {/* Detail */}
+                        <p className="text-md text-gray-600 leading-relaxed">
+                          {step.detail}
                         </p>
                       </div>
                     </div>
@@ -1800,13 +1560,13 @@ export default function MSUSA() {
                   <div></div>
                 )}
 
-                {/* 🔥 Center Dot */}
+                {/* Center Dot */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full shadow-lg border-2 border-white"></div>
               </div>
             ))}
           </div>
 
-          {/* 🔥 Bottom Highlight */}
+          {/* Bottom Highlight */}
           <div className="mt-20 relative bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white rounded-3xl p-10 text-center shadow-xl overflow-hidden">
             <div className="absolute -top-10 -left-10 w-72 h-72 bg-white/10 blur-3xl rounded-full animate-float"></div>
             <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 blur-3xl rounded-full animate-float delay-2000"></div>
@@ -1820,7 +1580,7 @@ export default function MSUSA() {
           </div>
         </div>
 
-        {/* 🔥 Animation */}
+        {/* Animation */}
         <style jsx>{`
           @keyframes float {
             0% {

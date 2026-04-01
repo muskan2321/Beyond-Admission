@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import UniversityCardList from "./UniversityCardList";
 
 export default function StudyIreland() {
   const [tab, setTab] = useState("academic");
@@ -49,6 +50,13 @@ export default function StudyIreland() {
       detail:
         "Our support continues even after you arrive abroad. We assist with airport pickup, accommodation, local orientation, and university onboarding to ensure a smooth and hassle-free transition.",
     },
+  ];
+  const universities = [
+    "University College Dublin",
+    "Trinity College Dublin",
+    "University of Galway",
+    "Dublin City University",
+    "University of Limerick",
   ];
   return (
     <div className="bg-white font-[Inter]">
@@ -123,6 +131,14 @@ export default function StudyIreland() {
             </div>
           </div> */}
         </div>
+        {/* RIGHT SIDE FLOATING CARD */}
+                        <div className="hidden lg:block absolute right-10 top-1/2 -translate-y-1/2 z-20">
+                          <UniversityCardList
+                            title="Ireland"
+                            universities={universities}
+                            onApplyClick={() => alert("Popup Open")}
+                          />
+                        </div>
 
         {/* ✅ FIXED STYLE */}
         <style>{`

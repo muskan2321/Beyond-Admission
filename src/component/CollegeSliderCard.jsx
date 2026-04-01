@@ -113,7 +113,7 @@ export default function CollegeSliderCard() {
               key={index}
               className="group min-h-[130px] rounded-2xl bg-white/20 backdrop-blur-xl border border-white/30 shadow-xl px-5 py-4 text-white transition-all duration-300 hover:scale-[1.03]"
             >
-              {/* ✅ TAG (NEW) */}
+              {/*  TAG (NEW) */}
               {college.tag && (
                 <p className="text-[10px] bg-orange-500 inline-block px-2 py-1 rounded mb-2">
                   {college.tag}
